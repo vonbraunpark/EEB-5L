@@ -1,0 +1,7 @@
+.container {
+    max-width: 900px; /*최대 너비 제한 (반응형에 적합) */
+    margin: 0 auto;/*margin: 0 auto의 경우 위쪽과 아래쪽은 0이고, 좌우는 자동 정렬을 하겠음을 의미합니다. */
+    padding: 20px;/*20px 의 경우 안쪽 여백을 20 픽셀 배치하여 실제 내용이 너무 붙지 않도록 만듭니다*/
+    font-family: Arial, sans-serif;/*font-family를 통해 Arial, 만약 없다면 sans-serif를 사용합니다 */
+    text-align: center;/*text-align을 통해 글자를 가운데 정렬합니다*/
+}
