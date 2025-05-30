@@ -40,6 +40,12 @@ const App = () => {
                     HTML 더 살펴보기
                 </a>
             </div>
+            
+            <div className="box">
+                <h2>이미지 표현</h2>
+                <p><code>&lt;img&gt;</code> 태그를 사용하여 이미지를 표시할 수 있음</p>
+                <img src="https://picsum.photos/200" alt="예제"/>
+            </div>
         </div>
     )
 }
