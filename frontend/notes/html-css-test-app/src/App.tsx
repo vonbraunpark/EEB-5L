@@ -46,6 +46,25 @@ const App = () => {
                 <p><code>&lt;img&gt;</code> 태그를 사용하여 이미지를 표시할 수 있음</p>
                 <img src="https://picsum.photos/200" alt="예제"/>
             </div>
+            
+            <div className="box">
+                <h2>표 만들기</h2>
+                <p>표는 데이터를 행과 열로 표현합니다</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>제목 열 1</th>
+                            <th>제목 열 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>데이터 1</td>
+                            <td>데이터 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
