@@ -65,6 +65,20 @@ const App = () => {
                     </tbody>
                 </table>
             </div>
+            
+            <div className="box">
+                <h2>Form(형식) 입력</h2>
+                <p>폼(Form)은 사용자가 데이터를 입력할 수 있도록 지원함</p>
+                <form>
+                    <label htmlFor="name">이름: </label>
+                    <input type="text" id="name" name="name" placeholder="이름 입력"/>
+                    <br/>
+                    <label htmlFor="email">이메일: </label>
+                    <input type="email" id="email" name="email" placeholder="이메일 입력"/>
+                    <br/>
+                    <button type="submit" className="custom-button">제출</button>
+                </form>
+            </div>
         </div>
     )
 }
