@@ -1,0 +1,52 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: darkblue;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+}
+
+.box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 2px solid #007bff;
+    font-weight: bold;
+    text-align: left;
+}
+
+More actions
+h1::after {
+    content: " ✨";
+    color: gold;
+}
+
+.box:hover {
+    transition: background-color 0.5s ease-in-out;
+    background-color: lightblue;
+}
+
+@keyframes example {
+    from { background-color: red; }
+    to { background-color: yellow; }
+}
+
+.animated-box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation: example 2s infinite alternate;
+}
