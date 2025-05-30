@@ -34,9 +34,6 @@ const App = () => {
     );
 };
 
-// React 18 방식으로 루트 DOM에 앱 렌더링 시작
-const root = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
-root.render(<App/>);
 
 // 다른 모듈에서 App을 사용할 수 있도록 내보냄
 export default App;
