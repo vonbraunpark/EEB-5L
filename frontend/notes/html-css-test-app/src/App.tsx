@@ -79,6 +79,12 @@ const App = () => {
                     <button type="submit" className="custom-button">제출</button>
                 </form>
             </div>
+
+            <div className="box">
+                <h2>CSS Animation</h2>
+                <p>CSS는 Key Frame을 사용해서 애니메이션을 만들 수 있음</p>
+                <div className="animated-box">이 상자에 애니메이션 효과가 적용됨</div>
+            </div>
         </div>
     )
 }
