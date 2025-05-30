@@ -92,3 +92,25 @@ input[type="email"]:focus {
 .custom-button:hover {
     background-color: #357ab8;
 }
+
+h1::after {
+    content: " ✨";
+    color: gold;
+}
+
+.box:hover {
+    transition: background-color 0.5s ease-in-out;
+    background-color: lightblue;
+}
+
+@keyframes example {
+    from { background-color: red; }
+    to { background-color: yellow; }
+}
+
+.animated-box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation: example 2s infinite alternate;
+}
