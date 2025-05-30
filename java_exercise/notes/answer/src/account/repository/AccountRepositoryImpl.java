@@ -4,6 +4,7 @@ import account.entity.Account;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class AccountRepositoryImpl implements AccountRepository {
 
@@ -28,5 +29,12 @@ public class AccountRepositoryImpl implements AccountRepository {
         accountHashMap.put(accountUniqueId, account);
 
         return accountUniqueId;
+    }
+
+    @Override
+    public Optional<Account> findByUserId(String userId) {
+        return accountHashMap.values().stream()
+                .filter(account -> account.getUserId().equals(userId))
+                .findFirst();
     }
 }

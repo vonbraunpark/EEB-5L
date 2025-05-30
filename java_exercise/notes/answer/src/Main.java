@@ -5,5 +5,6 @@ public class Main {
     public static void main(String[] args) {
         AccountService accountService = AccountServiceImpl.getInstance();
         accountService.register();
+        accountService.singIn();
     }
 }
