@@ -1,5 +1,5 @@
 import "./style/main.css";
-import {Typography} from "@mui/material";
+import {Button, Typography} from "@mui/material";
 
 const App = () => {
     return (
@@ -85,6 +85,24 @@ const App = () => {
                 <p>CSS는 Key Frame을 사용해서 애니메이션을 만들 수 있음</p>
                 <div className="animated-box">이 상자에 애니메이션 효과가 적용됨</div>
             </div>
+
+            <div className="box">
+                <h2>Audio & Video</h2>
+                <p><code>&lt;audio&gt;</code> 및 <code>&lt;video&gt;</code> 태그를 사용해 멀티미디어를 추가</p>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"/>
+                    브라우저가 오디오를 지원하지 않음.
+                </audio>
+                <br/>
+                <video controls width="320">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                    브라우저가 비디오를 지원하지 않음.
+                </video>
+            </div>
+            
+            <Button variant="contained" color="primary">
+                MUI 버튼 클릭
+            </Button>
         </div>
     )
 }
