@@ -1,8 +1,8 @@
-import React, {lazy, Suspense, useEffect, useState} from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import { Button } from "@mui/material";
+
 import { CircularProgress } from "@mui/material";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
 
