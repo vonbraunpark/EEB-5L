@@ -431,6 +431,10 @@
         "hash": "8587836968507943632"
       },
       {
+        "file": "frontend/SeungheyonLee/docker-compose.yml",
+        "hash": "4132536454216172142"
+      },
+      {
         "file": "frontend/SeungheyonLee/html-container/.babelrc",
         "hash": "5336350591652325276"
       },
@@ -440,7 +444,7 @@
       },
       {
         "file": "frontend/SeungheyonLee/html-container/Dockerfile",
-        "hash": "15341768777903715949"
+        "hash": "4677862026933371240"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/index.html",
@@ -448,7 +452,7 @@
       },
       {
         "file": "frontend/SeungheyonLee/html-container/module-federation.config.ts",
-        "hash": "5120319075172101830"
+        "hash": "17438662871468489475"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/nginx.conf",
@@ -468,11 +472,11 @@
       },
       {
         "file": "frontend/SeungheyonLee/html-container/rspack.config.ts",
-        "hash": "17698747690204880428"
+        "hash": "12606577383720292773"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/src/App.tsx",
-        "hash": "10928701027391424026"
+        "hash": "15262550342212808376"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/src/index.css",
@@ -495,12 +499,20 @@
         "hash": "11904718991324175022"
       },
       {
+        "file": "frontend/SeungheyonLee/html-css-test-app/Dockerfile",
+        "hash": "9830680849866516393"
+      },
+      {
         "file": "frontend/SeungheyonLee/html-css-test-app/index.html",
         "hash": "15498270395143920831"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/module-federation.config.ts",
         "hash": "8834884094688368672"
+      },
+      {
+        "file": "frontend/SeungheyonLee/html-css-test-app/nginx.conf",
+        "hash": "9833779240103431607"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/package.json",
@@ -544,19 +556,15 @@
       },
       {
         "file": "frontend/SeungheyonLee/package-lock.json",
-        "hash": "2391066030450990259"
+        "hash": "2659602654905697208"
       },
       {
         "file": "frontend/SeungheyonLee/package.json",
-        "hash": "10110079950625278804"
+        "hash": "11758018628718964932"
       },
       {
         "file": "frontend/SeungheyonLee/prepare.txt",
         "hash": "4757554901072472786"
-      },
-      {
-        "file": "frontend/SeungheyonLee/프론트엔드_MFE_구조_설명.txt",
-        "hash": "6771951801550862658"
       },
       {
         "file": "frontend/SinwonLee/.gitignore",
