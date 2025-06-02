@@ -8,6 +8,7 @@ import {VariableAndDataTypes} from "./data_type/VariableAndDataTypes.tsx";
 import {LogicalOperationExample} from "./logical_operation/LogicalOperationExample.tsx";
 import {TypeCoercion} from "./type_convert/TypeCoercion.tsx";
 import {ControlFlowIf} from "./control_flow/ControlFlowIf.tsx";
+import {ControlFlowSwitch} from "./control_flow/ControlFlowSwitch.tsx";
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
             <LogicalOperationExample/>
             <TypeCoercion/>
             <ControlFlowIf/>
+            <ControlFlowSwitch/>
         </Container>
     )
 }
