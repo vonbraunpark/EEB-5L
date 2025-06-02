@@ -22,15 +22,15 @@ export default defineConfig({
   },
 
   devServer: {
-    port: 80,//http,브라우저가 사용포트 = 80
+    port: 3002,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
   },
   output: {
     // You need to set a unique value that is not equal to other applications
-    uniqueName: "html_container",
+    uniqueName: "javascript_test_app",
     // publicPath must be configured if using manifest
-    publicPath: "http://localhost:80/",
+    publicPath: "http://localhost:3002/",
   },
 
   experiments: {
