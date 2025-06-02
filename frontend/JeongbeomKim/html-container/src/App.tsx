@@ -5,7 +5,6 @@ import { CircularProgress } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
-const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
 
 const App = () => {
 
@@ -15,7 +14,6 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<div>Home Page</div>} />
                     <Route path="/html-css-test" element={<HtmlCssTestApp />} />
-                    <Route path="/js-test" element={<JavascriptTestApp />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
