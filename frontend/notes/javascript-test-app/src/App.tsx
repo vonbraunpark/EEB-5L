@@ -10,6 +10,7 @@ import {TypeCoercion} from "./type_convert/TypeCoercion.tsx";
 import {ControlFlowIf} from "./control_flow/ControlFlowIf.tsx";
 import {ControlFlowSwitch} from "./control_flow/ControlFlowSwitch.tsx";
 import {ControlFlowFor} from "./control_flow/ControlFlowFor.tsx";
+import {ControlFlowForEach} from "./control_flow/ControlFlowForEach.tsx";
 
 const App = () => {
     return (
@@ -24,6 +25,7 @@ const App = () => {
             <ControlFlowIf/>
             <ControlFlowSwitch/>
             <ControlFlowFor/>
+            <ControlFlowForEach/>
         </Container>
     )
 }
