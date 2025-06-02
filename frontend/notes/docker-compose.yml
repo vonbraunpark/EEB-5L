@@ -17,6 +17,14 @@ services:
     networks:
       - app-network
 
+  javascript-test:
+    build:
+      context: ./javascript-test-app
+    ports:
+      - "3002:3002"
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge
