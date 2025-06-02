@@ -6,6 +6,7 @@ import {Container, Typography} from "@mui/material";
 import {CalculationExample} from "./math_operation/CalculationExample.tsx";
 import {VariableAndDataTypes} from "./data_type/VariableAndDataTypes.tsx";
 import {LogicalOperationExample} from "./logical_operation/LogicalOperationExample.tsx";
+import {TypeCoercion} from "./type_convert/TypeCoercion.tsx";
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
             <CalculationExample/>
             <VariableAndDataTypes/>
             <LogicalOperationExample/>
+            <TypeCoercion/>
         </Container>
     )
 }
