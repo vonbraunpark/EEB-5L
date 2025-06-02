@@ -5,6 +5,7 @@ import "./index.css";
 import {Container, Typography} from "@mui/material";
 import {CalculationExample} from "./math_operation/CalculationExample.tsx";
 import {VariableAndDataTypes} from "./data_type/VariableAndDataTypes.tsx";
+import {LogicalOperationExample} from "./logical_operation/LogicalOperationExample.tsx";
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
             </Typography>
             <CalculationExample/>
             <VariableAndDataTypes/>
+            <LogicalOperationExample/>
         </Container>
     )
 }
