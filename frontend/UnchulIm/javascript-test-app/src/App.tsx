@@ -15,6 +15,7 @@ import {MapExample} from "./map/MapExample.tsx";
 import {FilterExample} from "./filter/FilterExample.tsx";
 import {RegulaExpression} from "./regula_expression/RegulaExpression.tsx";
 import {StringExample} from "./string_test/StringExample.tsx";
+import {ArrayPushExample} from "./array/ArrayPushExample.tsx";
 
 const App = () => {
     return (
@@ -34,6 +35,7 @@ const App = () => {
             <FilterExample/>
             <RegulaExpression/>
             <StringExample/>
+            <ArrayPushExample/>
         </Container>
     )
 }
