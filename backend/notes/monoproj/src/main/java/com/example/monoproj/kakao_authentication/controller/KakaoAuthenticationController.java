@@ -1,18 +1,15 @@
 package com.example.monoproj.kakao_authentication.controller;
 
-import com.example.demo.account.entity.Account;
-import com.example.demo.account.service.AccountService;
-import com.example.demo.kakao_authentication.controller.request_form.AccessTokenRequestForm;
-import com.example.demo.kakao_authentication.service.KakaoAuthenticationService;
-import com.example.demo.redis_cache.service.RedisCacheService;
-import com.example.demo.account_profile.service.AccountProfileService;
+import com.example.monoproj.account.entity.Account;
+import com.example.monoproj.account.service.AccountService;
+import com.example.monoproj.account_profile.entity.AccountProfile;
+import com.example.monoproj.account_profile.service.AccountProfileService;
+import com.example.monoproj.kakao_authentication.controller.request_form.AccessTokenRequestForm;
+import com.example.monoproj.kakao_authentication.service.KakaoAuthenticationService;
+import com.example.monoproj.redis_cache.service.RedisCacheService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
@@ -28,7 +25,7 @@ public class KakaoAuthenticationController {
     final private AccountProfileService accountProfileService;
     final private RedisCacheService redisCacheService;
 
-    @PostMapping("/request-login-url")
+    @GetMapping("/request-login-url")
     public String requestGetLoginLink() {
         log.info("requestGetLoginLink() called");
 
@@ -53,12 +50,14 @@ public class KakaoAuthenticationController {
             String email = (String) ((Map) userInfo.get("kakao_account")).get("email");
             log.info("email: {}", email);
 
-            Account account = accountService.findAccountByEmail(email);
+//            Account account = accountService.findAccountByEmail(email);
+            AccountProfile profile = accountProfileService.loadProfileByEmail(email);
+            Account account = profile.getAccount();
             log.info("account: {}", account);
 
             if (account == null) {
-                account = accountService.createAccount(email);
-                accountProfileService.createAccountProfile(account, nickname);
+                account = accountService.createAccount();
+                accountProfileService.createAccountProfile(account, nickname, email);
             }
 
             return createUserTokenWithAccessToken(account, accessToken);

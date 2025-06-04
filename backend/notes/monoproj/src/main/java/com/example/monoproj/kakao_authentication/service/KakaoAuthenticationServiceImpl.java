@@ -1,6 +1,6 @@
 package com.example.monoproj.kakao_authentication.service;
 
-import com.example.demo.kakao_authentication.repository.KakaoAuthenticationRepository;
+import com.example.monoproj.kakao_authentication.repository.KakaoAuthenticationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
