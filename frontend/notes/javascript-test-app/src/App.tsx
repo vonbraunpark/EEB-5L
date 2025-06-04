@@ -15,9 +15,11 @@ import {MapExample} from "./map/MapExample.tsx";
 import {FilterExample} from "./filter/FilterExample.tsx";
 import {StringExample} from "./string_test/StringExample.tsx";
 import {RegularExpression} from "./regular_expression/RegularExpression.tsx";
-import {ArrayPushExample} from "./array/ArrayPushExample.tsx";
-import {ArrayPopExample} from "./array/ArrayPopExample.tsx";
-import {ArrayShiftExample} from "./array/ArrayShiftExample.tsx";
+import {ArrayPushExample} from "./array/store/ArrayPushExample.tsx";
+import {ArrayPopExample} from "./array/store/ArrayPopExample.tsx";
+import {ArrayShiftExample} from "./array/store/ArrayShiftExample.tsx";
+import {ArrayUnShiftExample} from "./array/store/ArrayUnShiftExample.tsx";
+import {ArrayReduceExample} from "./array/ArrayReduceExample.tsx";
 
 const App = () => {
     return (
@@ -40,6 +42,8 @@ const App = () => {
             <ArrayPushExample/>
             <ArrayPopExample/>
             <ArrayShiftExample/>
+            <ArrayUnShiftExample/>
+            <ArrayReduceExample/>
         </Container>
     )
 }
