@@ -20,6 +20,7 @@ import {ArrayPopExample} from "./array/store/ArrayPopExample.tsx";
 import {ArrayShiftExample} from "./array/store/ArrayShiftExample.tsx";
 import {ArrayUnShiftExample} from "./array/store/ArrayUnShiftExample.tsx";
 import {ArrayReduceExample} from "./array/ArrayReduceExample.tsx";
+import {ArrayFindExample} from "./array/ArrayFindExample.tsx";
 
 const App = () => {
     return (
@@ -44,6 +45,7 @@ const App = () => {
             <ArrayShiftExample/>
             <ArrayUnShiftExample/>
             <ArrayReduceExample/>
+            <ArrayFindExample/>
         </Container>
     )
 }
