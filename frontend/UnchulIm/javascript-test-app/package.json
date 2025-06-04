@@ -1,5 +1,5 @@
 {
-  "name": "html-container",
+  "name": "javascript-test-app",
   "version": "0.0.1",
   "scripts": {
     "build": "NODE_ENV=production rspack build",
@@ -30,6 +30,6 @@
     "@mui/material": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.30.0"
+    "react-router-dom": "^6.30.1"
   }
 }
