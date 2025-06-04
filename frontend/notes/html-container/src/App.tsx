@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
 const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
+const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
                     <Route path="/" element={<div>Home Page</div>} />
                     <Route path="/html-css-test" element={<HtmlCssTestApp />} />
                     <Route path="/js-test" element={<JavascriptTestApp />} />
+                    <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>

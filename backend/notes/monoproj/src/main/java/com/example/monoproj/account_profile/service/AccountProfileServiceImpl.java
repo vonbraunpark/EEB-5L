@@ -7,6 +7,8 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class AccountProfileServiceImpl implements AccountProfileService {
@@ -19,8 +21,7 @@ public class AccountProfileServiceImpl implements AccountProfileService {
     }
 
     @Override
-    public AccountProfile loadProfileByEmail(String email) {
-        return accountProfileRepository.findWithAccountByEmail(email)
-                .orElseThrow(() -> new EntityNotFoundException("AccountProfile not found for email: " + email));
+    public Optional<AccountProfile> loadProfileByEmail(String email) {
+        return accountProfileRepository.findWithAccountByEmail(email);
     }
 }

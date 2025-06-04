@@ -7,12 +7,15 @@ import com.example.monoproj.account_profile.service.AccountProfileService;
 import com.example.monoproj.kakao_authentication.controller.request_form.AccessTokenRequestForm;
 import com.example.monoproj.kakao_authentication.service.KakaoAuthenticationService;
 import com.example.monoproj.redis_cache.service.RedisCacheService;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -32,12 +35,10 @@ public class KakaoAuthenticationController {
         return kakaoAuthenticationService.getLoginLink();
     }
 
-    @PostMapping("/request-access-token")
+    @GetMapping("/login")
     @Transactional
-    public String requestAccessToken(@RequestBody AccessTokenRequestForm accessTokenRequestForm) {
-        String code = accessTokenRequestForm.getCode();
-
-        log.info("requestGetLoginLink(): code {}", code);
+    public void requestAccessToken(@RequestParam("code") String code, HttpServletResponse response) throws IOException {
+        log.info("requestAccessToken(): code {}", code);
 
         try {
             Map<String, Object> tokenResponse = kakaoAuthenticationService.requestAccessToken(code);
@@ -50,20 +51,28 @@ public class KakaoAuthenticationController {
             String email = (String) ((Map) userInfo.get("kakao_account")).get("email");
             log.info("email: {}", email);
 
-//            Account account = accountService.findAccountByEmail(email);
-            AccountProfile profile = accountProfileService.loadProfileByEmail(email);
-            Account account = profile.getAccount();
-            log.info("account: {}", account);
+            Optional<AccountProfile> optionalProfile = accountProfileService.loadProfileByEmail(email);
+            Account account = null;
+
+            if (optionalProfile.isPresent()) {
+                account = optionalProfile.get().getAccount();
+                log.info("account (existing): {}", account);
+            }
 
             if (account == null) {
+                log.info("New user detected. Creating account and profile...");
                 account = accountService.createAccount();
                 accountProfileService.createAccountProfile(account, nickname, email);
             }
 
-            return createUserTokenWithAccessToken(account, accessToken);
+            String userToken = createUserTokenWithAccessToken(account, accessToken);
+
+            String redirectUri = "http://localhost/kakao-authentication/callback?userToken=" + userToken;
+            response.sendRedirect(redirectUri);
 
         } catch (Exception e) {
-            return "error" + e.getMessage();
+            log.error("Kakao 로그인 에러", e);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "카카오 로그인 실패: " + e.getMessage());
         }
     }
 
