@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 //"htmlCssTestApp"이라는 이름으로 등록된 앱에서 "App"이라는 컴포넌트를 불러오겠다"
 // 이건 그냥 로컬에서 import 하는 게 아니라 "다른 앱(html-css-test-app)이 외부로 제공한 컴포넌트를 동적으로 불러오는" 거야.
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
-
+const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
 const App = () => {
 
     return (
@@ -16,6 +16,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<div>Home Page</div>} />
                     <Route path="/html-css-test" element={<HtmlCssTestApp />} />
+                    <Route path="/js-test" element={<JavascriptTestApp />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
