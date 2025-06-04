@@ -23,6 +23,7 @@ import {ArrayReduceExample} from "./array/ArrayReduceExample.tsx";
 import {ArrayFindExample} from "./array/ArrayFindExample.tsx";
 import {FirstQuiz} from "./quiz/FirstQuiz.tsx";
 import {EmergencyQuiz} from "./quiz/EmergencyQuiz.tsx";
+import {SecondQuiz} from "./quiz/SecondQuiz.tsx";
 
 const App = () => {
     return (
@@ -50,6 +51,7 @@ const App = () => {
             <ArrayFindExample/>
             <FirstQuiz/>
             <EmergencyQuiz/>
+            <SecondQuiz/>
         </Container>
     )
 }
