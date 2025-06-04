@@ -22,6 +22,7 @@ import {ArrayUnShiftExample} from "./array/store/ArrayUnShiftExample.tsx";
 import {ArrayReduceExample} from "./array/ArrayReduceExample.tsx";
 import {ArrayFindExample} from "./array/ArrayFindExample.tsx";
 import {FirstQuiz} from "./quiz/FirstQuiz.tsx";
+import {EmergencyQuiz} from "./quiz/EmergencyQuiz.tsx";
 
 const App = () => {
     return (
@@ -48,6 +49,7 @@ const App = () => {
             <ArrayReduceExample/>
             <ArrayFindExample/>
             <FirstQuiz/>
+            <EmergencyQuiz/>
         </Container>
     )
 }
