@@ -12,6 +12,10 @@ import {ControlFlowSwitch} from "./control_flow/ControlFlowSwitch.tsx";
 import {ControlFlowFor} from "./control_flow/ControlFlowFor.tsx";
 import {ControlFlowForEach} from "./control_flow/ControlFlowForEach.tsx";
 import {MapExample} from "./map/MapExample.tsx";
+import {FilterExample} from "./filter/FilterExample.tsx";
+import {StringExample} from "./string_test/StringExample.tsx";
+import {RegularExpression} from "./regular_expression/RegularExpression.tsx";
+import {ArrayPushExample} from "./array/ArrayPushExample.tsx";
 
 const App = () => {
     return (
@@ -28,6 +32,10 @@ const App = () => {
             <ControlFlowFor/>
             <ControlFlowForEach/>
             <MapExample/>
+            <FilterExample/>
+            <StringExample/>
+            <RegularExpression/>
+            <ArrayPushExample/>
         </Container>
     )
 }
