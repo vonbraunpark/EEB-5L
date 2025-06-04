@@ -13,6 +13,16 @@ import {ControlFlowForEach} from "./control_flow/ControlFlowForEach.tsx";
 import {MapExample} from "./map/MapExample.tsx";
 import {FilterExample} from "./filter/FilterExample.tsx";
 import {RegularExpression} from "./regular_expression/RegularExpression.tsx";
+import {StringExample} from "./string_test/StringExample.tsx";
+import {ArrayPushExample} from "./array/store/ArrayPushExample.tsx";
+import {ArrayPopExample} from "./array/store/ArrayPopExample.tsx";
+import {ArrayShiftExample} from "./array/store/ArrayShiftExample.tsx";
+import {ArrayUnShiftExample} from "./array/store/ArrayUnShiftExample.tsx";
+import {ArrayReduceExample} from "./array/ArrayReduceExample.tsx";
+import {ArrayFindExample} from "./array/ArrayFindExample.tsx";
+import {ThirdQuiz} from "./quiz/ThirdQuiz.tsx";
+import {SecondQuiz} from "./quiz/SecondQuiz.tsx";
+import {FirstQuiz} from "./quiz/FirstQuiz.tsx";
 
 const App = () => {
     return (
@@ -31,6 +41,16 @@ const App = () => {
             <MapExample/>
             <FilterExample/>
             <RegularExpression/>
+            <StringExample/>
+            <ArrayPushExample/>
+            <ArrayPopExample/>
+            <ArrayShiftExample/>
+            <ArrayUnShiftExample/>
+            <ArrayReduceExample/>
+            <ArrayFindExample/>
+            <FirstQuiz/>
+            <SecondQuiz/>
+            <ThirdQuiz/>
         </Container>
     )
 }
