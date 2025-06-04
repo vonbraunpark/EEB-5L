@@ -18,18 +18,31 @@ export const Number2 = () => {
 // 텍스트를 단어로 분리 (여러 구분자 사용)
     let words: string[] = text.split(/[,.\s\n]+/)
 
-    let matchingwordList:string[]=[]
+    let matchedWords:string[]=[]
 
     for(let word of words){
         for(let keyword of keywordList){
             if(word.toLowerCase().includes(keyword.toLowerCase())){
-                matchingwordList.push(word)
+                matchedWords.push(word)
                 break
             }
         }
     }
+    let resultWord2:string[]=[]
+    const matchingWords2=words.reduce((acc,word)=>{
+        //words의 값이 keyword와 같은지 비교하기위한 for문
+        for(let keyword of keywordList){
+            if(word.toLowerCase().includes(keyword.toLowerCase())){
+                acc.push(word)
+            }
+        }
+        return acc; //반복 순회처리
+    }, resultWord2);
     // steps 구현
-    const steps: string[] = matchingwordList.map((word: string, index: number) =>
+    const steps: string[] = matchedWords.map((word: string, index: number) =>
+        `키워드 매칭 ${index + 1}: ${word}`
+    )
+    let steps2: string[] =matchingWords2.map((word:string,index:number)=>
         `키워드 매칭 ${index + 1}: ${word}`
     )
     
@@ -60,6 +73,26 @@ export const Number2 = () => {
                             }
                             return acc
                         }, [])
+                `}
+            </pre>
+            <ul>
+                {steps2.map((step,index)=>(
+                    <li key={index}>
+                        {step}
+                    </li>
+                ))}
+            </ul>
+            <pre>
+                {`
+                    const matchingWords2=words.reduce((acc,word)=>{
+                        //words의 값이 keyword와 같은지 비교하기위한 for문
+                        for(let keyword of keywordList){
+                            if(word.toLowerCase().includes(keyword.toLowerCase())){
+                                acc.push(word)
+                            }
+                        }
+                        return acc; //반복 순회처리
+                    }, []);
                 `}
             </pre>
         </div>
