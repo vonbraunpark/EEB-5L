@@ -13,6 +13,7 @@ import {FilterExample} from "./filter/FilterExample.tsx";
 import {RegularExpression} from "./regular_expression/RegularExpression.tsx";
 import {StringExample} from "./string_test/StringExample.tsx";
 import {ArrayPushExample} from "./array/ArrayPushExample.tsx";
+import {ArrayPopExample} from "./array/ArrayPopExample.tsx";
 
 const App = () => {
     return (
@@ -34,6 +35,7 @@ const App = () => {
             <FilterExample/>
             <StringExample/>
             <ArrayPushExample/>
+            <ArrayPopExample/>
         </Container>
     )
 }
