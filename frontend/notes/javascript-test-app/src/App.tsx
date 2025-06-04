@@ -12,6 +12,7 @@ import {ControlFlowSwitch} from "./control_flow/ControlFlowSwitch.tsx";
 import {ControlFlowFor} from "./control_flow/ControlFlowFor.tsx";
 import {ControlFlowForEach} from "./control_flow/ControlFlowForEach.tsx";
 import {MapExample} from "./map/MapExample.tsx";
+import {FilterExample} from "./filter/FilterExample.tsx";
 
 const App = () => {
     return (
@@ -28,6 +29,7 @@ const App = () => {
             <ControlFlowFor/>
             <ControlFlowForEach/>
             <MapExample/>
+            <FilterExample/>
         </Container>
     )
 }
