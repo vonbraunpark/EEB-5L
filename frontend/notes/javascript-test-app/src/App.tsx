@@ -11,6 +11,9 @@ import {ControlFlowIf} from "./control_flow/ControlFlowIf.tsx";
 import {ControlFlowSwitch} from "./control_flow/ControlFlowSwitch.tsx";
 import {ControlFlowFor} from "./control_flow/ControlFlowFor.tsx";
 import {ControlFlowForEach} from "./control_flow/ControlFlowForEach.tsx";
+import {MapExample} from "./map/MapExample.tsx";
+import {FilterExample} from "./filter/FilterExample.tsx";
+import {StringExample} from "./string_test/StringExample.tsx";
 
 const App = () => {
     return (
@@ -26,6 +29,9 @@ const App = () => {
             <ControlFlowSwitch/>
             <ControlFlowFor/>
             <ControlFlowForEach/>
+            <MapExample/>
+            <FilterExample/>
+            <StringExample/>
         </Container>
     )
 }
