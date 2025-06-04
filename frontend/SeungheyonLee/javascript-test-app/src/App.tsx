@@ -18,6 +18,9 @@ import {ArrayShiftExample} from "./array/store/ArrayShiftExample.tsx";
 import {ArrayUnShiftExample} from "./array/store/ArrayUnShiftExample.tsx";
 import {ArrayReduceExample} from "./array/ArrayReduceExample.tsx";
 import {ArrayFindExample} from "./array/store/ArrayFindExample.tsx";
+import {Number1} from "./quiz/Number1.tsx";
+import {Number2} from "./quiz/Number2.tsx";
+import {Number3} from "./quiz/Number3.tsx";
 
 const App = () => {
     return (
@@ -27,23 +30,27 @@ const App = () => {
                 JavaScript 필수 요소를 파악해보자!
             </Typography>
 
-            <CalculationExample/>
-            <VariableAndDataTypes/>
-            <LogicalOperationExample/>
-            <TypeCoercion/>
-            <ControlFlowIf/>
-            <ControlFlowSwitch/>
-            <ControlFlowFor/>
-            <ControlFlowForEach/>
-            <MapExample/>
-            <FilterExample/>
-            <StringExample/>
-            <ArrayPushExample/>
-            <ArrayPopExample/>
-            <ArrayShiftExample/>
-            <ArrayUnShiftExample/>
-            <ArrayReduceExample/>
-                <ArrayFindExample/>
+            {/*<CalculationExample/>*/}
+            {/*<VariableAndDataTypes/>*/}
+            {/*<LogicalOperationExample/>*/}
+            {/*<TypeCoercion/>*/}
+            {/*<ControlFlowIf/>*/}
+            {/*<ControlFlowSwitch/>*/}
+            {/*<ControlFlowFor/>*/}
+            {/*<ControlFlowForEach/>*/}
+            {/*<MapExample/>*/}
+            {/*<FilterExample/>*/}
+            {/*<StringExample/>*/}
+            {/*<ArrayPushExample/>*/}
+            {/*<ArrayPopExample/>*/}
+            {/*<ArrayShiftExample/>*/}
+            {/*<ArrayUnShiftExample/>*/}
+            {/*<ArrayReduceExample/>*/}
+            {/*<ArrayFindExample/>*/}
+            <Number1/>
+            <Number2/>
+            <Number3/>
+
         </Container>
     )
 }
