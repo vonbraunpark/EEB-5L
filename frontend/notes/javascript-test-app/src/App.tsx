@@ -18,6 +18,7 @@ import {RegularExpression} from "./regular_expression/RegularExpression.tsx";
 import {ArrayPushExample} from "./array/ArrayPushExample.tsx";
 import {ArrayPopExample} from "./array/ArrayPopExample.tsx";
 import {ArrayShiftExample} from "./array/ArrayShiftExample.tsx";
+import {ArrayUnShiftExample} from "./array/ArrayUnShiftExample.tsx";
 
 const App = () => {
     return (
@@ -40,6 +41,7 @@ const App = () => {
             <ArrayPushExample/>
             <ArrayPopExample/>
             <ArrayShiftExample/>
+            <ArrayUnShiftExample/>
         </Container>
     )
 }
