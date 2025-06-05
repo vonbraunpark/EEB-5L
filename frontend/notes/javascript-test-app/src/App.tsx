@@ -28,6 +28,7 @@ import {ThirdQuiz} from "./quiz/ThirdQuiz.tsx";
 import {ArrayIncludesExample} from "./array/ArrayIncludesExample.tsx";
 import {ArrayIndexOfExample} from "./array/ArrayIndexOfExample.tsx";
 import {ArraySliceExample} from "./array/ArraySliceExample.tsx";
+import {ArraySpliceExample} from "./array/ArraySpliceExample.tsx";
 
 const App = () => {
     return (
@@ -60,6 +61,7 @@ const App = () => {
             <ArrayIncludesExample/>
             <ArrayIndexOfExample/>
             <ArraySliceExample/>
+            <ArraySpliceExample/>
 
         </Container>
     )
