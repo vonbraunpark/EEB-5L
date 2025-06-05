@@ -1,6 +1,4 @@
-function getRandomInt(min: number, max: number) {
-    return Math.floor(Math.random() * ( max - min + 1)) + min
-}
+const getRandomInt=(min:number, max:number)=>Math.floor(Math.random() * (max-min+1))+min
 
 function randomEnqueue() {
     const LOOP_MIN = 1

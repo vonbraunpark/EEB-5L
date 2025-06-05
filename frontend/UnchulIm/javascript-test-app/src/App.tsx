@@ -24,11 +24,14 @@ import {ArrayFindExample} from "./array/ArrayFindExample.tsx";
 import {FirstQuiz} from "./test_example/FirstQuiz.tsx";
 import {SecondQuiz} from "./test_example/SecondQuiz.tsx";
 import {ThirdQuiz} from "./test_example/ThirdQuiz.tsx";
+import {ArrayIncludesExample} from "./array/ArrayIncludesExample.tsx";
+import {ArrayIndexOfExample} from "./array/ArrayIndexOfExample.tsx";
+import {ArraySliceExample} from "./array/ArraySliceExample.tsx";
 
 const App = () => {
     return (
-        <Container maxWidth="md" sx={{ padding: "32px 16px", textAlign: "left" }}>
-            <Typography variant="h4" gutterBottom sx={{ textAlign: "center" }}>
+        <Container maxWidth="md" sx={{padding: "32px 16px", textAlign: "left"}}>
+            <Typography variant="h4" gutterBottom sx={{textAlign: "center"}}>
                 JavaScript 필수 요소를 파악해보자!
             </Typography>
             <CalculationExample/>
@@ -52,6 +55,10 @@ const App = () => {
             <FirstQuiz/>
             <SecondQuiz/>
             <ThirdQuiz/>
+            <ArrayIncludesExample/>
+            <ArrayIndexOfExample/>
+            <ArraySliceExample/>
+                
         </Container>
     )
 }

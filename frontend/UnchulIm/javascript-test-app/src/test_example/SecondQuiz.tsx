@@ -23,7 +23,10 @@ export const SecondQuiz = () => {
             <h2>Matched Words:</h2>
             <ul>
                 {matchedSentences.map((sentence, index) => (
-                    <li key={index}>{sentence.trim()}.</li>
+                    <>
+                        <li key={index}>{index+1}. {sentence.trim()}.</li>
+                        <li>------------------------------</li>
+                    </>
                 ))}
             </ul>
         </div>
