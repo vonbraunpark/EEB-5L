@@ -5,6 +5,7 @@ import fruit.entity.Fruit;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class FruitRepositoryImpl implements FruitRepository {
 
@@ -28,5 +29,12 @@ public class FruitRepositoryImpl implements FruitRepository {
         int fruitUniqueId = (int) fruit.getId();
         fruitHashMap.put(fruitUniqueId, fruit);
         return fruitUniqueId;
+    }
+
+    @Override
+    public Optional<Fruit> findByFruitType(int fruitTypeId) {
+        return fruitHashMap.values().stream()
+                .filter(fruit -> fruit.getType().getId() == fruitTypeId)
+                .findFirst();
     }
 }
