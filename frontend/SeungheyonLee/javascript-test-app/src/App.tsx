@@ -22,6 +22,10 @@ import {Number1} from "./quiz/Number1.tsx";
 import {Number2} from "./quiz/Number2.tsx";
 import {Number3} from "./quiz/Number3.tsx";
 import {ArrayIncludeExample} from "./array/store/ArrayIncludeExample.tsx";
+import {ArrayIndexOfExample} from "./array/store/ArrayIndexOfExample.tsx";
+import {ArraySliceExample} from "./array/store/ArraySliceExample.tsx";
+import {ArraySortExample} from "./array/sort/ArraySortExample.tsx";
+import {ArrayReverseExample} from "./array/sort/ArrayReverseExample.tsx";
 
 const App = () => {
     return (
@@ -52,7 +56,10 @@ const App = () => {
             <Number2/>
             <Number3/>
             <ArrayIncludeExample/>
-
+            <ArrayIndexOfExample/>
+            <ArraySliceExample/>
+            <ArraySortExample/>
+            <ArrayReverseExample/>
         </Container>
     )
 }
