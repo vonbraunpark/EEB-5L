@@ -1,4 +1,4 @@
-export const SecondProblemVersionOne = () => {
+export const SecondProblemVersionThree = () => {
     const abuseReportList = [
         { userId: "user1", type: "profanity", date: "2025-06-01" },
         { userId: "user1", type: "profanity", date: "2025-06-03" },
@@ -21,33 +21,44 @@ export const SecondProblemVersionOne = () => {
         { userId: "user4", type: "profanity", date: "2025-06-06" },
     ];
 
-    let profanityUserHashMap = {}
+    let profanityCountList = []
     for (let i = 0; i < abuseReportList.length; i++) {
         if (abuseReportList[i].type === "profanity") {
-            profanityUserHashMap[abuseReportList[i].userId] =
-                (profanityUserHashMap[abuseReportList[i].userId] || 0) + 1
+            if (abuseReportList[i].userId === "user1") {
+                profanityCountList[0] = (profanityCountList[0] || 0) + 1
+            } else if (abuseReportList[i].userId === "user2") {
+                profanityCountList[1] = (profanityCountList[1] || 0) + 1
+            } else if (abuseReportList[i].userId === "user3") {
+                profanityCountList[2] = (profanityCountList[2] || 0) + 1
+            } else if (abuseReportList[i].userId === "user4") {
+                profanityCountList[3] = (profanityCountList[3] || 0) + 1
+            }
         }
     }
 
-    let precautionsHashMap = {}
-    Object.entries(profanityUserHashMap).forEach(([key, value]) => {
-        if (value >= 7) {
-            precautionsHashMap[key] = "영구 정지"
-        } else if (value >= 5) {
-            precautionsHashMap[key] = "1달 정지"
-        } else if (value >= 3) {
-            precautionsHashMap[key] = "1주 정지"
+    let punishmentList = []
+    for (let i = 0; i < profanityCountList.length; i++) {
+        if (profanityCountList[i] >= 7) {
+            punishmentList[i] = "영구 정지"
+        } else if (profanityCountList[i] >= 5) {
+            punishmentList[i] = "1달 정지"
+        } else if (profanityCountList[i] >= 3) {
+            punishmentList[i] = "1주 정지"
         }
-    })
+    }
+
+    const userIds = ["user1", "user2", "user3"]
 
     return (
         <div className="bg-gray-100 p-5 my-4 rounded-md border-2 border-blue-500 font-bold text-left">
-            <h3>Quiz2-2번 문제 버전 1</h3>
-            { Object.entries(precautionsHashMap).map(([key, value]) => (
-                <li key={key}>
-                    {key} 에게 {value} 를 부여합니다.
-                </li>
-            ))}
+            <h3>Quiz2-2번 문제 버전 3</h3>
+            <ul>
+                { userIds.map((userId, index) => (
+                    <li key={userId}>
+                        {userId} 는 {punishmentList[index]} 를 부여받았습니다.
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }

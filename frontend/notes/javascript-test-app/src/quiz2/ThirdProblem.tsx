@@ -1,4 +1,4 @@
-export const SecondProblemVersionOne = () => {
+export const ThirdProblem = () => {
     const abuseReportList = [
         { userId: "user1", type: "profanity", date: "2025-06-01" },
         { userId: "user1", type: "profanity", date: "2025-06-03" },
@@ -21,31 +21,22 @@ export const SecondProblemVersionOne = () => {
         { userId: "user4", type: "profanity", date: "2025-06-06" },
     ];
 
-    let profanityUserHashMap = {}
-    for (let i = 0; i < abuseReportList.length; i++) {
-        if (abuseReportList[i].type === "profanity") {
-            profanityUserHashMap[abuseReportList[i].userId] =
-                (profanityUserHashMap[abuseReportList[i].userId] || 0) + 1
-        }
-    }
+    const dailyProfanityCountsHashMap = abuseReportList.reduce((localMap, abuseReport) => {
+        if (abuseReport.type !== "profanity") return localMap
 
-    let precautionsHashMap = {}
-    Object.entries(profanityUserHashMap).forEach(([key, value]) => {
-        if (value >= 7) {
-            precautionsHashMap[key] = "영구 정지"
-        } else if (value >= 5) {
-            precautionsHashMap[key] = "1달 정지"
-        } else if (value >= 3) {
-            precautionsHashMap[key] = "1주 정지"
-        }
-    })
+        localMap[abuseReport.date] = (localMap[abuseReport.date] || 0) + 1
+
+        return localMap
+    }, {} as Record<string, number>)
+
+    const sortedDate = Object.keys(dailyProfanityCountsHashMap).sort()
 
     return (
         <div className="bg-gray-100 p-5 my-4 rounded-md border-2 border-blue-500 font-bold text-left">
-            <h3>Quiz2-2번 문제 버전 1</h3>
-            { Object.entries(precautionsHashMap).map(([key, value]) => (
-                <li key={key}>
-                    {key} 에게 {value} 를 부여합니다.
+            <h3>Quiz2-3번 문제</h3>
+            { sortedDate.map((date) => (
+                <li key={date}>
+                    {date}: {dailyProfanityCountsHashMap[date]} 건의 사고 발생
                 </li>
             ))}
         </div>

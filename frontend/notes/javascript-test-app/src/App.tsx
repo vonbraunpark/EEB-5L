@@ -39,6 +39,8 @@ import {FirstProblemVersionTwo} from "./quiz2/FirstProblemVersionTwo.tsx";
 import {FirstProblemVersionThree} from "./quiz2/FirstProblemVersionThree.tsx";
 import {SecondProblemVersionOne} from "./quiz2/SecondProblemVersionOne.tsx";
 import {SecondProblemVersionTwo} from "./quiz2/SecondProblemVersionTwo.tsx";
+import {SecondProblemVersionThree} from "./quiz2/SecondProblemVersionThree.tsx";
+import {ThirdProblem} from "./quiz2/ThirdProblem.tsx";
 
 const App = () => {
     return (
@@ -82,6 +84,8 @@ const App = () => {
             <FirstProblemVersionThree/>
             <SecondProblemVersionOne/>
             <SecondProblemVersionTwo/>
+            <SecondProblemVersionThree/>
+            <ThirdProblem/>
         </Container>
     )
 }
