@@ -15,10 +15,16 @@ import {MapExample} from "./map/MapExample.tsx";
 import {FilterExample} from "./filter/FilterExample.tsx";
 import {StringExample} from "./string_test/StringExample.tsx";
 import {RegularExpression} from "./regular_expression/RegularExpression.tsx";
-import {ArrayPushExample} from "./array/ArrayPushExample.tsx";
-import {ArrayPopExample} from "./array/ArrayPopExample.tsx";
-import {ArrayShiftExample} from "./array/ArrayShiftExample.tsx";
-import {ArrayUnShiftExample} from "./array/ArrayUnShiftExample.tsx";
+import {ArrayPushExample} from "./array/store/ArrayPushExample.tsx";
+import {ArrayPopExample} from "./array/store/ArrayPopExample.tsx";
+import {ArrayShiftExample} from "./array/store/ArrayShiftExample.tsx";
+import {ArrayUnShiftExample} from "./array/store/ArrayUnShiftExample.tsx";
+import {ArrayReduceExample} from "./array/ArrayReduceExample.tsx";
+import {ArrayFindExample} from "./array/ArrayFindExample.tsx";
+import {FirstQuiz} from "./quiz/FirstQuiz.tsx";
+import {EmergencyQuiz} from "./quiz/EmergencyQuiz.tsx";
+import {SecondQuiz} from "./quiz/SecondQuiz.tsx";
+import {ThirdQuiz} from "./quiz/ThirdQuiz.tsx";
 
 const App = () => {
     return (
@@ -42,6 +48,12 @@ const App = () => {
             <ArrayPopExample/>
             <ArrayShiftExample/>
             <ArrayUnShiftExample/>
+            <ArrayReduceExample/>
+            <ArrayFindExample/>
+            <FirstQuiz/>
+            <EmergencyQuiz/>
+            <SecondQuiz/>
+            <ThirdQuiz/>
         </Container>
     )
 }
