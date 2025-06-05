@@ -25,6 +25,9 @@ import {FirstQuiz} from "./quiz/FirstQuiz.tsx";
 import {EmergencyQuiz} from "./quiz/EmergencyQuiz.tsx";
 import {SecondQuiz} from "./quiz/SecondQuiz.tsx";
 import {ThirdQuiz} from "./quiz/ThirdQuiz.tsx";
+import {ArrayIncludesExample} from "./array/ArrayIncludesExample.tsx";
+import {ArrayIndexOfExample} from "./array/ArrayIndexOfExample.tsx";
+import {ArraySliceExample} from "./array/ArraySliceExample.tsx";
 
 const App = () => {
     return (
@@ -54,6 +57,10 @@ const App = () => {
             <EmergencyQuiz/>
             <SecondQuiz/>
             <ThirdQuiz/>
+            <ArrayIncludesExample/>
+            <ArrayIndexOfExample/>
+            <ArraySliceExample/>
+
         </Container>
     )
 }
