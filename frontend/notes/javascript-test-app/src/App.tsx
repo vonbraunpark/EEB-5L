@@ -31,7 +31,16 @@ import {ArraySliceExample} from "./array/ArraySliceExample.tsx";
 import {ArraySpliceExample} from "./array/ArraySpliceExample.tsx";
 import {ArraySortExample} from "./array/sort/ArraySortExample.tsx";
 import {ArrayReverseExample} from "./array/sort/ArrayReverseExample.tsx";
-import {ArrayEveryExample} from "./array/ArrayEveryExample.tsx";
+import {ArrayEveryExample} from "./array/condition/ArrayEveryExample.tsx";
+import {ArraySomeExample} from "./array/condition/ArraySomeExample.tsx";
+import {ArrayFlatExample} from "./array/ArrayFlatExample.tsx";
+import {FirstProblemVersionOne} from "./quiz2/FirstProblemVersionOne.tsx";
+import {FirstProblemVersionTwo} from "./quiz2/FirstProblemVersionTwo.tsx";
+import {FirstProblemVersionThree} from "./quiz2/FirstProblemVersionThree.tsx";
+import {SecondProblemVersionOne} from "./quiz2/SecondProblemVersionOne.tsx";
+import {SecondProblemVersionTwo} from "./quiz2/SecondProblemVersionTwo.tsx";
+import {SecondProblemVersionThree} from "./quiz2/SecondProblemVersionThree.tsx";
+import {ThirdProblem} from "./quiz2/ThirdProblem.tsx";
 
 const App = () => {
     return (
@@ -68,7 +77,15 @@ const App = () => {
             <ArraySortExample/>
             <ArrayReverseExample/>
             <ArrayEveryExample/>
-
+            <ArraySomeExample/>
+            <ArrayFlatExample/>
+            <FirstProblemVersionOne/>
+            <FirstProblemVersionTwo/>
+            <FirstProblemVersionThree/>
+            <SecondProblemVersionOne/>
+            <SecondProblemVersionTwo/>
+            <SecondProblemVersionThree/>
+            <ThirdProblem/>
         </Container>
     )
 }
