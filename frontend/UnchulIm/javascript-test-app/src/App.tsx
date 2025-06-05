@@ -33,6 +33,9 @@ import {ArrayReverseExample} from "./array/sort/ArrayReverseExample.tsx";
 import {ArrayEveryExample} from "./array/condition/ArrayEveryExample.tsx";
 import {ArraySomeExample} from "./array/condition/ArraySomeExample.tsx";
 import {ArrayFlatExample} from "./array/ArrayFlatExample.tsx";
+import {SecondQuiz2} from "./quiz2/SecondQuiz2.tsx";
+import {FisrtQuiz2} from "./quiz2/FisrtQuiz2.tsx";
+import {ThirdQuiz2} from "./quiz2/ThirdQuiz2.tsx";
 
 const App = () => {
     return (
@@ -70,6 +73,10 @@ const App = () => {
             <ArrayEveryExample/>
             <ArraySomeExample/>
             <ArrayFlatExample/>
+            <FisrtQuiz2/>
+            <SecondQuiz2/>
+            <ThirdQuiz2/>
+
         </Container>
     )
 }
