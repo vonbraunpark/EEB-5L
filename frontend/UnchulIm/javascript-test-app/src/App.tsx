@@ -20,13 +20,17 @@ import {ArrayPopExample} from "./array/store/ArrayPopExample.tsx";
 import {ArrayShiftExample} from "./array/store/ArrayShiftExample.tsx";
 import {ArrayUnShiftExample} from "./array/store/ArrayUnShiftExample.tsx";
 import {ArrayReduceExample} from "./array/ArrayReduceExample.tsx";
-import {ArrayFindExample} from "./array/ArrayFindExample.tsx";
+import {ArrayFindExample} from "./array/search/ArrayFindExample.tsx";
 import {FirstQuiz} from "./test_example/FirstQuiz.tsx";
 import {SecondQuiz} from "./test_example/SecondQuiz.tsx";
 import {ThirdQuiz} from "./test_example/ThirdQuiz.tsx";
-import {ArrayIncludesExample} from "./array/ArrayIncludesExample.tsx";
-import {ArrayIndexOfExample} from "./array/ArrayIndexOfExample.tsx";
+import {ArrayIncludesExample} from "./array/search/ArrayIncludesExample.tsx";
+import {ArrayIndexOfExample} from "./array/search/ArrayIndexOfExample.tsx";
 import {ArraySliceExample} from "./array/ArraySliceExample.tsx";
+import {ArraySpliceExample} from "./array/ArraySpliceExample.tsx";
+import {ArraySortExample} from "./array/sort/ArraySortExample.tsx";
+import {ArrayReverseExample} from "./array/sort/ArrayReverseExample.tsx";
+import {ArrayEveryExample} from "./array/ArrayEveryExample.tsx";
 
 const App = () => {
     return (
@@ -58,7 +62,10 @@ const App = () => {
             <ArrayIncludesExample/>
             <ArrayIndexOfExample/>
             <ArraySliceExample/>
-                
+            <ArraySpliceExample/>
+            <ArraySortExample/>
+            <ArrayReverseExample/>
+            <ArrayEveryExample/>
         </Container>
     )
 }
