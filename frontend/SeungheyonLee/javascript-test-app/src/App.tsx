@@ -18,14 +18,19 @@ import {ArrayShiftExample} from "./array/store/ArrayShiftExample.tsx";
 import {ArrayUnShiftExample} from "./array/store/ArrayUnShiftExample.tsx";
 import {ArrayReduceExample} from "./array/ArrayReduceExample.tsx";
 import {ArrayFindExample} from "./array/store/ArrayFindExample.tsx";
-import {Number1} from "./quiz/Number1.tsx";
-import {Number2} from "./quiz/Number2.tsx";
-import {Number3} from "./quiz/Number3.tsx";
+import {Number1} from "./quiz/quiz1/Number1.tsx";
+import {Number2} from "./quiz/quiz1/Number2.tsx";
+import {Number3} from "./quiz/quiz1/Number3.tsx";
 import {ArrayIncludeExample} from "./array/store/ArrayIncludeExample.tsx";
 import {ArrayIndexOfExample} from "./array/store/ArrayIndexOfExample.tsx";
 import {ArraySliceExample} from "./array/store/ArraySliceExample.tsx";
 import {ArraySortExample} from "./array/sort/ArraySortExample.tsx";
 import {ArrayReverseExample} from "./array/sort/ArrayReverseExample.tsx";
+import {ArrayEveryExample} from "./array/store/ArrayEveryExample.tsx";
+import {ArrayFlatExample} from "./array/store/ArrayFlatExample.tsx";
+import {Quiz2_Number1} from "./quiz/quiz2/Quiz2_Number1.tsx";
+import {Quiz2_Number2} from "./quiz/quiz2/Quiz2_Number2.tsx";
+import {Quiz2_Number3} from "./quiz/quiz2/Quiz2_Number3.tsx";
 
 const App = () => {
     return (
@@ -52,14 +57,19 @@ const App = () => {
             {/*<ArrayUnShiftExample/>*/}
             {/*<ArrayReduceExample/>*/}
             {/*<ArrayFindExample/>*/}
-            <Number1/>
-            <Number2/>
-            <Number3/>
-            <ArrayIncludeExample/>
-            <ArrayIndexOfExample/>
-            <ArraySliceExample/>
-            <ArraySortExample/>
-            <ArrayReverseExample/>
+            {/*<Quiz2_Number1/>*/}
+            {/*<Number2/>*/}
+            {/*<Number3/>*/}
+            {/*<ArrayIncludeExample/>*/}
+            {/*<ArrayIndexOfExample/>*/}
+            {/*<ArraySliceExample/>*/}
+            {/*<ArraySortExample/>*/}
+            {/*<ArrayReverseExample/>*/}
+            {/*<ArrayEveryExample/>*/}
+            {/*<ArrayFlatExample/>*/}
+            <Quiz2_Number1/>
+            <Quiz2_Number2/>
+            <Quiz2_Number3/>
         </Container>
     )
 }
