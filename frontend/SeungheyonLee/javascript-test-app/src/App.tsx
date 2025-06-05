@@ -21,6 +21,7 @@ import {ArrayFindExample} from "./array/store/ArrayFindExample.tsx";
 import {Number1} from "./quiz/Number1.tsx";
 import {Number2} from "./quiz/Number2.tsx";
 import {Number3} from "./quiz/Number3.tsx";
+import {ArrayIncludeExample} from "./array/store/ArrayIncludeExample.tsx";
 
 const App = () => {
     return (
@@ -50,6 +51,7 @@ const App = () => {
             <Number1/>
             <Number2/>
             <Number3/>
+            <ArrayIncludeExample/>
 
         </Container>
     )
