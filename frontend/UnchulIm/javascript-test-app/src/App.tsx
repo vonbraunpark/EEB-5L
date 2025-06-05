@@ -30,7 +30,9 @@ import {ArraySliceExample} from "./array/ArraySliceExample.tsx";
 import {ArraySpliceExample} from "./array/ArraySpliceExample.tsx";
 import {ArraySortExample} from "./array/sort/ArraySortExample.tsx";
 import {ArrayReverseExample} from "./array/sort/ArrayReverseExample.tsx";
-import {ArrayEveryExample} from "./array/ArrayEveryExample.tsx";
+import {ArrayEveryExample} from "./array/condition/ArrayEveryExample.tsx";
+import {ArraySomeExample} from "./array/condition/ArraySomeExample.tsx";
+import {ArrayFlatExample} from "./array/ArrayFlatExample.tsx";
 
 const App = () => {
     return (
@@ -66,6 +68,8 @@ const App = () => {
             <ArraySortExample/>
             <ArrayReverseExample/>
             <ArrayEveryExample/>
+            <ArraySomeExample/>
+            <ArrayFlatExample/>
         </Container>
     )
 }

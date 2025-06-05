@@ -7,8 +7,8 @@ export const ArrayEveryExample = () => {
 
     let steps = [
         `초기 배열1: [${numbers.join(",")}]`,
-        `초기 배열2: [${numbers2.join(",")}]`,
         `numbers.every(num =>num%2==0)결과: ${isItEvene}`,
+        `초기 배열2: [${numbers2.join(",")}]`,
         `numbers2.every(num =>num%2==0)결과: ${isItEvene2}`,
     ]
 
