@@ -1,5 +1,5 @@
 {
-  "name": "javascript-test-app",
+  "name": "kakao-authentication",
   "version": "0.0.1",
   "scripts": {
     "build": "NODE_ENV=production rspack build",
