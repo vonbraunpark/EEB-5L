@@ -6,7 +6,8 @@
     "html-css-test-app",
     "javascript-test-app",
     "kakao-authentication",
-    "navigation-bar-app"
+    "navigation-bar-app",
+    "vuetify-tailwind-board-app"
   ],
   "hoist": true
 }
