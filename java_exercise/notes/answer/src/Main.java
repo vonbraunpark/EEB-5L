@@ -4,8 +4,11 @@ import account.service.AccountServiceImpl;
 import fruit.entity.FruitType;
 import fruit.service.FruitService;
 import fruit.service.FruitServiceImpl;
+import order.entity.OrderEntity;
 import order.service.OrderService;
 import order.service.OrderServiceImpl;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,10 +20,17 @@ public class Main {
 
         AccountService accountService = AccountServiceImpl.getInstance();
         accountService.register();
+        accountService.register();
 
         Integer accountIdToken = accountService.singIn();
 
         OrderService orderService = OrderServiceImpl.getInstance();
         orderService.register(accountIdToken, FruitType.PEACH, 5);
+        orderService.register(accountIdToken, FruitType.WATERMELON, 20);
+
+        List<OrderEntity> orderList = orderService.list(accountIdToken);
+        for (OrderEntity order : orderList) {
+            System.out.println(order);
+        }
     }
 }
