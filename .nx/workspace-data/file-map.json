@@ -8,11 +8,307 @@
     "nonProjectFiles": [
       {
         "file": ".gitignore",
-        "hash": "5079367064091843084"
+        "hash": "14424612430253576654"
       },
       {
         "file": "README.md",
         "hash": "12040661978526999053"
+      },
+      {
+        "file": "backend/HyeinKim/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/JeongbeomKim/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/JeongminKim/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/JihanKim/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/JinaBae/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/JiyeonJun/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/JuyoungLee/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/SeungheyonLee/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/SinwonLee/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/TeajunPark/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/UigunLee/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/UnchulIm/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/YoungseongPark/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "backend/notes/monoproj/.gitattributes",
+        "hash": "5217491512005526210"
+      },
+      {
+        "file": "backend/notes/monoproj/.gitignore",
+        "hash": "6977231275067413297"
+      },
+      {
+        "file": "backend/notes/monoproj/build.gradle",
+        "hash": "3750289834846837741"
+      },
+      {
+        "file": "backend/notes/monoproj/gradle/wrapper/gradle-wrapper.jar",
+        "hash": "5961704579857758315"
+      },
+      {
+        "file": "backend/notes/monoproj/gradle/wrapper/gradle-wrapper.properties",
+        "hash": "10597936202651113660"
+      },
+      {
+        "file": "backend/notes/monoproj/gradlew",
+        "hash": "2029539514094064532"
+      },
+      {
+        "file": "backend/notes/monoproj/gradlew.bat",
+        "hash": "7267036690545437270"
+      },
+      {
+        "file": "backend/notes/monoproj/settings.gradle",
+        "hash": "6693908962446144737"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/MonoprojApplication.java",
+        "hash": "13523453143658911795"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account/controller/AccountController.java",
+        "hash": "11257274248532602030"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account/entity/Account.java",
+        "hash": "10899136295665092736"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account/entity/AccountRoleType.java",
+        "hash": "7340265264783040649"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account/entity/RoleType.java",
+        "hash": "82025568786805351"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account/repository/AccountRepository.java",
+        "hash": "16602398518362322577"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account/repository/AccountRoleTypeRepository.java",
+        "hash": "11335483300788462320"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account/service/AccountService.java",
+        "hash": "6777769176834907789"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account/service/AccountServiceImpl.java",
+        "hash": "10289991956954920495"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account_profile/entity/AccountProfile.java",
+        "hash": "9141055899601618114"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account_profile/repository/AccountProfileRepository.java",
+        "hash": "4334070495322603143"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account_profile/service/AccountProfileService.java",
+        "hash": "6299026048796052358"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/account_profile/service/AccountProfileServiceImpl.java",
+        "hash": "7517605646802259064"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/config/CorsConfig.java",
+        "hash": "1613647592726703640"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/config/RestApiConfig.java",
+        "hash": "15074959616293477812"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/google_authentication/controller/GoogleAuthenticationController.java",
+        "hash": "14012183607388704793"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/kakao_authentication/controller/KakaoAuthenticationController.java",
+        "hash": "15750328314789053000"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/kakao_authentication/controller/request_form/AccessTokenRequestForm.java",
+        "hash": "12583715161703493945"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/kakao_authentication/repository/KakaoAuthenticationRepository.java",
+        "hash": "12451613245367635709"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/kakao_authentication/repository/KakaoAuthenticationRepositoryImpl.java",
+        "hash": "18338425007932085786"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/kakao_authentication/service/KakaoAuthenticationService.java",
+        "hash": "17023756268603114862"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/kakao_authentication/service/KakaoAuthenticationServiceImpl.java",
+        "hash": "10721738948089939221"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/redis_cache/service/RedisCacheService.java",
+        "hash": "12307428704043931522"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/java/com/example/monoproj/redis_cache/service/RedisCacheServiceImpl.java",
+        "hash": "14340772216653152341"
+      },
+      {
+        "file": "backend/notes/monoproj/src/main/resources/application.yaml",
+        "hash": "6717409745222025532"
+      },
+      {
+        "file": "backend/notes/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "frontend/HyeinKim/.gitignore",
+        "hash": "8587836968507943632"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/.babelrc",
+        "hash": "11000253849101584714"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/index.html",
+        "hash": "13203053334082323720"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/module-federation.config.ts",
+        "hash": "9156039271865672271"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/package.json",
+        "hash": "15826720481759107924"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/rspack.config.ts",
+        "hash": "5794853267570372115"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/src/App.tsx",
+        "hash": "3292820982365177184"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/src/index.ts",
+        "hash": "17407949843547454366"
+      },
+      {
+        "file": "frontend/HyeinKim/html-container/tsconfig.json",
+        "hash": "15765646564554873944"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/.babelrc",
+        "hash": "11000253849101584714"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/index.html",
+        "hash": "1069212195169051091"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/module-federation.config.ts",
+        "hash": "9156039271865672271"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/package.json",
+        "hash": "10986926635476287926"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/rspack.config.ts",
+        "hash": "4409088902971837137"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/src/App.tsx",
+        "hash": "16930949162727274169"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/src/index.ts",
+        "hash": "17407949843547454366"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/src/style/main.css",
+        "hash": "10998581358846837450"
+      },
+      {
+        "file": "frontend/HyeinKim/html-css-test-app/tsconfig.json",
+        "hash": "15765646564554873944"
+      },
+      {
+        "file": "frontend/HyeinKim/lerna.json",
+        "hash": "2072405223586220246"
+      },
+      {
+        "file": "frontend/HyeinKim/package-lock.json",
+        "hash": "3660394975774015706"
+      },
+      {
+        "file": "frontend/HyeinKim/package.json",
+        "hash": "11688648885618179686"
       },
       {
         "file": "frontend/HyeinKim/prepare.txt",
@@ -295,12 +591,244 @@
         "hash": "4757554901072472786"
       },
       {
+        "file": "frontend/JeongminKim/.gitignore",
+        "hash": "8587836968507943632"
+      },
+      {
+        "file": "frontend/JeongminKim/docker-compose.yml",
+        "hash": "13870921961929258649"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/.babelrc",
+        "hash": "11000253849101584714"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/Dockerfile",
+        "hash": "15341768777903715949"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/index.html",
+        "hash": "13203053334082323720"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/module-federation.config.ts",
+        "hash": "9095462831286159831"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/nginx.conf",
+        "hash": "8324800778555498122"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/package.json",
+        "hash": "15826720481759107924"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/rspack.config.ts",
+        "hash": "9642247774617759985"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/src/App.tsx",
+        "hash": "17219057588727569312"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/src/index.ts",
+        "hash": "17407949843547454366"
+      },
+      {
+        "file": "frontend/JeongminKim/html-container/tsconfig.json",
+        "hash": "15765646564554873944"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/.babelrc",
+        "hash": "11000253849101584714"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/Dockerfile",
+        "hash": "9830680849866516393"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/index.html",
+        "hash": "1069212195169051091"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/module-federation.config.ts",
+        "hash": "4312123714128549859"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/nginx.conf",
+        "hash": "9833779240103431607"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/package.json",
+        "hash": "10986926635476287926"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/rspack.config.ts",
+        "hash": "6529994667757598485"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/src/App.tsx",
+        "hash": "13684727268590190450"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/src/bootstrap.tsx",
+        "hash": "1328007026612478010"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/src/index.tsx",
+        "hash": "17850717131520551598"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/src/style/main.css",
+        "hash": "15453746754737803525"
+      },
+      {
+        "file": "frontend/JeongminKim/html-css-test-app/tsconfig.json",
+        "hash": "15765646564554873944"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/.babelrc",
+        "hash": "11000253849101584714"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/Dockerfile",
+        "hash": "7370947955167478597"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/index.html",
+        "hash": "18054577254085239636"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/module-federation.config.ts",
+        "hash": "6473260299411596205"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/nginx.conf",
+        "hash": "6297462676955255258"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/package-lock.json",
+        "hash": "3977549150760252661"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/package.json",
+        "hash": "858493131765386995"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/rspack.config.ts",
+        "hash": "3627472556505044060"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/App.tsx",
+        "hash": "17576498278245434499"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/bootstrap.tsx",
+        "hash": "1328007026612478010"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/control_flow/ControlFlowFor.tsx",
+        "hash": "11922183085782048881"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/control_flow/ControlFlowForEach.tsx",
+        "hash": "132461476414625554"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/control_flow/ControlFlowIf.tsx",
+        "hash": "12155413883106236975"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/control_flow/ControlFlowSwitch.tsx",
+        "hash": "14325853726402832458"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/data_type/VariableAndDataTypes.tsx",
+        "hash": "18394804024624002320"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/index.ts",
+        "hash": "17407949843547454366"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/index.tsx",
+        "hash": "17850717131520551598"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/logical_operation/LogicalOperationExample.tsx",
+        "hash": "14533672171403399618"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/math_operation/CalculationExample.tsx",
+        "hash": "17526769718436200347"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/src/type_convert/TypeCoercion.tsx",
+        "hash": "2808865569207401383"
+      },
+      {
+        "file": "frontend/JeongminKim/javascript-test-app/tsconfig.json",
+        "hash": "15765646564554873944"
+      },
+      {
+        "file": "frontend/JeongminKim/lerna.json",
+        "hash": "9639663785235438596"
+      },
+      {
+        "file": "frontend/JeongminKim/package-lock.json",
+        "hash": "5126997322119785787"
+      },
+      {
+        "file": "frontend/JeongminKim/package.json",
+        "hash": "4476701786569499854"
+      },
+      {
         "file": "frontend/JeongminKim/prepare.txt",
         "hash": "4757554901072472786"
       },
       {
         "file": "frontend/JihanKim/.gitignore",
         "hash": "8587836968507943632"
+      },
+      {
+        "file": "frontend/JihanKim/docker-compose.yml",
+        "hash": "952365226789534966"
       },
       {
         "file": "frontend/JihanKim/html-container/.babelrc",
@@ -311,16 +839,28 @@
         "hash": "3899309809756385136"
       },
       {
+        "file": "frontend/JihanKim/html-container/Dockerfile",
+        "hash": "17754427216402868151"
+      },
+      {
         "file": "frontend/JihanKim/html-container/index.html",
         "hash": "13203053334082323720"
       },
       {
         "file": "frontend/JihanKim/html-container/module-federation.config.ts",
-        "hash": "9156039271865672271"
+        "hash": "9242036357479588186"
+      },
+      {
+        "file": "frontend/JihanKim/html-container/nginx.conf",
+        "hash": "8324800778555498122"
+      },
+      {
+        "file": "frontend/JihanKim/html-container/package-lock.json",
+        "hash": "4155394722960936422"
       },
       {
         "file": "frontend/JihanKim/html-container/package.json",
-        "hash": "4033232501717270299"
+        "hash": "15826720481759107924"
       },
       {
         "file": "frontend/JihanKim/html-container/postcss.config.mjs",
@@ -328,11 +868,11 @@
       },
       {
         "file": "frontend/JihanKim/html-container/rspack.config.ts",
-        "hash": "5794853267570372115"
+        "hash": "9642247774617759985"
       },
       {
         "file": "frontend/JihanKim/html-container/src/App.tsx",
-        "hash": "16930949162727274169"
+        "hash": "17993012216339698993"
       },
       {
         "file": "frontend/JihanKim/html-container/src/index.css",
@@ -355,12 +895,24 @@
         "hash": "3899309809756385136"
       },
       {
+        "file": "frontend/JihanKim/html-css-test-app/Dockerfile",
+        "hash": "13795050756502907561"
+      },
+      {
         "file": "frontend/JihanKim/html-css-test-app/index.html",
         "hash": "1069212195169051091"
       },
       {
         "file": "frontend/JihanKim/html-css-test-app/module-federation.config.ts",
         "hash": "4312123714128549859"
+      },
+      {
+        "file": "frontend/JihanKim/html-css-test-app/nginx.conf",
+        "hash": "11707550105374355564"
+      },
+      {
+        "file": "frontend/JihanKim/html-css-test-app/package-lock.json",
+        "hash": "7144476781680624152"
       },
       {
         "file": "frontend/JihanKim/html-css-test-app/package.json",
@@ -372,15 +924,15 @@
       },
       {
         "file": "frontend/JihanKim/html-css-test-app/rspack.config.ts",
-        "hash": "9904040494810237663"
+        "hash": "6529994667757598485"
       },
       {
         "file": "frontend/JihanKim/html-css-test-app/src/App.tsx",
-        "hash": "11886826164653252427"
+        "hash": "13684727268590190450"
       },
       {
         "file": "frontend/JihanKim/html-css-test-app/src/bootstrap.tsx",
-        "hash": "6607602783645220008"
+        "hash": "1328007026612478010"
       },
       {
         "file": "frontend/JihanKim/html-css-test-app/src/index.css",
@@ -388,27 +940,275 @@
       },
       {
         "file": "frontend/JihanKim/html-css-test-app/src/index.tsx",
-        "hash": "7158895837304039474"
+        "hash": "17850717131520551598"
       },
       {
         "file": "frontend/JihanKim/html-css-test-app/src/style/main.css",
-        "hash": "14049801571744679947"
+        "hash": "15453746754737803525"
       },
       {
         "file": "frontend/JihanKim/html-css-test-app/tsconfig.json",
-        "hash": "8911375022694695119"
+        "hash": "15765646564554873944"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/.babelrc",
+        "hash": "11000253849101584714"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/Dockerfile",
+        "hash": "7370947955167478597"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/index.html",
+        "hash": "18054577254085239636"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/module-federation.config.ts",
+        "hash": "6473260299411596205"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/nginx.conf",
+        "hash": "6297462676955255258"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/package-lock.json",
+        "hash": "3977549150760252661"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/package.json",
+        "hash": "858493131765386995"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/rspack.config.ts",
+        "hash": "3627472556505044060"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/App.tsx",
+        "hash": "3393934566500582312"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/ArrayFlatExample.tsx",
+        "hash": "13777364451064547524"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/ArrayReduceExample.tsx",
+        "hash": "9550190223103389603"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/ArraySliceExample.tsx",
+        "hash": "12755326524234224530"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/ArraySpliceExample.tsx",
+        "hash": "6864891132780676832"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/condition/ArrayEveryExample.tsx",
+        "hash": "2049483515543329237"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/condition/ArraySomeExample.tsx",
+        "hash": "8925662259803976220"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/search/ArrayFindExample.tsx",
+        "hash": "15943510698015508684"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/search/ArrayIncludeExample.tsx",
+        "hash": "14024228355861595330"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/search/ArrayIndexOfExample.tsx",
+        "hash": "16198504568394199782"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/sort/ArrayReverseExample.tsx",
+        "hash": "11914865181465469945"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/sort/ArraySortExample.tsx",
+        "hash": "18195933438545568844"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/store/ArrayPopExample.tsx",
+        "hash": "3030333382130312912"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/store/ArrayPushExample.tsx",
+        "hash": "11588307779793336693"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/store/ArrayShiftExample.tsx",
+        "hash": "17730682258480668928"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/array/store/ArrayUnShiftExample.tsx",
+        "hash": "321089603112906433"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/bootstrap.tsx",
+        "hash": "1328007026612478010"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/control_flow/ControlFlowFor.tsx",
+        "hash": "11922183085782048881"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/control_flow/ControlFlowForEach.tsx",
+        "hash": "132461476414625554"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/control_flow/ControlFlowIf.tsx",
+        "hash": "12155413883106236975"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/control_flow/ControlFlowSwitch.tsx",
+        "hash": "14325853726402832458"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/data_type/VariableAndDataTypes.tsx",
+        "hash": "18394804024624002320"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/filter/FilterExample.tsx",
+        "hash": "15551821708548858469"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/index.ts",
+        "hash": "17407949843547454366"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/index.tsx",
+        "hash": "17850717131520551598"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/logical_operation/LogicalOperationExample.tsx",
+        "hash": "14533672171403399618"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/map/MapExample.tsx",
+        "hash": "4723655298221173891"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/math_operation/CalculationExample.tsx",
+        "hash": "15208929553779930315"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/quiz/FifthQuiz.tsx",
+        "hash": "15762721920725005465"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/quiz/FirstQuiz.tsx",
+        "hash": "11302678706040003038"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/quiz/FourthQuiz.tsx",
+        "hash": "9469599131849291573"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/quiz/SecondQuiz.tsx",
+        "hash": "10283432944212121207"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/quiz/ThirdQuiz.tsx",
+        "hash": "218625864743756166"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/regular_expression/RegularExpression.tsx",
+        "hash": "17676316458229956710"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/string_test/StringExample.tsx",
+        "hash": "17823175365059156175"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/src/type_convert/TypeCoercion.tsx",
+        "hash": "10522965028924871263"
+      },
+      {
+        "file": "frontend/JihanKim/javascript-test-app/tsconfig.json",
+        "hash": "15765646564554873944"
       },
       {
         "file": "frontend/JihanKim/lerna.json",
-        "hash": "4990913600050823117"
+        "hash": "8860128180200504713"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/.babelrc",
+        "hash": "5336350591652325276"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/.gitignore",
+        "hash": "11904718991324175022"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/index.html",
+        "hash": "7703448332010724307"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/module-federation.config.ts",
+        "hash": "14861643306141987273"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/package-lock.json",
+        "hash": "7561564269784418419"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/package.json",
+        "hash": "14661856028197391289"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/postcss.config.mjs",
+        "hash": "5511442426987897172"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/rspack.config.ts",
+        "hash": "8460395078802185064"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/src/App.tsx",
+        "hash": "11315077741247867647"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/src/bootstrap.tsx",
+        "hash": "6607602783645220008"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/src/index.css",
+        "hash": "4645570607630753465"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/src/index.ts",
+        "hash": "876476442987263623"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/src/index.tsx",
+        "hash": "7158895837304039474"
+      },
+      {
+        "file": "frontend/JihanKim/navigation-bar-app/tsconfig.json",
+        "hash": "2167429044135916994"
       },
       {
         "file": "frontend/JihanKim/package-lock.json",
-        "hash": "13584937955128385720"
+        "hash": "2638926837734698458"
       },
       {
         "file": "frontend/JihanKim/package.json",
-        "hash": "4152147478836136491"
+        "hash": "12704030675272039090"
       },
       {
         "file": "frontend/JihanKim/prepare.txt",
@@ -536,7 +1336,7 @@
       },
       {
         "file": "frontend/SeungheyonLee/.gitignore",
-        "hash": "8587836968507943632"
+        "hash": "13254670216197043635"
       },
       {
         "file": "frontend/SeungheyonLee/docker-compose.yml",
@@ -544,11 +1344,11 @@
       },
       {
         "file": "frontend/SeungheyonLee/html-container/.babelrc",
-        "hash": "5336350591652325276"
+        "hash": "11000253849101584714"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/.gitignore",
-        "hash": "11904718991324175022"
+        "hash": "3899309809756385136"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/Dockerfile",
@@ -556,11 +1356,11 @@
       },
       {
         "file": "frontend/SeungheyonLee/html-container/index.html",
-        "hash": "14738402630705262754"
+        "hash": "13203053334082323720"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/module-federation.config.ts",
-        "hash": "17438662871468489475"
+        "hash": "7221818341308531808"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/nginx.conf",
@@ -568,43 +1368,43 @@
       },
       {
         "file": "frontend/SeungheyonLee/html-container/package.config.jsonc",
-        "hash": "13480085250607093529"
+        "hash": "7104464101407768384"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/package.json",
-        "hash": "7262741209313363519"
+        "hash": "4033232501717270299"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/postcss.config.mjs",
-        "hash": "5511442426987897172"
+        "hash": "15469501460034007830"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/rspack.config.ts",
-        "hash": "12606577383720292773"
+        "hash": "8912608436314649690"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/src/App.tsx",
-        "hash": "2072421441944000664"
+        "hash": "6463400798291072619"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/src/index.css",
-        "hash": "4645570607630753465"
+        "hash": "3391553823493686170"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/src/index.ts",
-        "hash": "876476442987263623"
+        "hash": "17407949843547454366"
       },
       {
         "file": "frontend/SeungheyonLee/html-container/tsconfig.json",
-        "hash": "2167429044135916994"
+        "hash": "15765646564554873944"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/.babelrc",
-        "hash": "5336350591652325276"
+        "hash": "11000253849101584714"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/.gitignore",
-        "hash": "11904718991324175022"
+        "hash": "3899309809756385136"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/Dockerfile",
@@ -612,11 +1412,11 @@
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/index.html",
-        "hash": "15498270395143920831"
+        "hash": "1069212195169051091"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/module-federation.config.ts",
-        "hash": "8834884094688368672"
+        "hash": "4312123714128549859"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/nginx.conf",
@@ -624,19 +1424,19 @@
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/package.json",
-        "hash": "3161427234083245379"
+        "hash": "10986926635476287926"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/postcss.config.mjs",
-        "hash": "5511442426987897172"
+        "hash": "15469501460034007830"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/rspack.config.ts",
-        "hash": "9954666518316003516"
+        "hash": "6529994667757598485"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/src/App.tsx",
-        "hash": "6999636924095082921"
+        "hash": "2685019220112317630"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/src/bootstrap.tsx",
@@ -644,7 +1444,7 @@
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/src/index.css",
-        "hash": "4645570607630753465"
+        "hash": "3391553823493686170"
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/src/index.tsx",
@@ -656,15 +1456,15 @@
       },
       {
         "file": "frontend/SeungheyonLee/html-css-test-app/tsconfig.json",
-        "hash": "2167429044135916994"
+        "hash": "15765646564554873944"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/.babelrc",
-        "hash": "5336350591652325276"
+        "hash": "11000253849101584714"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/.gitignore",
-        "hash": "11904718991324175022"
+        "hash": "3899309809756385136"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/Dockerfile",
@@ -672,11 +1472,11 @@
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/index.html",
-        "hash": "10137528743397754489"
+        "hash": "18054577254085239636"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/module-federation.config.ts",
-        "hash": "911279452539446584"
+        "hash": "4675828060915867243"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/nginx.conf",
@@ -684,23 +1484,23 @@
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/package-lock.json",
-        "hash": "8705294291650424901"
+        "hash": "7761781644199848675"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/package.json",
-        "hash": "14377808430576085097"
+        "hash": "858493131765386995"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/postcss.config.mjs",
-        "hash": "5511442426987897172"
+        "hash": "15469501460034007830"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/rspack.config.ts",
-        "hash": "9144618374644843812"
+        "hash": "3627472556505044060"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/src/App.tsx",
-        "hash": "12731719401982368598"
+        "hash": "6456351368265663216"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/src/Logical_operation/LogicalOperationExample.tsx",
@@ -732,15 +1532,19 @@
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/src/index.css",
-        "hash": "4645570607630753465"
+        "hash": "3391553823493686170"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/src/index.ts",
-        "hash": "876476442987263623"
+        "hash": "17407949843547454366"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/src/index.tsx",
         "hash": "17850717131520551598"
+      },
+      {
+        "file": "frontend/SeungheyonLee/javascript-test-app/src/map/MapExample.tsx",
+        "hash": "5393981994720978571"
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/src/math_operation/CalculationExample.tsx",
@@ -752,19 +1556,19 @@
       },
       {
         "file": "frontend/SeungheyonLee/javascript-test-app/tsconfig.json",
-        "hash": "2167429044135916994"
+        "hash": "15765646564554873944"
       },
       {
         "file": "frontend/SeungheyonLee/lerna.json",
-        "hash": "17997039567571008750"
+        "hash": "2984076573503741354"
       },
       {
         "file": "frontend/SeungheyonLee/package-lock.json",
-        "hash": "1013311753605626107"
+        "hash": "15008831054299411658"
       },
       {
         "file": "frontend/SeungheyonLee/package.json",
-        "hash": "9422331713216093750"
+        "hash": "4476701786569499854"
       },
       {
         "file": "frontend/SeungheyonLee/prepare.txt",
@@ -901,6 +1705,238 @@
       {
         "file": "frontend/TeajunPark/prepare.txt",
         "hash": "4757554901072472786"
+      },
+      {
+        "file": "frontend/UigunLee/docker-compose.yml",
+        "hash": "13870921961929258649"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/.babelrc",
+        "hash": "11000253849101584714"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/Dockerfile",
+        "hash": "15341768777903715949"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/index.html",
+        "hash": "13203053334082323720"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/module-federation.config.ts",
+        "hash": "7221818341308531808"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/nginx.conf",
+        "hash": "8324800778555498122"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/package-lock.json",
+        "hash": "4155394722960936422"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/package.json",
+        "hash": "15826720481759107924"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/rspack.config.ts",
+        "hash": "9642247774617759985"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/src/App.tsx",
+        "hash": "17219057588727569312"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/src/index.ts",
+        "hash": "17407949843547454366"
+      },
+      {
+        "file": "frontend/UigunLee/html-container/tsconfig.json",
+        "hash": "15765646564554873944"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/.babelrc",
+        "hash": "11000253849101584714"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/Dockerfile",
+        "hash": "9830680849866516393"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/index.html",
+        "hash": "1069212195169051091"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/module-federation.config.ts",
+        "hash": "4312123714128549859"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/nginx.conf",
+        "hash": "9833779240103431607"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/package-lock.json",
+        "hash": "7144476781680624152"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/package.json",
+        "hash": "10986926635476287926"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/rspack.config.ts",
+        "hash": "6529994667757598485"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/src/App.tsx",
+        "hash": "129619012126596516"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/src/bootstrap.tsx",
+        "hash": "1328007026612478010"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/src/index.tsx",
+        "hash": "17850717131520551598"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/src/style/main.css",
+        "hash": "11900087187260297819"
+      },
+      {
+        "file": "frontend/UigunLee/html-css-test-app/tsconfig.json",
+        "hash": "15765646564554873944"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/.babelrc",
+        "hash": "11000253849101584714"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/Dockerfile",
+        "hash": "2038409771505006017"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/index.html",
+        "hash": "18054577254085239636"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/module-federation.config.ts",
+        "hash": "4675828060915867243"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/nginx.conf",
+        "hash": "6297462676955255258"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/package-lock.json",
+        "hash": "2178554537676293236"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/package.json",
+        "hash": "858493131765386995"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/rspack.config.ts",
+        "hash": "3627472556505044060"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/App.tsx",
+        "hash": "4715030875517204317"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/bootstrap.tsx",
+        "hash": "1328007026612478010"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/control_flow/ControlFlowFor.tsx",
+        "hash": "11922183085782048881"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/control_flow/ControlFlowForEach.tsx",
+        "hash": "132461476414625554"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/control_flow/ControlFlowIf.tsx",
+        "hash": "4861617506780699240"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/control_flow/ControlFlowSwitch.tsx",
+        "hash": "14325853726402832458"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/data_type/VariableAndDataTypes.tsx",
+        "hash": "18394804024624002320"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/index.ts",
+        "hash": "17407949843547454366"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/index.tsx",
+        "hash": "17850717131520551598"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/logical_operation/LogicalOperationExample.tsx",
+        "hash": "14533672171403399618"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/math_operation/CalculationExample.tsx",
+        "hash": "6382672928334769761"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/src/type_convert/TypeCoercion.tsx",
+        "hash": "10522965028924871263"
+      },
+      {
+        "file": "frontend/UigunLee/javascript-test-app/tsconfig.json",
+        "hash": "15765646564554873944"
+      },
+      {
+        "file": "frontend/UigunLee/lerna.json",
+        "hash": "9639663785235438596"
+      },
+      {
+        "file": "frontend/UigunLee/package-lock.json",
+        "hash": "8445347785038344874"
+      },
+      {
+        "file": "frontend/UigunLee/package.json",
+        "hash": "4476701786569499854"
       },
       {
         "file": "frontend/UigunLee/prepare.txt",
@@ -1048,7 +2084,7 @@
       },
       {
         "file": "frontend/notes/html-container/module-federation.config.ts",
-        "hash": "7221818341308531808"
+        "hash": "17318653275083464935"
       },
       {
         "file": "frontend/notes/html-container/nginx.conf",
@@ -1060,7 +2096,7 @@
       },
       {
         "file": "frontend/notes/html-container/package.json",
-        "hash": "15826720481759107924"
+        "hash": "15148580449906255946"
       },
       {
         "file": "frontend/notes/html-container/postcss.config.mjs",
@@ -1072,7 +2108,7 @@
       },
       {
         "file": "frontend/notes/html-container/src/App.tsx",
-        "hash": "17219057588727569312"
+        "hash": "16587283472139782002"
       },
       {
         "file": "frontend/notes/html-container/src/index.css",
@@ -1104,7 +2140,7 @@
       },
       {
         "file": "frontend/notes/html-css-test-app/module-federation.config.ts",
-        "hash": "4312123714128549859"
+        "hash": "9002667298085801747"
       },
       {
         "file": "frontend/notes/html-css-test-app/nginx.conf",
@@ -1116,7 +2152,7 @@
       },
       {
         "file": "frontend/notes/html-css-test-app/package.json",
-        "hash": "10986926635476287926"
+        "hash": "2124293446726594596"
       },
       {
         "file": "frontend/notes/html-css-test-app/postcss.config.mjs",
@@ -1168,7 +2204,7 @@
       },
       {
         "file": "frontend/notes/javascript-test-app/module-federation.config.ts",
-        "hash": "6473260299411596205"
+        "hash": "17400604869035501045"
       },
       {
         "file": "frontend/notes/javascript-test-app/nginx.conf",
@@ -1180,7 +2216,7 @@
       },
       {
         "file": "frontend/notes/javascript-test-app/package.json",
-        "hash": "858493131765386995"
+        "hash": "9371543704975582712"
       },
       {
         "file": "frontend/notes/javascript-test-app/postcss.config.mjs",
@@ -1192,7 +2228,67 @@
       },
       {
         "file": "frontend/notes/javascript-test-app/src/App.tsx",
-        "hash": "4715030875517204317"
+        "hash": "8279964190752451869"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/ArrayFlatExample.tsx",
+        "hash": "7001589595365856066"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/ArrayReduceExample.tsx",
+        "hash": "14680333773287175001"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/ArraySliceExample.tsx",
+        "hash": "12812689496113207497"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/ArraySpliceExample.tsx",
+        "hash": "14855490983645721778"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/condition/ArrayEveryExample.tsx",
+        "hash": "4567576028370056955"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/condition/ArraySomeExample.tsx",
+        "hash": "16572448473360269862"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/search/ArrayFindExample.tsx",
+        "hash": "6987253979758327794"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/search/ArrayIncludesExample.tsx",
+        "hash": "9878131787409255904"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/search/ArrayIndexOfExample.tsx",
+        "hash": "17648014827409750562"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/sort/ArrayReverseExample.tsx",
+        "hash": "7858571929524303260"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/sort/ArraySortExample.tsx",
+        "hash": "16387139547389841215"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/store/ArrayPopExample.tsx",
+        "hash": "7085013872893682822"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/store/ArrayPushExample.tsx",
+        "hash": "1107087425219781152"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/store/ArrayShiftExample.tsx",
+        "hash": "12464786480739337256"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/array/store/ArrayUnShiftExample.tsx",
+        "hash": "116434440534198644"
       },
       {
         "file": "frontend/notes/javascript-test-app/src/bootstrap.tsx",
@@ -1219,6 +2315,10 @@
         "hash": "18394804024624002320"
       },
       {
+        "file": "frontend/notes/javascript-test-app/src/filter/FilterExample.tsx",
+        "hash": "11042824513438786505"
+      },
+      {
         "file": "frontend/notes/javascript-test-app/src/index.css",
         "hash": "3391553823493686170"
       },
@@ -1235,8 +2335,64 @@
         "hash": "14533672171403399618"
       },
       {
+        "file": "frontend/notes/javascript-test-app/src/map/MapExample.tsx",
+        "hash": "17906851175540931385"
+      },
+      {
         "file": "frontend/notes/javascript-test-app/src/math_operation/CalculationExample.tsx",
         "hash": "15208929553779930315"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz/EmergencyQuiz.tsx",
+        "hash": "1036842705198798266"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz/FirstQuiz.tsx",
+        "hash": "6411908846864420468"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz/SecondQuiz.tsx",
+        "hash": "16317997717126811212"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz/ThirdQuiz.tsx",
+        "hash": "8130406127941759395"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz2/FirstProblemVersionOne.tsx",
+        "hash": "4640593064094788427"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz2/FirstProblemVersionThree.tsx",
+        "hash": "11711418260294299073"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz2/FirstProblemVersionTwo.tsx",
+        "hash": "10529935910374271228"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz2/SecondProblemVersionOne.tsx",
+        "hash": "3029358181675836865"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz2/SecondProblemVersionThree.tsx",
+        "hash": "13040378576051193784"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz2/SecondProblemVersionTwo.tsx",
+        "hash": "17188189826285946607"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/quiz2/ThirdProblem.tsx",
+        "hash": "16594772021620088091"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/regular_expression/RegularExpression.tsx",
+        "hash": "4731921097992228599"
+      },
+      {
+        "file": "frontend/notes/javascript-test-app/src/string_test/StringExample.tsx",
+        "hash": "16164792669696398218"
       },
       {
         "file": "frontend/notes/javascript-test-app/src/type_convert/TypeCoercion.tsx",
@@ -1247,20 +2403,144 @@
         "hash": "15765646564554873944"
       },
       {
+        "file": "frontend/notes/kakao-authentication/.babelrc",
+        "hash": "11000253849101584714"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/index.html",
+        "hash": "11934647732729842089"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/module-federation.config.ts",
+        "hash": "866594111939113709"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/package-lock.json",
+        "hash": "5373719615237932956"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/package.json",
+        "hash": "14834004548979226864"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/rspack.config.ts",
+        "hash": "16238838442750754475"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/src/App.tsx",
+        "hash": "13870388707774990911"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/src/env.ts",
+        "hash": "18267506017286039299"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/src/index.ts",
+        "hash": "17407949843547454366"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/src/pages/KakaoAuthenticationPage.tsx",
+        "hash": "14562914890402351974"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/src/redirection/KakaoAuthenticationCallback.tsx",
+        "hash": "2444843312502779936"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/src/router/KakaoAuthenticationRouter.tsx",
+        "hash": "6750383473950191941"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/src/ui/components/SocialLoginButton.tsx",
+        "hash": "8733252709299697209"
+      },
+      {
+        "file": "frontend/notes/kakao-authentication/tsconfig.json",
+        "hash": "15765646564554873944"
+      },
+      {
         "file": "frontend/notes/lerna.json",
-        "hash": "9639663785235438596"
+        "hash": "7242222331729207360"
       },
       {
         "file": "frontend/notes/package-lock.json",
-        "hash": "8445347785038344874"
+        "hash": "7237891784300831612"
       },
       {
         "file": "frontend/notes/package.json",
-        "hash": "4476701786569499854"
+        "hash": "11826186969322047559"
       },
       {
         "file": "frontend/notes/prepare.txt",
         "hash": "4757554901072472786"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/.babelrc",
+        "hash": "10241474381502215598"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/.gitignore",
+        "hash": "3899309809756385136"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/index.html",
+        "hash": "4757725620572903888"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/module-federation.config.ts",
+        "hash": "4687927739000820512"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/package-lock.json",
+        "hash": "15347347521647043433"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/package.json",
+        "hash": "6016478452757143550"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/postcss.config.mjs",
+        "hash": "15469501460034007830"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/rspack.config.ts",
+        "hash": "223990968268855418"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/src/App.vue",
+        "hash": "9015049152679492014"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/src/bootloader.ts",
+        "hash": "5498074048171565110"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/src/index.css",
+        "hash": "3391553823493686170"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/src/index.ts",
+        "hash": "11326790286436280390"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/src/vue-shim.d.ts",
+        "hash": "8144642596066863436"
+      },
+      {
+        "file": "frontend/notes/vuetify-tailwind-board-app/tsconfig.json",
+        "hash": "15765646564554873944"
       },
       {
         "file": "frontend/package-lock.json",
@@ -1371,8 +2651,140 @@
         "hash": "4757554901072472786"
       },
       {
+        "file": "java_exercise/JeongminKim/answer/.gitignore",
+        "hash": "12480674702141820058"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/Main.java",
+        "hash": "573232827520884749"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/account/entity/Account.java",
+        "hash": "4449695466316736325"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/account/repository/AccountRepository.java",
+        "hash": "395934583149632979"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/account/repository/AccountRepositoryImpl.java",
+        "hash": "17066389931641226137"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/account/service/AccountService.java",
+        "hash": "12341972838435635700"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/account/service/AccountServiceImpl.java",
+        "hash": "11427660991908204102"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/fruit/entity/Fruit.java",
+        "hash": "14005350975457022422"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/fruit/entity/FruitType.java",
+        "hash": "11385208829532117276"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/fruit/repository/FruitRepository.java",
+        "hash": "4072949273312730702"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/fruit/repository/FruitRepositoryImpl.java",
+        "hash": "3339447543476484219"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/fruit/service/FruitService.java",
+        "hash": "15773600656326469539"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/fruit/service/FruitServiceImpl.java",
+        "hash": "3361671425789524389"
+      },
+      {
+        "file": "java_exercise/JeongminKim/answer/src/utility/KeyboardInput.java",
+        "hash": "6543540575761955805"
+      },
+      {
         "file": "java_exercise/JeongminKim/prepare.txt",
         "hash": "4757554901072472786"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/.gitignore",
+        "hash": "12480674702141820058"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/Main.java",
+        "hash": "15105108369880264017"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/account/entity/Account.java",
+        "hash": "12395653721795331314"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/account/repository/AccountRepository.java",
+        "hash": "395934583149632979"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/account/repository/AccountRepositoryImpl.java",
+        "hash": "17066389931641226137"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/account/service/AccountService.java",
+        "hash": "12341972838435635700"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/account/service/AccountServiceImpl.java",
+        "hash": "11427660991908204102"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/fruit/entity/Fruit.java",
+        "hash": "25185602242570426"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/fruit/entity/FruitType.java",
+        "hash": "11385208829532117276"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/fruit/repository/FruitRepository.java",
+        "hash": "6557707316725329242"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/fruit/repository/FruitRepositoryImpl.java",
+        "hash": "9697802973024311086"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/fruit/service/FruitService.java",
+        "hash": "15773600656326469539"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/fruit/service/FruitServiceImpl.java",
+        "hash": "3361671425789524389"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/order/entity/OrderEntity.java",
+        "hash": "1068790747070855217"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/order/repository/OrderRepository.java",
+        "hash": "8422243710903177869"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/order/repository/OrderRepositoryImpl.java",
+        "hash": "1180204530458115193"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/order/service/OrderService.java",
+        "hash": "7720389718048715849"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/order/service/OrderServiceImpl.java",
+        "hash": "11720626709137917517"
+      },
+      {
+        "file": "java_exercise/JihanKim/answer/src/utility/KeyboardInput.java",
+        "hash": "6543540575761955805"
       },
       {
         "file": "java_exercise/JihanKim/prepare.txt",
@@ -1420,11 +2832,11 @@
       },
       {
         "file": "java_exercise/notes/answer/src/Main.java",
-        "hash": "17335325239972043003"
+        "hash": "15105108369880264017"
       },
       {
         "file": "java_exercise/notes/answer/src/account/entity/Account.java",
-        "hash": "4449695466316736325"
+        "hash": "12395653721795331314"
       },
       {
         "file": "java_exercise/notes/answer/src/account/repository/AccountRepository.java",
@@ -1443,11 +2855,111 @@
         "hash": "11427660991908204102"
       },
       {
+        "file": "java_exercise/notes/answer/src/fruit/entity/Fruit.java",
+        "hash": "25185602242570426"
+      },
+      {
+        "file": "java_exercise/notes/answer/src/fruit/entity/FruitType.java",
+        "hash": "11385208829532117276"
+      },
+      {
+        "file": "java_exercise/notes/answer/src/fruit/repository/FruitRepository.java",
+        "hash": "6557707316725329242"
+      },
+      {
+        "file": "java_exercise/notes/answer/src/fruit/repository/FruitRepositoryImpl.java",
+        "hash": "9697802973024311086"
+      },
+      {
+        "file": "java_exercise/notes/answer/src/fruit/service/FruitService.java",
+        "hash": "15773600656326469539"
+      },
+      {
+        "file": "java_exercise/notes/answer/src/fruit/service/FruitServiceImpl.java",
+        "hash": "3361671425789524389"
+      },
+      {
+        "file": "java_exercise/notes/answer/src/order/entity/OrderEntity.java",
+        "hash": "1068790747070855217"
+      },
+      {
+        "file": "java_exercise/notes/answer/src/order/repository/OrderRepository.java",
+        "hash": "8422243710903177869"
+      },
+      {
+        "file": "java_exercise/notes/answer/src/order/repository/OrderRepositoryImpl.java",
+        "hash": "1180204530458115193"
+      },
+      {
+        "file": "java_exercise/notes/answer/src/order/service/OrderService.java",
+        "hash": "7720389718048715849"
+      },
+      {
+        "file": "java_exercise/notes/answer/src/order/service/OrderServiceImpl.java",
+        "hash": "11720626709137917517"
+      },
+      {
         "file": "java_exercise/notes/answer/src/utility/KeyboardInput.java",
         "hash": "6543540575761955805"
       },
       {
         "file": "java_exercise/notes/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/HyeinKim/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/JeongbeomKim/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/JeongminKim/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/JihanKim/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/JinaBae/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/JiyeonJun/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/JuyoungLee/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/SeungheyonLee/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/SinwonLee/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/TeajunPark/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/UigunLee/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/UnchulIm/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/YoungseongPark/prepare.txt",
+        "hash": "4757554901072472786"
+      },
+      {
+        "file": "msa/notes/prepare.txt",
         "hash": "4757554901072472786"
       },
       {
