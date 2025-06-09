@@ -25,6 +25,7 @@ export const SecondQuiz2 = () => {
     // - 욕설 7회 이상은 `영구 정지`
     // - 각각의 플레이어들 상태를 파악해봅시다.
     // 욕설 횟수 누적
+
     const userCounts = abuseReportList.reduce((acc, report) => {
         if (!acc[report.userId]) {
             acc[report.userId] = 0;
@@ -41,7 +42,7 @@ export const SecondQuiz2 = () => {
         return "주의";
     };
 
-    return ( 
+    return (
         <div className="bg-gray-100 p-5 my-4 rounded-md border-2 border-red-400 font-bold text-left">
             <h2 className="text-xl mb-2">플레이어 제재 상태</h2>
             <ul>

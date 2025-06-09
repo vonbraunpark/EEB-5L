@@ -2,9 +2,10 @@
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "version": "0.0.0",
   "packages": [
-    "html-container",
-    "html-css-test-app",
-    "javascript-test-app"
+    "./html-container",
+    "./html-css-test-app",
+    "./javascript-test-app",
+    "./navigation-bar-app"
   ],
   "hoist": true
 }
