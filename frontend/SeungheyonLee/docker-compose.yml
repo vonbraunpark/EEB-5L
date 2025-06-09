@@ -23,6 +23,13 @@ services:
       - "3002:3002"
     networks:
       - app-network
+  navigation-bar:
+    build:
+      context: ./navigation-bar-app
+    ports:
+      - "3005:3005"
+    networks:
+      - app-network
 networks:
   app-network:
     driver: bridge
