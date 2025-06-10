@@ -637,4 +637,10 @@ test/
 
 # exclude @mf-types
 @mf-types
-/.nx/workspace-data
+
+# exclude
+.png
+
+# exclude .nx/workspace-data
+.nx/workspace-data
+
