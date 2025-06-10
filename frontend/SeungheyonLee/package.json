@@ -5,7 +5,10 @@
     "html-container",
     "html-css-test-app",
     "javascript-test-app",
-    "navigation-bar-app"
+    "kakao-authentication",
+    "navigation-bar-app",
+    "practice-app",
+    "react-test-app"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",

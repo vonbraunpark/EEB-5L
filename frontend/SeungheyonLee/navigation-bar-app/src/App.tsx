@@ -41,6 +41,22 @@ const App: React.FC = () => {
                 <Button
                     color="inherit"
                     component={Link}
+                    to="/practice-app"
+                    startIcon={<CodeIcon  />}
+                >
+                    practice-app
+                </Button>
+                <Button
+                    color="inherit"
+                    component={Link}
+                    to="/react-test"
+                    startIcon={<CodeIcon />}
+                >
+                    React Test
+                </Button>
+                <Button
+                    color="inherit"
+                    component={Link}
                     to="/board/list"
                     startIcon={<ForumIcon />}
                 >
