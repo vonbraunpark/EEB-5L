@@ -7,7 +7,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
 const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
-
+const PracticeApp = lazy(() => import("practiceApp/App"));
+const ReactTestApp = lazy(() => import("reactTestApp/App"));
+const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
 const App = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
 
@@ -26,6 +28,9 @@ const App = () => {
                     <Route path="/" element={<div>Home Page</div>} />
                     <Route path="/html-css-test" element={<HtmlCssTestApp />} />
                     <Route path="/js-test" element={<JavascriptTestApp />} />
+                    <Route path="/practice-app" element={<PracticeApp />} />
+                    <Route path="/react-test" element={<ReactTestApp />} />
+                    <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
