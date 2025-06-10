@@ -4,7 +4,9 @@ export const mfConfig = {
     htmlCssTestApp: "htmlCssTestApp@http://localhost:3001/remoteEntry.js",
     javascriptTestApp: "javascriptTestApp@http://localhost:3002/remoteEntry.js",
     kakaoAuthenticationApp: "kakaoAuthenticationApp@http://localhost:3003/remoteEntry.js",
+    vuetifyTailwindBoardApp: "vuetifyTailwindBoardApp@http://localhost:3004/remoteEntry.js",
     navigationBarApp: "navigationBarApp@http://localhost:3005/remoteEntry.js",
+    reactTestApp: "reactTestApp@http://localhost:3006/remoteEntry.js"
   },
   shared: {
     react: { singleton: true, requiredVersion: "^18.2.0" },

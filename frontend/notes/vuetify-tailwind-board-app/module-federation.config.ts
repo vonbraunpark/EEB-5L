@@ -2,7 +2,7 @@ export const mfConfig = {
   name: "vuetifyTailwindBoardApp",
   filename: "remoteEntry.js",
   exposes: {
-    "./App": "./src/App",
+    "./App": "./src/bootstrap",
   },
   shared: ["vue"],
   dts: false
