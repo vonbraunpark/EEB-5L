@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "notes",
   "private": true,
   "workspaces": [
     "html-container",
@@ -11,7 +11,6 @@
     "react-test-app"
   ],
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "start": "lerna run start --parallel"
   },
   "devDependencies": {
