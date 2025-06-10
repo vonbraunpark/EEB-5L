@@ -1,6 +1,6 @@
 import * as path from "node:path";
 import { defineConfig } from "@rspack/cli";
-import {DefinePlugin, rspack} from "@rspack/core";
+import { rspack } from "@rspack/core";
 import * as RefreshPlugin from "@rspack/plugin-react-refresh";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 
@@ -19,21 +19,18 @@ export default defineConfig({
   },
   resolve: {
     extensions: ["...", ".ts", ".tsx", ".jsx"],
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-    },
   },
 
   devServer: {
-    port: 3003,
+    port: 3006,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
   },
   output: {
     // You need to set a unique value that is not equal to other applications
-    uniqueName: "kakao_authentication",
+    uniqueName: "react_test_app",
     // publicPath must be configured if using manifest
-    publicPath: "http://localhost:3003/",
+    publicPath: "http://localhost:3006/",
   },
 
   experiments: {
@@ -43,8 +40,8 @@ export default defineConfig({
   module: {
     rules: [
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        type: "asset/resource",
+        test: /\.svg$/,
+        type: "asset",
       },
       {
         test: /\.css$/,
@@ -82,10 +79,6 @@ export default defineConfig({
       template: "./index.html",
     }),
     new ModuleFederationPlugin(mfConfig),
-    new DefinePlugin({
-      "process.env.REACT_APP_KAKAO_AUTHENTICATION_URL": JSON.stringify(process.env.REACT_APP_KAKAO_AUTHENTICATION_URL),
-      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-    }),
     isDev ? new RefreshPlugin() : null,
   ].filter(Boolean),
   optimization: {
