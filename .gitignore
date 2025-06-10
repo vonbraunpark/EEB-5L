@@ -640,3 +640,7 @@ test/
 
 # exclude
 .png
+
+# exclude .nx/workspace-data
+.nx/workspace-data
+
