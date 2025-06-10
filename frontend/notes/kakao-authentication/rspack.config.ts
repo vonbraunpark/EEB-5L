@@ -15,10 +15,13 @@ const targets = ["chrome >= 87", "edge >= 88", "firefox >= 78", "safari >= 14"];
 export default defineConfig({
   context: __dirname,
   entry: {
-    main: "./src/index.ts",
+    main: "./src/index.tsx",
   },
   resolve: {
     extensions: ["...", ".ts", ".tsx", ".jsx"],
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
   },
 
   devServer: {
@@ -40,8 +43,8 @@ export default defineConfig({
   module: {
     rules: [
       {
-        test: /\.svg$/,
-        type: "asset",
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset/resource",
       },
       {
         test: /\.css$/,
