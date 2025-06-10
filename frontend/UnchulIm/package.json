@@ -17,5 +17,8 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "lerna": "^8.2.1"
+  },
+  "dependencies": {
+    "@module-federation/dts-plugin": "^0.15.0"
   }
 }

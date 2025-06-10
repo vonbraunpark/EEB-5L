@@ -11,7 +11,7 @@ import ChecklistOutlinedIcon from '@mui/icons-material/ChecklistOutlined';
 
 const App: React.FC = () => {
     return (
-        <AppBar position="static">
+        <AppBar position="fixed">
             <Toolbar>
                 <Typography variant="h6" sx={{ flexGrow: 1 }}>
                     EDDI
