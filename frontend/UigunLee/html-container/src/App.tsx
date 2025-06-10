@@ -31,6 +31,7 @@ const App = () => {
                     <Route path="/js-test" element={<JavascriptTestApp />} />
                     <Route path="/react-test" element={<ReactTestApp />} />
                     <Route path="/practice-app" element={<PracticeApp />} />
+                    <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>

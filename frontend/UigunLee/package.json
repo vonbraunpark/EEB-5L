@@ -11,11 +11,10 @@
     "practice-app"
   ],
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "start": "lerna run start --parallel"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "lerna": "^8.2.1"
+    "lerna": "^8.2.1",
+    "cross-env": "^7.0.3"
   }
 }
