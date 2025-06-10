@@ -1,6 +1,5 @@
 import React from "react";
-import { Button } from "@mui/material";
-import { Google } from "@mui/icons-material";
+import KakaoLoginImage from "../../assets/kakao_login.png";
 
 type Provider = "google" | "kakao" | "github";
 
@@ -14,9 +13,7 @@ const providerInfo: Record<Provider, {
     color: string;
     icon: React.ReactNode;
 }> = {
-    google: { label: "Google 로그인", color: "#DB4437", icon: <Google /> },
     kakao: { label: "Kakao 로그인", color: "", icon: null },   // 사용하지 않음
-    github: { label: "", color: "", icon: null },  // 사용하지 않음
 };
 
 const SocialLoginButton: React.FC<Props> = ({ provider, onClick }) => {
@@ -25,24 +22,18 @@ const SocialLoginButton: React.FC<Props> = ({ provider, onClick }) => {
     if (!info.label) return null; // 유효하지 않은 provider 방어 처리
 
     return (
-        <Button
+        <img
+            src={KakaoLoginImage}
+            alt="Kakao Login"
             onClick={onClick}
-            startIcon={info.icon}
-            sx={{
-                mt: 1,
-                mb: 1,
-                backgroundColor: info.color,
-                color: provider === "kakao" ? "#000" : "#fff",
-                "&:hover": {
-                    opacity: 0.9,
-                    backgroundColor: info.color,
-                },
+            style={{
+                cursor: "pointer",
+                maxWidth: "100%",     // 부모 컨테이너 크기까지만 줄어듦
+                height: "auto",       // 원본 비율 유지
+                display: "block",
+                margin: "16px auto",  // 가운데 정렬
             }}
-            fullWidth
-            variant="contained"
-        >
-            {info.label}
-        </Button>
+        />
     );
 };
 
