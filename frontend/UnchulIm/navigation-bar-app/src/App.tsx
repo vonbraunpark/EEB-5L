@@ -6,6 +6,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import CodeIcon from "@mui/icons-material/Code";
 import JavascriptIcon from "@mui/icons-material/Javascript";
 import ForumIcon from "@mui/icons-material/Forum";
+import SportsGymnasticsIcon from '@mui/icons-material/SportsGymnastics';
+import ChecklistOutlinedIcon from '@mui/icons-material/ChecklistOutlined';
 
 const App: React.FC = () => {
     return (
@@ -45,6 +47,22 @@ const App: React.FC = () => {
                     startIcon={<ForumIcon />}
                 >
                     게시판
+                </Button>
+                <Button
+                    color="inherit"
+                    component={Link}
+                    to="/react-test"
+                    startIcon={<SportsGymnasticsIcon />}
+                >
+                    React 실험
+                </Button>
+                <Button
+                    color="inherit"
+                    component={Link}
+                    to="/practice"
+                    startIcon={<ChecklistOutlinedIcon />}
+                >
+                    Practice
                 </Button>
             </Toolbar>
         </AppBar>

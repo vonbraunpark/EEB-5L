@@ -2032,7 +2032,7 @@
       },
       {
         "file": "frontend/UnchulIm/docker-compose.yml",
-        "hash": "1928564145205348726"
+        "hash": "11846274700807436992"
       },
       {
         "file": "frontend/UnchulIm/html-container/.babelrc",
@@ -2052,7 +2052,7 @@
       },
       {
         "file": "frontend/UnchulIm/html-container/module-federation.config.ts",
-        "hash": "15385065763462529676"
+        "hash": "13536133643004962456"
       },
       {
         "file": "frontend/UnchulIm/html-container/nginx.conf",
@@ -2355,8 +2355,64 @@
         "hash": "15765646564554873944"
       },
       {
+        "file": "frontend/UnchulIm/kakao-authentication/.babelrc",
+        "hash": "5336350591652325276"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/.gitignore",
+        "hash": "11904718991324175022"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/Dockerfile",
+        "hash": "3383762162498343667"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/index.html",
+        "hash": "3299447948493195830"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/module-federation.config.ts",
+        "hash": "6539757072522368264"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/nginx.conf",
+        "hash": "16228242590425214195"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/package.json",
+        "hash": "4695582610993631113"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/postcss.config.mjs",
+        "hash": "5511442426987897172"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/rspack.config.ts",
+        "hash": "6082261337831698410"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/src/App.tsx",
+        "hash": "3594459610563593354"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/src/bootstrap.tsx",
+        "hash": "1328007026612478010"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/src/index.css",
+        "hash": "4645570607630753465"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/src/index.tsx",
+        "hash": "17254717345257659879"
+      },
+      {
+        "file": "frontend/UnchulIm/kakao-authentication/tsconfig.json",
+        "hash": "2167429044135916994"
+      },
+      {
         "file": "frontend/UnchulIm/lerna.json",
-        "hash": "10090430112581831301"
+        "hash": "12009899490542334917"
       },
       {
         "file": "frontend/UnchulIm/navigation-bar-app/.babelrc",
@@ -2416,7 +2472,7 @@
       },
       {
         "file": "frontend/UnchulIm/package-lock.json",
-        "hash": "4769707968209370518"
+        "hash": "14873693109815344194"
       },
       {
         "file": "frontend/UnchulIm/package.json",
