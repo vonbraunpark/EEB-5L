@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
-  "version": "0.0.0",
+  "version": "independent",
   "packages": [
     "html-container",
     "html-css-test-app",
@@ -9,6 +9,5 @@
     "navigation-bar-app",
     "vuetify-tailwind-board-app",
     "react-test-app"
-  ],
-  "hoist": true
+  ]
 }
