@@ -6,7 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import CodeIcon from "@mui/icons-material/Code";
 import JavascriptIcon from "@mui/icons-material/Javascript";
 import ForumIcon from "@mui/icons-material/Forum";
-
+import TerminalIcon from '@mui/icons-material/Terminal';
 const App: React.FC = () => {
     return (
         <AppBar position="static">
@@ -42,7 +42,7 @@ const App: React.FC = () => {
                     color="inherit"
                     component={Link}
                     to="/practice-app"
-                    startIcon={<CodeIcon  />}
+                    startIcon={<TerminalIcon  />}
                 >
                     practice-app
                 </Button>
