@@ -637,3 +637,6 @@ test/
 
 # exclude @mf-types
 @mf-types
+
+# exclude
+.png
