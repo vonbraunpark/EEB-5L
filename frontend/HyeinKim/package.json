@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "html-container",
-    "html-css-test-app"
+    "html-css-test-app",
+    "javascript-test-app"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
