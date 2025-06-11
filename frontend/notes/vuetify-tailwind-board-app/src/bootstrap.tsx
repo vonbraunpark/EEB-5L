@@ -27,3 +27,10 @@ export function unmount() {
         app = null
     }
 }
+
+const devRoot = document.getElementById('app')
+
+if (devRoot) {
+    // 로컬 개발 환경에서만 mount
+    mount(devRoot)
+}
