@@ -10,7 +10,8 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     private static AccountRepositoryImpl instance;
 
-    private AccountRepositoryImpl() {}
+    private AccountRepositoryImpl() {
+    }
 
     public static AccountRepositoryImpl getInstance() {
         if (instance == null) {
@@ -36,5 +37,10 @@ public class AccountRepositoryImpl implements AccountRepository {
         return accountHashMap.values().stream()
                 .filter(account -> account.getUserId().equals(userId))
                 .findFirst();
+    }
+
+    @Override
+    public Optional<Account> findById(Integer id) {
+        return Optional.of(accountHashMap.get(id));
     }
 }
