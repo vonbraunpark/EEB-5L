@@ -6,7 +6,8 @@ export const mfConfig = {
     kakaoAuthenticationApp: "kakaoAuthenticationApp@http://localhost:3004/remoteEntry.js",
     navigationBarApp: "navigationBarApp@http://localhost:3005/remoteEntry.js",
     reactTestApp: "reactTestApp@http://localhost:3006/remoteEntry.js",
-    practiceApp: "practiceApp@http://localhost:3007/remoteEntry.js"
+    practiceApp: "practiceApp@http://localhost:3007/remoteEntry.js",
+    modalTestApp: "modalTestApp@http://localhost:3333/remoteEntry.js"
   },
   shared: {
     react: { singleton: true, requiredVersion: "^18.2.0" },

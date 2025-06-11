@@ -1,7 +1,7 @@
 import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 
-import { CircularProgress } from "@mui/material";
+import {CircularProgress, Modal} from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
@@ -10,6 +10,7 @@ const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
 const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
 const ReactTestApp = lazy(() => import("reactTestApp/App"));
 const PracticeApp = lazy(() => import("practiceApp/App"));
+const ModalTestApp = lazy(() => import("modalTestApp/App"));
 
 const App = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
@@ -26,12 +27,13 @@ const App = () => {
                 <NavigationBarApp />
 
                 <Routes>
-                    <Route path="/" element={<div>Home Page</div>} />
+                    <Route path="/" element={<div> Home Page <ModalTestApp/> </div>} />
                     <Route path="/html-css-test" element={<HtmlCssTestApp />} />
                     <Route path="/js-test" element={<JavascriptTestApp />} />
                     <Route path="/react-test" element={<ReactTestApp />} />
                     <Route path="/practice-app" element={<PracticeApp />} />
                     <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
+                    <Route path="/modal-test/*" element={<ModalTestApp/>} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
