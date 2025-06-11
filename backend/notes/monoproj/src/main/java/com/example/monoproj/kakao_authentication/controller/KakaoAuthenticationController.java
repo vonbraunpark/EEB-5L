@@ -67,8 +67,25 @@ public class KakaoAuthenticationController {
 
             String userToken = createUserTokenWithAccessToken(account, accessToken);
 
-            String redirectUri = "http://localhost/kakao-authentication/callback?userToken=" + userToken;
-            response.sendRedirect(redirectUri);
+//            String redirectUri = "http://localhost/kakao-authentication/callback?userToken=" + userToken;
+//            response.sendRedirect(redirectUri);
+
+            String htmlResponse = """
+            <html>
+              <body>
+                <script>
+                  window.opener.postMessage({
+                    accessToken: '%s',
+                    user: { name: '%s', email: '%s' }
+                  }, 'http://localhost');
+                  window.close();
+                </script>
+              </body>
+            </html>
+            """.formatted(userToken, nickname, email);
+
+            response.setContentType("text/html;charset=UTF-8");
+            response.getWriter().write(htmlResponse);
 
         } catch (Exception e) {
             log.error("Kakao 로그인 에러", e);
