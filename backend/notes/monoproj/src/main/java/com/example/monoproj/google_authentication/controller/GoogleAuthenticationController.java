@@ -2,6 +2,7 @@ package com.example.monoproj.google_authentication.controller;
 
 import com.example.monoproj.account.entity.Account;
 import com.example.monoproj.account.service.AccountService;
+import com.example.monoproj.account_profile.entity.AccountProfile;
 import com.example.monoproj.account_profile.service.AccountProfileService;
 import com.example.monoproj.google_authentication.service.GoogleAuthenticationService;
 import com.example.monoproj.kakao_authentication.controller.request_form.AccessTokenRequestForm;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -35,7 +37,7 @@ public class GoogleAuthenticationController {
 
     @GetMapping("/login")
     @Transactional
-    public String requestAccessToken(@RequestParam("code") String code, HttpServletResponse response) {
+    public void requestAccessToken(@RequestParam("code") String code, HttpServletResponse response) throws IOException {
         log.info("requestAccessToken(): code {}", code);
 
         try {
@@ -49,19 +51,42 @@ public class GoogleAuthenticationController {
             String nickname = (String) userInfo.get("name");
             log.info("email: {}, nickname: {}", email, nickname);
 
-//            Account account = accountService.findAccountByEmail(email);
-//            log.info("account: {}", account);
-//
-//            if (account == null) {
-//                account = accountService.createAccount(email);
-//                accountProfileService.createAccountProfile(account, nickname);
-//            }
+            Optional<AccountProfile> optionalProfile = accountProfileService.loadProfileByEmail(email);
+            Account account = null;
 
-//            return createUserTokenWithAccessToken(account, accessToken);
-            return null;
+            if (optionalProfile.isPresent()) {
+                account = optionalProfile.get().getAccount();
+                log.info("account (existing): {}", account);
+            }
+
+            if (account == null) {
+                log.info("New user detected. Creating account and profile...");
+                account = accountService.createAccount();
+                accountProfileService.createAccountProfile(account, nickname, email);
+            }
+
+            String userToken = createUserTokenWithAccessToken(account, accessToken);
+
+            String htmlResponse = """
+            <html>
+              <body>
+                <script>
+                  window.opener.postMessage({
+                    accessToken: '%s',
+                    user: { name: '%s', email: '%s' }
+                  }, 'http://localhost');
+                  window.close();
+                </script>
+              </body>
+            </html>
+            """.formatted(userToken, nickname, email);
+
+            response.setContentType("text/html;charset=UTF-8");
+            response.getWriter().write(htmlResponse);
 
         } catch (Exception e) {
-            return "error" + e.getMessage();
+            log.error("Google 로그인 에러", e);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "카카오 로그인 실패: " + e.getMessage());
         }
     }
 
