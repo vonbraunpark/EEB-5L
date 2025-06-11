@@ -1,10 +1,12 @@
-import React, {lazy, Suspense, useEffect, useState} from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import { Button } from "@mui/material";
+
 import { CircularProgress } from "@mui/material";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
+const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
+
 
 const App = () => {
 
@@ -14,6 +16,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<div>Home Page</div>} />
                     <Route path="/html-css-test" element={<HtmlCssTestApp />} />
+                    <Route path="/js-test" element={<JavascriptTestApp />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
