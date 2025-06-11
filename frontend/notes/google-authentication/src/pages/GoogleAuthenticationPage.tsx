@@ -55,7 +55,7 @@ const GoogleAuthenticationPage: React.FC = () => {
             <Typography variant="h5" gutterBottom>
                 로그인
             </Typography>
-            <SocialLoginButton provider="kakao" onClick={handleGoogleLogin} />
+            <SocialLoginButton provider="google" onClick={handleGoogleLogin} />
         </Box>
     );
 };
