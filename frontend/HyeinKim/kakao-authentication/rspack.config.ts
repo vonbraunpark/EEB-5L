@@ -84,6 +84,7 @@ export default defineConfig({
     }),
     new ModuleFederationPlugin(mfConfig),
     new DefinePlugin({
+      // process 환경변수 REACT_APP_ ...을 string으로 변환
       "process.env.REACT_APP_KAKAO_AUTHENTICATION_URL": JSON.stringify(process.env.REACT_APP_KAKAO_AUTHENTICATION_URL),
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
     }),
