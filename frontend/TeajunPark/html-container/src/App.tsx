@@ -9,6 +9,7 @@ const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
 const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
 const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
 const ReactTestApp = lazy(() => import("reactTestApp/App"));
+const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
 
 import VuetifyTailwindBoardAppWrapper from "./VuetifyTailwindBoardAppWrapper";
 
@@ -33,6 +34,7 @@ const App = () => {
                     <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
                     <Route path="/board/*" element={<VuetifyTailwindBoardAppWrapper />} />
                     <Route path="/react-test" element={<ReactTestApp />} />
+                    <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
