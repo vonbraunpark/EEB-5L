@@ -1,5 +1,5 @@
 import "./style/main.css";
-import {Button ,Typography} from "@mui/material";
+import {Button, Typography} from "@mui/material";
 
 const App = () => {
     return (
@@ -79,12 +79,14 @@ const App = () => {
                     <button type="submit" className="custom-button">제출</button>
                 </form>
             </div>
-            <div className="box">Add commentMore actions
+
+            <div className="box">
                 <h2>CSS Animation</h2>
                 <p>CSS는 Key Frame을 사용해서 애니메이션을 만들 수 있음</p>
                 <div className="animated-box">이 상자에 애니메이션 효과가 적용됨</div>
             </div>
-            <div className="box">Add commentMore actions
+
+            <div className="box">
                 <h2>Audio & Video</h2>
                 <p><code>&lt;audio&gt;</code> 및 <code>&lt;video&gt;</code> 태그를 사용해 멀티미디어를 추가</p>
                 <audio controls>
@@ -97,11 +99,10 @@ const App = () => {
                     브라우저가 비디오를 지원하지 않음.
                 </video>
             </div>
-
+            
             <Button variant="contained" color="primary">
                 MUI 버튼 클릭
             </Button>
-
         </div>
     )
 }
