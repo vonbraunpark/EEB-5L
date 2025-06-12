@@ -47,3 +47,5 @@ google:
   redirect-uri: ${GOOGLE_REDIRECT_URI}
   token-request-uri: ${GOOGLE_TOKEN_REQUEST_URI}
   user-info-request-uri: ${GOOGLE_USER_INFO_REQUEST_URI}
+
+debug: true

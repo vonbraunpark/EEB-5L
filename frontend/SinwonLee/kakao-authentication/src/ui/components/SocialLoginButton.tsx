@@ -13,7 +13,17 @@ const providerInfo: Record<Provider, {
     color: string;
     icon: React.ReactNode;
 }> = {
-    kakao: { label: "Kakao 로그인", color: "", icon: null },   // 사용하지 않음
+    kakao: {label: "Kakao 로그인", color: "", icon: null},
+    google: {
+        label: "",
+        color: "",
+        icon: undefined
+    },
+    github: {
+        label: "",
+        color: "",
+        icon: undefined
+    }
 };
 
 const SocialLoginButton: React.FC<Props> = ({ provider, onClick }) => {

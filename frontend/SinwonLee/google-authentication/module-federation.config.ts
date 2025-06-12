@@ -1,5 +1,5 @@
 export const mfConfig = {
-  name: "navigationBarApp",
+  name: "googleAuthenticationApp",
   filename: "remoteEntry.js",
   exposes: {
     "./App": "./src/App",

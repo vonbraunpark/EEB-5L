@@ -41,6 +41,23 @@ services:
     networks:
       - app-network
 
+  react-test-app:
+    build:
+      context: ./react-test-app
+    ports:
+      - "3006:3006"
+    networks:
+      - app-network
+
+
+  google-authentication:
+    build:
+      context: ./google-authentication
+    ports:
+      - "3100:3100"
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge

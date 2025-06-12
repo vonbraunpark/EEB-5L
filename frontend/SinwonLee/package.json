@@ -7,7 +7,8 @@
     "javascript-test-app",
     "kakao-authentication",
     "navigation-bar-app",
-    "react-test-app"
+    "react-test-app",
+    "google-authentication"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
@@ -20,6 +21,11 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^7.1.1"
+    "@module-federation/enhanced": "^0.8.9",
+    "@mui/icons-material": "^7.1.1",
+    "@mui/material": "^7.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.30.0"
   }
 }
