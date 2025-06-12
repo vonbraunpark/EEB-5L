@@ -50,6 +50,7 @@ th {
     background-color: #007bff;
     color: white;
 }
+
 form {
     display: flex;
     flex-direction: column;

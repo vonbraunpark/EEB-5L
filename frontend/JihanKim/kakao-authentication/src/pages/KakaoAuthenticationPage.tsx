@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import SocialLoginButton from "../ui/components/SocialLoginButton";
 
 import {useNavigate} from "react-router-dom";
@@ -26,7 +26,7 @@ const KakaoAuthenticationPage: React.FC = () => {
                 return;
             }
 
-            const { accessToken, user } = event.data;
+            const {accessToken, user} = event.data;
             if (!accessToken) {
                 console.warn('❌ accessToken 없음');
                 return;
@@ -54,11 +54,11 @@ const KakaoAuthenticationPage: React.FC = () => {
     };
 
     return (
-        <Box sx={{ p: 4, maxWidth: 400, margin: "0 auto" }}>
+        <Box sx={{p: 4, maxWidth: 400, margin: "0 auto"}}>
             <Typography variant="h5" gutterBottom>
                 로그인
             </Typography>
-            <SocialLoginButton provider="kakao" onClick={handleKakaoLogin} />
+            <SocialLoginButton provider="kakao" onClick={handleKakaoLogin}/>
         </Box>
     );
 };

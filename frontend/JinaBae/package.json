@@ -3,7 +3,12 @@
   "private": true,
   "workspaces": [
     "html-container",
-    "html-css-test-app"
+    "html-css-test-app",
+    "javascript-test-app",
+    "kakao-authentication",
+    "navigation-bar-app",
+    "react-test-app",
+    "practice-app"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
@@ -11,7 +16,6 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "external-remotes-plugin": "^1.0.0",
-    "lerna": "^8.2.2"
+    "lerna": "^8.2.1"
   }
 }
