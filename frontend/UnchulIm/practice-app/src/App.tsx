@@ -21,7 +21,7 @@ const StCotainer = styled.main`
   justify-content: flex-start;
   align-items: center;
   padding-left: 50px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),
     url(${BackgroundImg});  background-size: 100% 100%;
   background-repeat: no-repeat;
   position: relative;

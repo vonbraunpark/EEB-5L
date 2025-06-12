@@ -24,7 +24,7 @@ const Introduction = () => {
                 <span>{text}</span>
                 <Cursor />
                 <br />
-                개발자가 되고싶습니다.
+                오리가 되고싶습니다.
             </StContent>
         </StCotainer>
     );

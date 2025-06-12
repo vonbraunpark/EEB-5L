@@ -25,6 +25,38 @@ services:
     networks:
       - app-network
 
+  kakao-authentication:
+    build:
+      context: ./kakao-authentication
+    ports:
+      - "3004:3004"
+    networks:
+      - app-network
+
+  navigation-bar:
+    build:
+      context: ./navigation-bar-app
+    ports:
+      - "3005:3005"
+    networks:
+      - app-network
+
+  react-test:
+    build:
+      context: ./react-test-app
+    ports:
+      - "3006:3006"
+    networks:
+      - app-network
+
+  practice:
+    build:
+      context: ./practice-app
+    ports:
+      - "3007:3007"
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge
