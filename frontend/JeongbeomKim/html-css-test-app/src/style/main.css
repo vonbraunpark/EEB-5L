@@ -30,7 +30,7 @@ p {
 
 ul {
     text-align: left;
-    margin:  10px auto;
+    margin: 10px auto;
     display: inline-block;
 }
 
@@ -50,7 +50,6 @@ th {
     background-color: #007bff;
     color: white;
 }
-
 
 form {
     display: flex;
@@ -94,8 +93,8 @@ input[type="email"]:focus {
     background-color: #357ab8;
 }
 
-h1::after{
-    content:" ✨" ;
+h1::after {
+    content: " ✨";
     color: gold;
 }
 
@@ -105,8 +104,8 @@ h1::after{
 }
 
 @keyframes example {
-    from { background-color: red;}
-    to { background-color: yellow;}
+    from { background-color: red; }
+    to { background-color: yellow; }
 }
 
 .animated-box {
@@ -114,5 +113,4 @@ h1::after{
     height: 100px;
     background-color: red;
     animation: example 2s infinite alternate;
-
 }
