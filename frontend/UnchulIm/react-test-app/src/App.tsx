@@ -5,12 +5,14 @@ import "./index.css";
 import HelloPropsTest from "./basics/HelloPropsTest.tsx";
 import SimpleCounter from "./basics/SimpleCounter.tsx";
 import ConditionalRenderTest from "./basics/ConditionalRenderTest.tsx";
+import TodoListTest from "./basics/TodoListTest.tsx";
 
 const App = () => (
     <div className="mt-10 text-3xl mx-auto max-w-6xl">
         <HelloPropsTest/>
         <SimpleCounter/>
         <ConditionalRenderTest/>
+        <TodoListTest/>
         <div>Name: navigation-bar-app</div>
         <div>Framework: react-18</div>
     </div>
