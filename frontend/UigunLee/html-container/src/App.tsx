@@ -11,6 +11,8 @@ const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
 const ReactTestApp = lazy(() => import("reactTestApp/App"));
 const PracticeApp = lazy(() => import("practiceApp/App"));
 const ModalTestApp = lazy(() => import("modalTestApp/App"));
+const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"))
+
 
 const App = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
@@ -34,6 +36,7 @@ const App = () => {
                     <Route path="/practice-app" element={<PracticeApp />} />
                     <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
                     <Route path="/modal-test/*" element={<ModalTestApp/>} />
+                    <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>

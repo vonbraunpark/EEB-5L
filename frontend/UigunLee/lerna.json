@@ -9,6 +9,7 @@
     "navigation-bar-app",
     "vuetify-tailwind-board-app",
     "react-test-app",
-    "modal-test"
+    "modal-test",
+    "google-authentication"
   ]
 }
