@@ -4,7 +4,11 @@
   "workspaces": [
     "html-container",
     "html-css-test-app",
-    "javascript-test-app"
+    "javascript-test-app",
+    "kakao-authentication",
+    "navigation-bar-app",
+    "react-test-app",
+    "practice-app"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
