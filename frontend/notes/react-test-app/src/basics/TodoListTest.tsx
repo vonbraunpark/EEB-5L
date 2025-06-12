@@ -24,21 +24,23 @@ const TodoListTest = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-            <div className="bg-white shadow-xl rounded-2xl w-full max-w-md p-6">
-                <h1 className="text-2xl font-bold mb-4 text-gray-800">📝 Todo List</h1>
+        // Background 배경
+        <div className="min-h-screen flex bg-gradient-to-br from-blue-50 to-purple-100 items-center justify-center px-4">
+            {/* 배경에 박혀 있는 카드 */}
+            <div className="bg-white shadow-2xl rounded-3xl w-full max-w-xl p-8">
+                <h1 className="text-2xl font-extrabold mb-6 text-gray-700">📝 Todo List</h1>
 
-                <div className="flex gap-2 mb-4">
+                <div className="flex items-center gap-3 mb-6">
                     <input
                         type="text"
                         value={ userInput }
                         onChange={(event) => setUserInput(event.target.value)}
                         placeholder="할 일을 입력하세요."
-                        className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 fcous:ring-blue-500"
+                        className="flex-grow px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 fcous:ring-blue-500"
                     />
                     <button
                         onClick={ handleAddTask }
-                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+                        className="shrink-0 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 active:scale-95 transition"
                     >
                         추가
                     </button>
@@ -48,7 +50,7 @@ const TodoListTest = () => {
                     { taskList.map((task) => (
                         <li
                             key={ task.id }
-                            className="flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2"
+                            className="flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2 shadow-sm"
                         >
                             <span>{ task.text }</span>
                             <button
