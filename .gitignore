@@ -644,3 +644,6 @@ test/
 # exclude .nx/workspace-data
 .nx/workspace-data
 
+.nx/workspace-data/nx_files.nxt
+.nx/workspace-data/file-map.json
+.nx/workspace-data/project-graph.json

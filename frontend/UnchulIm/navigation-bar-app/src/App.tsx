@@ -1,6 +1,7 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import {AppBar, Toolbar, Typography, Button} from "@mui/material";
 import {Link} from "react-router-dom";
+import styled from "styled-components";
 
 import HomeIcon from "@mui/icons-material/Home";
 import CodeIcon from "@mui/icons-material/Code";
@@ -13,56 +14,78 @@ const App: React.FC = () => {
     return (
         <AppBar position="fixed">
             <Toolbar>
-                <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                <Typography variant="h6" sx={{flexGrow: 1}}>
                     EDDI
                 </Typography>
                 <Button
                     color="inherit"
                     component={Link}
                     to="/"
-                    startIcon={<HomeIcon />}
+                    startIcon={<HomeIcon/>}
                 >
-                    Home
+                    <TextBox>
+                        Home
+                    </TextBox>
                 </Button>
                 <Button
                     color="inherit"
                     component={Link}
                     to="/html-css-test"
-                    startIcon={<CodeIcon />}
+                    startIcon={<CodeIcon/>}
                 >
-                    HTML/CSS Test
+                    <TextBox>
+                        HTML/CSS Test
+                    </TextBox>
                 </Button>
                 <Button
                     color="inherit"
                     component={Link}
                     to="/js-test"
-                    startIcon={<JavascriptIcon />}
+                    startIcon={<JavascriptIcon/>}
                 >
-                    Javascript Test
+                    <TextBox>
+                        Javascript Test
+                    </TextBox>
                 </Button>
                 <Button
                     color="inherit"
                     component={Link}
                     to="/board/list"
-                    startIcon={<ForumIcon />}
+                    startIcon={<ForumIcon/>}
                 >
-                    게시판
+                    <TextBox>
+                        게시판
+                    </TextBox>
                 </Button>
                 <Button
                     color="inherit"
                     component={Link}
                     to="/react-test"
-                    startIcon={<SportsGymnasticsIcon />}
+                    startIcon={<SportsGymnasticsIcon/>}
                 >
-                    React 실험
+                    <TextBox>
+                        React 실험
+                    </TextBox>
                 </Button>
                 <Button
                     color="inherit"
                     component={Link}
                     to="/practice"
-                    startIcon={<ChecklistOutlinedIcon />}
+                    startIcon={<ChecklistOutlinedIcon/>}
                 >
-                    Practice
+                    <TextBox>
+                        Practice
+                    </TextBox>
+                </Button>
+                <Button
+                    color="inherit"
+                    component={Link}
+                    to="/kakao-authentication/login"
+                    startIcon={<ChecklistOutlinedIcon/>}
+                >
+                    <TextBox>
+                        로그인
+                    </TextBox>
                 </Button>
             </Toolbar>
         </AppBar>
@@ -70,3 +93,19 @@ const App: React.FC = () => {
 };
 
 export default App
+
+const TextBox = styled.div
+    `
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 14px;
+        color: black;
+        padding: 5px;
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
+    `;

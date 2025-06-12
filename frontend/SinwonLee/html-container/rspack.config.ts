@@ -22,7 +22,7 @@ export default defineConfig({
   },
 
   devServer: {
-    port: 3000,
+    port: 80,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
   },
@@ -30,7 +30,7 @@ export default defineConfig({
     // You need to set a unique value that is not equal to other applications
     uniqueName: "html_container",
     // publicPath must be configured if using manifest
-    publicPath: "http://localhost:3000/",
+    publicPath: "http://localhost:80/",
   },
 
   experiments: {
@@ -79,6 +79,7 @@ export default defineConfig({
       template: "./index.html",
     }),
     new ModuleFederationPlugin(mfConfig),
+
     isDev ? new RefreshPlugin() : null,
   ].filter(Boolean),
   optimization: {
