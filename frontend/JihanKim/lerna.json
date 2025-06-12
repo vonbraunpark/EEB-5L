@@ -7,7 +7,8 @@
     "javascript-test-app",
     "kakao-authentication",
     "navigation-bar-app",
-    "practice-app"
+    "practice-app",
+    "react-test-app"
   ],
   "hoist": true
 }
