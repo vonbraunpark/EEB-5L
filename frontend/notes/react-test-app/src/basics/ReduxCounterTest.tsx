@@ -7,13 +7,28 @@ const ReduxCounterTest = () => {
     const dispatch = useDispatch();
 
     return (
-        <div>
-            <p>카운트: {count}</p>
-            <button onClick={() => dispatch(increment())}>+</button>
-            <button onClick={() => dispatch(decrement())}>-</button>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+            <div className="bg-white p-6 rounded-2xl shadow-md text-center space-y-4">
+                <h1 className="text-2xl font-bold">카운트</h1>
+                <p className="text-4xl font-mono">{count}</p>
+                <div className="flex gap-4 justify-center">
+                    <button
+                        onClick={() => dispatch(increment())}
+                        className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow transition"
+                    >
+                        +
+                    </button>
+                    <button
+                        onClick={() => dispatch(decrement())}
+                        className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg shadow transition"
+                    >
+                        -
+                    </button>
+                </div>
+            </div>
         </div>
     );
-}
+};
 
 // npm install @reduxjs/toolkit react-redux
 export default ReduxCounterTest
