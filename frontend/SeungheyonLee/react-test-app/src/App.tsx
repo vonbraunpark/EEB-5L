@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import SimpleCounter from "./basics/SimpleCounter.tsx";
 import ConditionalRenderTest from "./basics/ConditionalRenderTest.tsx";
+import TodoList from "./basics/TodoList.tsx";
 
 const App = () => {
     return(
@@ -12,6 +13,7 @@ const App = () => {
             <div>Framework: react-18</div>
             <SimpleCounter/>
             <ConditionalRenderTest/>
+            <TodoList/>
         </div>
     )
 }
