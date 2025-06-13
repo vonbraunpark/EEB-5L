@@ -5,11 +5,15 @@ const VuetifyTailwindBoardAppWrapper = () => {
     let vueAppInstance: any = null;
 
     useEffect(() => {
+        let cleanup: (() => void) | null = null;
         let isMounted = true;
+
         import("vuetifyTailwindBoardApp/App")
             .then(({ mount, unmount }) => {
                 if (containerRef.current && isMounted) {
-                    vueAppInstance = mount(containerRef.current);
+                    mount(containerRef.current).then((unmountFn) => {
+                        cleanup = unmountFn;
+                    });
                 }
             })
             .catch((err) => {
@@ -18,13 +22,11 @@ const VuetifyTailwindBoardAppWrapper = () => {
 
         return () => {
             isMounted = false;
-            if (vueAppInstance && vueAppInstance.unmount) {
-                vueAppInstance.unmount();
-            }
+            if (cleanup) cleanup();
         };
     }, []);
 
-    return <div ref={containerRef} style={{ width: "100%", height: "100%" }} />;
+    return <div ref={containerRef} style={{ width: "100%", height: "100%", all: "initial" }} />;
 };
 
 export default VuetifyTailwindBoardAppWrapper;
