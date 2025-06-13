@@ -8,7 +8,8 @@
     "kakao-authentication",
     "navigation-bar-app",
     "practice-app",
-    "react-test-app"
+    "react-test-app",
+    "google-authentication"
   ],
   "hoist": true
 }

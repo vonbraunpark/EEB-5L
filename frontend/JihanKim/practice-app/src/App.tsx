@@ -5,6 +5,7 @@ import "./index.css";
 import HelloPropsTest from "./basics/HelloPropsTest.tsx";
 import SimpleCounter from "./basics/SimpleCounter.tsx";
 import ConditionRenderTest from "./basics/ConditionRenderTest.tsx";
+import TodoListTest from "./basics/TodoListTest.tsx";
 
 const App = () => (
     <div className="mt-10 text-3xl mx-auto max-w-6xl">
@@ -13,6 +14,7 @@ const App = () => (
         <div>Framework: react-18</div>
         <SimpleCounter></SimpleCounter>
         <ConditionRenderTest></ConditionRenderTest>
+        <TodoListTest></TodoListTest>
     </div>
 );
 
