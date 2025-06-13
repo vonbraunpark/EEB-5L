@@ -25,15 +25,15 @@ const TodoListTest = () => {
 
     return (
         // Background 배경
-        // min-h-screen <- 화면 톻이를 100vh로 설정 (즉 세로 높이를 가득 채우겠다는 뜻)
-        // flex <- 내부를 flex하게 유연하게 UI를 배치 할 수 있게 구성
+        // min-h-screen <- 화면 높이를 100vh로 설정 (즉 세로 높이를 가득 채우겠다는 뜻)
+        // flex <- 내부를 flex 하게 유연하게 UI를 배치 할 수 있게 구성
         // bg-gradient-to-br <- 배경을 위에서 아래로 그라데이션
-        // from-blue-50 to-purple-100 <- 적정한 값으로 그라데이션 시작~끝
-        // items-center <- 수직 정렬 : 중앙
-        // justifiy-center <- 수평 정렬 : 중앙
-        // px-4 <- 좌우 패딩(16px) [x-4의 경우 * 4]
+        // from-blue-50 to-purple-100 <- 적정한 값으로 그라데이션 시작 ~ 끝
+        // items-center <- 수직 정렬: 중앙
+        // justify-center <- 수평 정렬: 중앙
+        // px-4 <- 좌우 패딩 (16px) [x-4의 경우 * 4]
         <div className="min-h-screen flex bg-gradient-to-br from-blue-50 to-purple-100 items-center justify-center px-4">
-            {/*
+            {/* 
                 배경에 박혀 있는 카드
                 bg-white <- 흰색 배경
                 shadow-2xl <- 그림자 효과를 진하게
@@ -46,10 +46,11 @@ const TodoListTest = () => {
                 {/*
                     text-2xl <- 폰트 크기 (xlarge)
                     font-extrabold <- 매우 두꺼운 글씨
-                    mb-6 <- 아래방향 마진 24px
+                    mb-6 <- 아래 방향 마진 24px
                     text-gray-700 <- 텍스트 회색
                 */}
                 <h1 className="text-2xl font-extrabold mb-6 text-gray-700">📝 Todo List</h1>
+
                 {/*
                     flex <- 가로 정렬 (input 과 button을 나란히)
                     items-center <- 수직 정렬
@@ -63,7 +64,7 @@ const TodoListTest = () => {
                         py-2 <- 상하 8px 패딩
                         border-2 border-gray-300 <- 테두리 두께 2px, 회색
                         rounded-lg <- 모서리 약간 둥글게
-                        focus:outline-none <- 커서를 놓으면 focus가 되고 외각선을 제거
+                        focus:outline-none <- 커서를 놓으면 focus가 되고 외곽선을 제거
                         focus:ring-2 focus:ring-blue-500 <- 커서를 놓으면 파란색 glow 효과 (테두리 강조)
                     */}
                     <input
@@ -75,11 +76,13 @@ const TodoListTest = () => {
                     />
                     {/*
                         shrink-0 <- 버튼이 줄어들지 않도록 방지
+                        bg-blue-600 <- 조금 진한 파란색
+                        text-white <- 글자 색상 흰색
                         py-2 <- 상하 패딩 8px
                         rounded-lg <- 약간 둥글게
-                        hover:bg-blue-700 <- 커서가 위족 배치 (hover)되면 진한 파란색
-                        active:scale-95 <- 클릭시 약간 축소
-                        transition <- hover/active 효과 부드럽게 처리하도록 지원
+                        hover:bg-blue-700 <- 커서가 위쪽 배치 (hover) 되면 진한 파란색 처리
+                        active:scale-95 <- 클릭 시 약간 축소
+                        transition <- hover / active 효과 부드럽게 처리하도록 지원
                     */}
                     <button
                         onClick={ handleAddTask }
@@ -88,6 +91,7 @@ const TodoListTest = () => {
                         추가
                     </button>
                 </div>
+
                 {/*
                     space-y-2 <- 추가된 항목들 사이의 간격 8px
                 */}
@@ -95,15 +99,21 @@ const TodoListTest = () => {
                     { taskList.map((task) => (
                         // flex justify-between <- 내용과 삭제 버튼을 좌우로 배치
                         // items-center <- 수직 정렬
+                        // bg-gray-50 <- 매우 밝은 회색
                         // border <- 기본 테두리 1px
-                        // shadow-sm <- 약한 그림자 효과
+                        // rounded-lg <- 약간 둥글게
+                        // px-4 <- 좌우 16px 패딩
+                        // py-2 <- 상하 8px 패딩
+                        // 약한 그림자 효과
                         <li
                             key={ task.id }
                             className="flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2 shadow-sm"
                         >
                             <span>{ task.text }</span>
                             {/*
-                               transition <- 색상 변화를 부드럽게 전환하도록 지원
+                                text-red-500 <- 기본 빨간색
+                                hover:text-red-700 <- hover 시 진한 빨간색
+                                transition <- 색상 변화를 부드럽게 전환하도록 지원
                             */}
                             <button
                                 onClick={ () => handleDeleteTask(task.id) }
@@ -114,8 +124,11 @@ const TodoListTest = () => {
                         </li>
                     )) }
                 </ul>
+
                 {/*
-                    mt-4 <- 위쪽(top) 여백 16px
+                    text-center <- 가운데 정렬
+                    text-gray-400 <- 흐린 회색
+                    mt-4 <- 위쪽 여백 (16px)
                 */}
                 { taskList.length === 0 && (
                     <p className="text-center text-gray-400 mt-4">

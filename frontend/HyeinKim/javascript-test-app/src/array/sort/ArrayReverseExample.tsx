@@ -4,7 +4,7 @@ export const ArrayReverseExample = () => {
 
     let steps = [
         `초개 배열: [${numbers.join(", ")}]`,
-        `reverse() 결과: [${sortedReverse.join(", ")}]`
+        `reverse() 결과: [${sortedReverse.join(", ")}]`,
     ]
 
     return (
