@@ -14,13 +14,13 @@ const ReduxCounterTest = () => {
                 <div className="flex gap-4 justify-center">
                     <button
                         onClick={() => dispatch(increment())}
-                        className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow transition"
+                        className="w-12 h-12 bg-blue-500 hover:bg-blue-600 text-white text-2xl font-bold rounded-lg shadow transition"
                     >
                         +
                     </button>
                     <button
                         onClick={() => dispatch(decrement())}
-                        className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg shadow transition"
+                        className="w-12 h-12 bg-red-500 hover:bg-red-600 text-white text-2xl font-bold rounded-lg shadow transition"
                     >
                         -
                     </button>
