@@ -8,8 +8,8 @@ const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
 const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
 const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
-const ReactTestApp = lazy(() => import("reactTestApp/App"));
 const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
+const ReactTestApp = lazy(() => import("reactTestApp/App"));
 
 import VuetifyTailwindBoardAppWrapper from "./VuetifyTailwindBoardAppWrapper";
 
