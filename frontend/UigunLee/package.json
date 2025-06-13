@@ -10,7 +10,8 @@
     "react-test-app",
     "practice-app",
     "modal-test",
-    "google-authentication"
+    "google-authentication",
+    "recoil-board-app"
   ],
   "scripts": {
     "start": "lerna run start --parallel"
