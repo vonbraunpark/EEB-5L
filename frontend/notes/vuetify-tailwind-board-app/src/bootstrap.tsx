@@ -35,9 +35,8 @@ export function unmount() {
     }
 }
 
-const devRoot = document.getElementById('app')
-
-if (devRoot) {
-    // 로컬 개발 환경에서만 mount
-    mount(devRoot)
-}
+// const devRoot = document.getElementById('app')
+//
+// if (devRoot && process.env.NODE_ENV === 'development') {
+//     mount(devRoot);
+// }
