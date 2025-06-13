@@ -1,5 +1,3 @@
-import {indigo} from "@mui/material/colors";
-
 export const StringExample = () => {
     let text = "Javascript(Typescript) is awesome!"
     let words = text.split(" ")
