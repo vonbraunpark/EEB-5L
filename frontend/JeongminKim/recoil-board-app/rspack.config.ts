@@ -22,15 +22,15 @@ export default defineConfig({
   },
 
   devServer: {
-    port: 3005,
+    port: 3101,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
   },
   output: {
     // You need to set a unique value that is not equal to other applications
-    uniqueName: "navigation_bar_app",
+    uniqueName: "recoil_board_app",
     // publicPath must be configured if using manifest
-    publicPath: "http://localhost:3005/",
+    publicPath: "http://localhost:3101/",
   },
 
   experiments: {

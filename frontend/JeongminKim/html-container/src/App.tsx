@@ -8,9 +8,10 @@ const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
 const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
 const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
-const ReactTestApp = lazy(() => import("reactTestApp/App"));
-const practiceApp = lazy(() => import("practiceApp/App"));
-
+// const ReactTestApp = lazy(() => import("reactTestApp/App"));
+// const PracticeApp = lazy(() => import("practiceApp/App"));
+const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
+const RecoilBoardApp = lazy(() => import("recoilBoardApp/App"));
 
 const App = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
@@ -31,8 +32,10 @@ const App = () => {
                     <Route path="/html-css-test" element={<HtmlCssTestApp />} />
                     <Route path="/js-test" element={<JavascriptTestApp />} />
                     <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
-                    <Route path="/react-test" element={<ReactTestApp />} />
-                    <Route path="/practice-app" element={<practiceApp />} />
+                    {/*<Route path="/react-test" element={<ReactTestApp />} />*/}
+                    {/*<Route path="/practice-app" element={<PracticeApp />} />*/}
+                    <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
+                    <Route path="/recoil-board/*" element={<RecoilBoardApp />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>

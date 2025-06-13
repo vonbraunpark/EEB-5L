@@ -1,6 +1,6 @@
 import * as path from "node:path";
 import { defineConfig } from "@rspack/cli";
-import { rspack } from "@rspack/core";
+import {DefinePlugin, rspack} from "@rspack/core";
 import * as RefreshPlugin from "@rspack/plugin-react-refresh";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 
@@ -22,15 +22,15 @@ export default defineConfig({
   },
 
   devServer: {
-    port: 3005,
+    port: 3100,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
   },
   output: {
     // You need to set a unique value that is not equal to other applications
-    uniqueName: "navigation_bar_app",
+    uniqueName: "google_authentication",
     // publicPath must be configured if using manifest
-    publicPath: "http://localhost:3005/",
+    publicPath: "http://localhost:3100/",
   },
 
   experiments: {
@@ -79,6 +79,10 @@ export default defineConfig({
       template: "./index.html",
     }),
     new ModuleFederationPlugin(mfConfig),
+    new DefinePlugin({
+      "process.env.REACT_APP_GOOGLE_AUTHENTICATION_URL": JSON.stringify(process.env.REACT_APP_GOOGLE_AUTHENTICATION_URL),
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+    }),
     isDev ? new RefreshPlugin() : null,
   ].filter(Boolean),
   optimization: {
