@@ -19,6 +19,13 @@ export async function mount(el: Element) {
     app = createApp(App);
     app.use(vuetify);
     app.mount(el);
+
+    return () => {
+        if (app) {
+            app.unmount();
+            app = null;
+        }
+    };
 }
 
 export function unmount() {
