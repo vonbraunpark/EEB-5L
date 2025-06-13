@@ -89,6 +89,17 @@ const App: React.FC = () => {
                         sx={{minWidth: 'auto', padding: '6px 8px', margin: 0}}
                         color="inherit"
                         component={Link}
+                        to="/recoil-board"
+                        startIcon={<ChecklistOutlinedIcon/>}
+                    >
+                        <TextBox>
+                            recoil
+                        </TextBox>
+                    </Button>
+                    <Button
+                        sx={{minWidth: 'auto', padding: '6px 8px', margin: 0}}
+                        color="inherit"
+                        component={Link}
                         to="/kakao-authentication/login"
                         startIcon={<ExitToAppIcon/>}
                     >

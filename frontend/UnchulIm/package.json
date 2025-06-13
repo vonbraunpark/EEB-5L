@@ -9,7 +9,8 @@
     "navigation-bar-app",
     "react-test-app",
     "practice_app",
-    "google-authentication"
+    "google-authentication",
+    "recoil-board-app"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
