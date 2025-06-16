@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 
 import "./index.css";
 import HelloPropsdTest from "./basics/HelloPropsdTest.tsx";
@@ -8,6 +7,7 @@ import TodoListTest from "./basics/TodoListTest.tsx";
 import ReduxCounterTest from "./basics/ReduxCounterTest.tsx";
 import {Provider} from "react-redux";
 import {store} from "./state/stort.ts";
+import PostList from "./basics/PostList.tsx";
 
 const App = () => (
     <Provider  store={store}>
@@ -18,6 +18,7 @@ const App = () => (
         <SimpleCounter/>
         <TodoListTest/>
         <ReduxCounterTest/>
+        <PostList/>
     </div>
     </Provider>
 );
