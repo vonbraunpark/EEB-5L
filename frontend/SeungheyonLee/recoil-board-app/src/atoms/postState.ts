@@ -18,7 +18,7 @@ export const postsState = atom({
  * 로딩 스피너나 메시지를 표시할 때 유용하게 사용된다.
  */
 export const postsLoadingState = atom({
-    key: 'postsLoadingState', // 고유한 key
+    key: 'postsLoadingState', // 고유한 key ,api 호출이 진행중인지 여부 판별용 boolean
     default: true,            // 처음엔 로딩 중 상태로 설정
 });
 
