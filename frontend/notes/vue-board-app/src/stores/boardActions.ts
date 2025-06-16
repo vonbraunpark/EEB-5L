@@ -4,9 +4,11 @@ import axiosInstance from "../utility/axiosInstance.ts";
 
 export function boardActions(state: BoardState) {
     return {
-        async requestBoardListToSpring(): Promise<void> {
+        async requestBoardListToSpring(page: number, perPage: number): Promise<void> {
             try {
-                const res = await axiosInstance.springAxiosInst.get('/jpa-board/list')
+                const res = await axiosInstance.springAxiosInst.get('/board/list', {
+                    params: { page, perPage }
+                })
                 state.boards = res.data
             } catch (error) {
                 console.error('requestBoardListToSpring():', error)
@@ -16,7 +18,7 @@ export function boardActions(state: BoardState) {
 
         async requestBoardToSpring(boardId: number): Promise<void> {
             try {
-                const res = await axiosInstance.springAxiosInst.get(`/jpa-board/${boardId}`)
+                const res = await axiosInstance.springAxiosInst.get(`/board/${boardId}`)
                 state.board = res.data
             } catch (error) {
                 alert('requestBoardToSpring() 문제 발생!')
@@ -30,7 +32,7 @@ export function boardActions(state: BoardState) {
             writer: string
         }): Promise<void> {
             try {
-                await axiosInstance.springAxiosInst.post('/jpa-board/register', payload)
+                await axiosInstance.springAxiosInst.post('/board/register', payload)
                 alert('등록 성공!')
             } catch (error) {
                 alert('requestCreateBoardToSpring() 문제 발생')
@@ -40,7 +42,7 @@ export function boardActions(state: BoardState) {
 
         async requestDeleteBoardToSpring(boardId: number): Promise<void> {
             try {
-                await axiosInstance.springAxiosInst.delete(`/jpa-board/${boardId}`)
+                await axiosInstance.springAxiosInst.delete(`/board/${boardId}`)
                 alert('삭제 성공!')
             } catch (error) {
                 alert('requestDeleteBoardToSpring() 문제 발생')
@@ -55,7 +57,7 @@ export function boardActions(state: BoardState) {
             writer: string
         }): Promise<void> {
             try {
-                await axiosInstance.springAxiosInst.put(`/jpa-board/${payload.boardId}`, payload)
+                await axiosInstance.springAxiosInst.put(`/board/${payload.boardId}`, payload)
                 alert('수정 성공!')
             } catch (error) {
                 alert('requestModifyBoardToSpring() 문제 발생')

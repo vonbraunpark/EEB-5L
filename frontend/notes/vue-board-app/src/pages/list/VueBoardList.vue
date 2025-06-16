@@ -68,10 +68,10 @@ const readRow = (_event: any, { item }: any) => {
 }
 
 const updateItems = () => {
-  // 현재 페이지 바뀔 때 데이터 갱신할 일이 있다면 여기에 추가
+  boardStore.requestBoardListToSpring(pagination.value.page, perPage.value)
 }
 
 onMounted(() => {
-  boardStore.requestBoardListToSpring()
+  boardStore.requestBoardListToSpring(pagination.value.page, perPage.value)
 })
 </script>
