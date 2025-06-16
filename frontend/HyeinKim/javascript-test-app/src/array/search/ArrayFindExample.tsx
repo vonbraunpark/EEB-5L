@@ -4,7 +4,7 @@ export const ArrayFindExample = () => {
 
     let steps = [
         `초개 배열: [${numbers.join(", ")}]`,
-        `found 배열: [${foundNumber}]`
+        `found 요소: [${foundNumber}]`
     ]
 
     return (

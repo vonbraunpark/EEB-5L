@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "notes",
   "private": true,
   "workspaces": [
     "html-container",
@@ -7,11 +7,11 @@
     "javascript-test-app",
     "kakao-authentication",
     "navigation-bar-app",
+    "vuetify-tailwind-board-app",
     "react-test-app",
-    "practice-app"
+    "google-authentication"
   ],
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "start": "lerna run start --parallel"
   },
   "devDependencies": {

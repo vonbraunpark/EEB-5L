@@ -1,10 +1,10 @@
 export const LogicalOperationExample = () => {
-    const  strictEquality = 10 === ("10" as any)
-    const  roughEquality = 10 == ("10" as any)
+    const strictEquality = 10 === ("10" as any)
+    const roughEquality = 10 == ("10" as any)
     const logicalAnd = true && false
     const logicalOr = true || false
-    const bitwiseAnd = 5 & 1
-    const  bitwiseOr = 5 | 1
+    const bitwiseAnd = 5 & 4
+    const bitwiseOr = 5 | 2
 
     return (
         <div className="bg-gray-100 p-5 my-4 rounded-md border-2 border-blue-500 font-bold text-left">
@@ -21,5 +21,4 @@ export const LogicalOperationExample = () => {
             </pre>
         </div>
     )
-
 }
