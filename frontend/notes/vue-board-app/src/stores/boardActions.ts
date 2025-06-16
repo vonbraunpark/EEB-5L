@@ -29,11 +29,11 @@ export function boardActions(state: BoardState) {
         async requestCreateBoardToSpring(payload: {
             title: string
             content: string
-            writer: string
-        }): Promise<void> {
+        }): Promise<any> {  // 반환 타입은 보통 서버 응답에 따라 적절히 수정하세요
             try {
-                await axiosInstance.springAxiosInst.post('/board/register', payload)
+                const res = await axiosInstance.springAxiosInst.post('/board/register', payload)
                 alert('등록 성공!')
+                return res.data  // 보통 등록 후 생성된 게시물 정보를 반환하면 편리합니다.
             } catch (error) {
                 alert('requestCreateBoardToSpring() 문제 발생')
                 throw error

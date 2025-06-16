@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 import VueBoardList from "../pages/list/VueBoardList.vue";
+import VueBoardRegister from "../pages/register/VueBoardRegister.vue";
 // import VueBoardRegister from "../page/VuetifyBoardRegister.vue"
 // import VueBoardRead from "../page/VuetifyBoardRead.vue"
 // import VueBoardModify from "../page/VuetifyBoardModify.vue"
@@ -15,11 +16,11 @@ const routes: Array<RouteRecordRaw> = [
         name: 'VueBoardList',
         component: VueBoardList,
     },
-    // {
-    //     path: '/vuetify-typescript-board-app/register',
-    //     name: 'VueBoardRegister',
-    //     component: VueBoardRegister,
-    // },
+    {
+        path: '/register',
+        name: 'VueBoardRegister',
+        component: VueBoardRegister,
+    },
     // {
     //     path: '/vuetify-typescript-board-app/read/:boardId',
     //     name: 'VueBoardRead',
