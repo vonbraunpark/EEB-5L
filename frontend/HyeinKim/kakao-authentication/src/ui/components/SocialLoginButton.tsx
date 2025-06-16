@@ -9,7 +9,7 @@ type Provider = "google" | "kakao" | "github";
 interface Props {
     provider: Provider;
     // 입력이 없고, 리턴도 없는 함수가 onClick 입니다라는 뜻
-    // void (*)void
+    // void (*)(void);
     onClick: () => void;
 }
 
@@ -23,15 +23,15 @@ const providerInfo: Record<Provider, {
     kakao: { label: "Kakao 로그인", color: "", icon: null },   // 사용하지 않음
 };
 
-// 파라미터 2개(provider와 onClick 함수)를 받아옴
+// 파라미터 2개(provider와 onClick 함수) 를 받아옴
 const SocialLoginButton: React.FC<Props> = ({ provider, onClick }) => {
-    // 위쪽의 label, color, icon 정보를 획득함 -> 현재 provider는 kakao입니다.
+    // 위쪽의 label, color, icon 정보를 획득함 -> 현재 provider는 kakao 입니다.
     const info = providerInfo[provider];
 
     if (!info.label) return null; // 유효하지 않은 provider 방어 처리
 
     // 하단의 onClick이 핵심
-    // 현재
+    // 현재 onClick이 사실상 AuthenticationPage의 handleKakaoLogin() 과 같은 녀석이라는 것에 주의!
     return (
         <img
             src={KakaoLoginImage}

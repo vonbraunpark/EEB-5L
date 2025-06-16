@@ -1,6 +1,6 @@
 export const FilterExample = () => {
-    let numbers: number[] = [1, 2, 3, 4, 5]
-    let results: number[] = numbers.filter(num => num % 2 == 0)
+    let numbers: number[] = [1, 2, 3, 4, 5];
+    let results: number[] = numbers.filter(num => num % 2 === 0)
     let steps: string[] = numbers.map(num => `num = ${num} -> ${num % 2 === 0 ? "포함" : "제외"}`)
 
     return (
@@ -16,7 +16,7 @@ export const FilterExample = () => {
             </ul>
             <pre>
                 {`
-                   let results = numbers.filter(num => num % 2 === 0)
+                    let results = numbers.filter(num => num % 2 === 0)
                 `}
             </pre>
         </div>
