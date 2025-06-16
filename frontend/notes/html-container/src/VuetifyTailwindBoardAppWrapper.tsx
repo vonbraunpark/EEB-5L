@@ -21,12 +21,13 @@ const VuetifyTailwindBoardAppWrapper = () => {
                 } else {
                     console.warn("❌ vueModuleRef가 없거나 이미 마운트됨");
                 }
+
+                loadRemoteComponent();
+                console.log("Vuetify Board Remotes App ready: " + vueModuleRef)
             } catch (err) {
                 console.error("❌ Remote Vue 앱 로딩 실패:", err);
             }
         };
-
-        loadRemoteComponent();
 
         return () => {
             if (unmountRef.current) {
