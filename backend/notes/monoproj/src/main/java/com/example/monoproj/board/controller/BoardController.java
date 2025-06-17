@@ -4,10 +4,12 @@ import com.example.monoproj.board.controller.request_form.CreateBoardRequestForm
 import com.example.monoproj.board.controller.request_form.ListBoardRequestForm;
 import com.example.monoproj.board.controller.response_form.CreateBoardResponseForm;
 import com.example.monoproj.board.controller.response_form.ListBoardResponseForm;
+import com.example.monoproj.board.controller.response_form.ReadBoardResponseForm;
 import com.example.monoproj.board.entity.Board;
 import com.example.monoproj.board.service.BoardService;
 import com.example.monoproj.board.service.response.CreateBoardResponse;
 import com.example.monoproj.board.service.response.ListBoardResponse;
+import com.example.monoproj.board.service.response.ReadBoardResponse;
 import com.example.monoproj.redis_cache.service.RedisCacheService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -50,5 +52,12 @@ public class BoardController {
 
         CreateBoardResponse response = boardService.register(createBoardRequestForm.toCreateBoardRequest(accountId));
         return CreateBoardResponseForm.from(response);
+    }
+
+    @GetMapping("/{boardId}")
+    public ReadBoardResponseForm readBoard(@PathVariable("boardId") Long boardId) {
+        log.info("boardRead(): {}", boardId);
+        ReadBoardResponse response = boardService.read(boardId);
+        return ReadBoardResponseForm.from(response);
     }
 }

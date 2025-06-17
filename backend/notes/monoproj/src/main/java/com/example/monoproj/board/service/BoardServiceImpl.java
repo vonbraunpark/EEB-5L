@@ -10,11 +10,14 @@ import com.example.monoproj.board.service.request.CreateBoardRequest;
 import com.example.monoproj.board.service.request.ListBoardRequest;
 import com.example.monoproj.board.service.response.CreateBoardResponse;
 import com.example.monoproj.board.service.response.ListBoardResponse;
+import com.example.monoproj.board.service.response.ReadBoardResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -53,5 +56,18 @@ public class BoardServiceImpl implements BoardService {
 
         Board board = boardRepository.save(createBoardRequest.toBoard(accountProfile));
         return CreateBoardResponse.from(board);
+    }
+
+    @Override
+    public ReadBoardResponse read(Long boardId) {
+        Optional<Board> maybeBoard = boardRepository.findByIdWithWriter(boardId);
+
+        if (maybeBoard.isEmpty()) {
+            log.info("정보가 없습니다!");
+            return null;
+        }
+
+        Board board = maybeBoard.get();
+        return ReadBoardResponse.from(board);
     }
 }

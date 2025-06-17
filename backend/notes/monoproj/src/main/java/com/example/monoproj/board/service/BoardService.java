@@ -4,8 +4,10 @@ import com.example.monoproj.board.service.request.CreateBoardRequest;
 import com.example.monoproj.board.service.request.ListBoardRequest;
 import com.example.monoproj.board.service.response.CreateBoardResponse;
 import com.example.monoproj.board.service.response.ListBoardResponse;
+import com.example.monoproj.board.service.response.ReadBoardResponse;
 
 public interface BoardService {
     ListBoardResponse list(ListBoardRequest request);
     CreateBoardResponse register(CreateBoardRequest createBoardRequest);
+    ReadBoardResponse read(Long boardId);
 }
