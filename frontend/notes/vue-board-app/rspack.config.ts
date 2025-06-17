@@ -9,6 +9,12 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
+console.log("✅ .env 로드 완료");
+console.log("👉 MFE_CORS_ORIGIN:", process.env.MFE_CORS_ORIGIN);
+console.log("👉 VUE_APP_BASE_URL:", process.env.VUE_APP_BASE_URL);
+console.log("👉 VUE_APP_AI_BASE_URL:", process.env.VUE_APP_AI_BASE_URL);
+console.log("👉 NODE_ENV:", process.env.NODE_ENV);
+
 const isDev = process.env.NODE_ENV === "development";
 
 // Target browsers, see: https://github.com/browserslist/browserslist
@@ -29,8 +35,9 @@ export default defineConfig({
     watchFiles: [path.resolve(__dirname, "src")],
     headers: {
       // "Access-Control-Allow-Origin": "http://localhost",
-      // "Access-Control-Allow-Origin": "http://192.168.0.107",
-      "Access-Control-Allow-Origin": process.env.MFE_CORS_ORIGIN,
+      "Access-Control-Allow-Origin": "http://192.168.0.107",
+      // "Access-Control-Allow-Origin": "http://192.168.0.107:3200",
+      // "Access-Control-Allow-Origin": JSON.stringify(process.env.MFE_CORS_ORIGIN) || "http://localhost",
       "Access-Control-Allow-Methods": "GET,OPTIONS",
       "Access-Control-Allow-Headers": "*",
     },
@@ -91,6 +98,7 @@ export default defineConfig({
     }),
     new DefinePlugin({
       "process.env.VUE_APP_BASE_URL": JSON.stringify(process.env.VUE_APP_BASE_URL),
+      "process.env.MFE_CORS_ORIGIN": JSON.stringify(process.env.MFE_CORS_ORIGIN),
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
     }),
     new ModuleFederationPlugin(mfConfig),
