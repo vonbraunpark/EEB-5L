@@ -22,10 +22,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-// import { useBoardStore } from '@/stores/boardStore'
+import { useBoardStore} from "../../stores/boardStore.ts";
 
 const router = useRouter()
-// const boardStore = useBoardStore()
+const boardStore = useBoardStore()
 
 const title = ref('')
 const content = ref('')
@@ -39,7 +39,7 @@ async function onSubmit() {
     const createdBoard = await boardStore.requestCreateBoardToSpring(payload)
 
     await router.push({
-      name: 'VuetifyBoardRead',
+      name: 'VueBoardRead',
       params: { boardId: createdBoard.boardId.toString() }
     })
   } catch (error) {

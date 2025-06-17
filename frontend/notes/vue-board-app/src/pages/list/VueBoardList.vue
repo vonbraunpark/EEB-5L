@@ -6,24 +6,24 @@
         게시물 작성
       </router-link>
     </div>
-    <v-data-table
-        v-model:items-per-page="perPage"
-        :headers="headerTitle"
-        :items="pagedItems"
-        class="elevation-1"
-        item-value="boardId"
-    />
 <!--    <v-data-table-->
 <!--        v-model:items-per-page="perPage"-->
 <!--        :headers="headerTitle"-->
 <!--        :items="pagedItems"-->
 <!--        class="elevation-1"-->
-<!--        @click:row="readRow"-->
 <!--        item-value="boardId"-->
 <!--    />-->
+    <v-data-table
+        v-model:items-per-page="perPage"
+        :headers="headerTitle"
+        :items="pagedItems"
+        class="elevation-1"
+        @click:row="readRow"
+        item-value="boardId"
+    />
     <v-pagination
         v-model="pagination.page"
-        :length="Math.ceil(boardStore.boards.length / perPage)"
+        :length="Math.ceil(boardStore.boardList.length / perPage)"
         color="primary"
         @input="updateItems"
     />
@@ -49,14 +49,15 @@ const pagination = ref({
 const headerTitle = [
   { title: 'No', align: 'start', sortable: true, key: 'boardId' },
   { title: '제목', align: 'end', key: 'title' },
-  { title: '작성자', align: 'end', key: 'writer' },
+  { title: '작성자', align: 'end', key: 'nickname' },
   { title: '작성일자', align: 'end', key: 'createDate' }
 ]
 
 const pagedItems = computed(() => {
   const startIdx = (pagination.value.page - 1) * perPage.value
   const endIdx = startIdx + perPage.value
-  return boardStore.boards.slice(startIdx, endIdx)
+  console.log('boardStore.boardList:', boardStore.boardList)
+  return boardStore.boardList.slice(startIdx, endIdx)
 })
 
 const readRow = (_event: any, { item }: any) => {
