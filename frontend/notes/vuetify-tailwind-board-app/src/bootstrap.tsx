@@ -1,4 +1,5 @@
-import { createApp, App as VueApp } from 'vue'
+import {createApp, h} from 'vue'
+import type { App as VueApp } from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
@@ -6,38 +7,39 @@ import { loadFonts } from './plugins/webfontloader'
 import 'vuetify/styles' // Vuetify의 기본 스타일
 import '@mdi/font/css/materialdesignicons.css' // (선택) 아이콘 폰트
 
-let app: VueApp | null = null
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+import * as labsComponents from 'vuetify/labs/components'
 
-export async function mount(el: Element) {
-    await loadFonts();
+import { createVuetify } from 'vuetify/lib/framework.mjs'
 
+let app: VueApp<Element> | null = null;
+
+export const vuetifyTailwindBoardAppMount = (el: string | Element) => {
+    loadFonts().then(() => {
+        const vuetify = createVuetify({
+            components: {
+                ...components,
+                ...labsComponents,
+            },
+            directives: {
+                ...directives,
+            },
+        });
+
+        app = createApp({
+            render: () => h(App),
+        });
+
+        // app.use(vuetify).use(boardModule).use(router);
+        app.use(vuetify)
+        app.mount(el);
+    });
+};
+
+export const vuetifyTailwindBoardAppUnmount = () => {
     if (app) {
-        app.unmount(); // 기존 인스턴스 제거
+        app.unmount();
         app = null;
     }
-
-    app = createApp(App);
-    app.use(vuetify);
-    app.mount(el);
-
-    return () => {
-        if (app) {
-            app.unmount();
-            app = null;
-        }
-    };
-}
-
-export function unmount() {
-    if (app) {
-        app.unmount()
-        app = null
-    }
-}
-
-const devRoot = document.getElementById('app')
-
-if (devRoot) {
-    // 로컬 개발 환경에서만 mount
-    mount(devRoot)
-}
+};
