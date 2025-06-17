@@ -3,7 +3,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import VueBoardList from "../pages/list/VueBoardList.vue";
 import VueBoardRegister from "../pages/register/VueBoardRegister.vue";
 import VueBoardRead from "../pages/read/VueBoardRead.vue";
-// import VueBoardModify from "../page/VuetifyBoardModify.vue"
+import VueBoardUpdate from "../pages/update/VueBoardUpdate.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -26,12 +26,12 @@ const routes: Array<RouteRecordRaw> = [
         components: { default: VueBoardRead },
         props: { default: true },
     },
-    // {
-    //     path: '/vuetify-typescript-board-app/modify/:boardId',
-    //     name: 'VueBoardModify',
-    //     components: { default: VueBoardModify },
-    //     props: { default: true },
-    // },
+    {
+        path: '/update/:boardId',
+        name: 'VueBoardUpdate',
+        components: { default: VueBoardUpdate },
+        props: { default: true },
+    },
 ]
 
 const router = createRouter({

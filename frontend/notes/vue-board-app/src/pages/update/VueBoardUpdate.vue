@@ -2,12 +2,12 @@
   <v-container>
     <h2>Vue3 + TypeScript + Vuetify3 + Spring + JPA</h2>
     <v-card v-if="board">
-      <v-card-title>게시물 정보</v-card-title>
+      <v-card-title>게시물 수정</v-card-title>
       <v-card-text>
         <v-container>
           <v-row>
             <v-col cols="12">
-              <v-text-field v-model="board.title" readonly label="제목" />
+              <v-text-field v-model="title" label="제목" />
             </v-col>
           </v-row>
           <v-row>
@@ -17,17 +17,17 @@
           </v-row>
           <v-row>
             <v-col cols="12">
-              <v-textarea v-model="board.content" readonly label="내용" />
+              <v-text-field v-model="board.createDate" readonly label="등록일자" />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12">
+              <v-textarea v-model="content" label="내용" />
             </v-col>
           </v-row>
           <v-row justify="end">
             <v-col cols="auto">
-              <router-link :to="{ name: 'VueBoardUpdate', params: { boardId } }">
-                <v-btn color="primary">수정하기</v-btn>
-              </router-link>
-            </v-col>
-            <v-col cols="auto">
-              <v-btn color="error" @click="onDelete">삭제</v-btn>
+              <v-btn color="primary" @click="onUpdate">수정완료</v-btn>
             </v-col>
             <v-col cols="auto">
               <router-link :to="{ name: 'VueBoardList' }">
@@ -41,25 +41,41 @@
   </v-container>
 </template>
 
-<script setup lang="ts">
-import { onMounted, computed } from 'vue'
+<script lang="ts" setup>
+import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useBoardStore } from "../../stores/boardStore.ts";
 
+const boardStore = useBoardStore()
 const route = useRoute()
 const router = useRouter()
-const boardStore = useBoardStore()
 
 const boardId = Number(route.params.boardId)
+const board = ref(boardStore.board)
 
-const board = computed(() => boardStore.board)
+const title = ref('')
+const content = ref('')
 
-const onDelete = async () => {
-  await boardStore.requestDeleteBoardToSpring(boardId)
-  await router.push({ name: 'VueBoardList' })
+const onUpdate = async () => {
+  await boardStore.requestUpdateBoardToSpring({
+    boardId,
+    title: title.value,
+    content: content.value,
+  })
+
+  router.push({
+    name: 'VueBoardRead',
+    params: { boardId },
+  })
 }
 
-onMounted(() => {
-  boardStore.requestBoardToSpring(boardId)
+onMounted(async () => {
+  await boardStore.requestBoardToSpring(boardId)
+
+  if (boardStore.board) {
+    board.value = boardStore.board
+    title.value = board.value.title
+    content.value = board.value.content
+  }
 })
 </script>

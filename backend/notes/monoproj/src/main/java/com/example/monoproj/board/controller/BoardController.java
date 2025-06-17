@@ -54,7 +54,7 @@ public class BoardController {
         return CreateBoardResponseForm.from(response);
     }
 
-    @GetMapping("/{boardId}")
+    @GetMapping("/read/{boardId}")
     public ReadBoardResponseForm readBoard(@PathVariable("boardId") Long boardId) {
         log.info("boardRead(): {}", boardId);
         ReadBoardResponse response = boardService.read(boardId);
