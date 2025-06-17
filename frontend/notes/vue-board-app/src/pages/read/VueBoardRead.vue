@@ -22,15 +22,15 @@
           </v-row>
           <v-row justify="end">
             <v-col cols="auto">
-              <router-link :to="{ name: 'VuetifyBoardModify', params: { boardId } }">
-                <v-btn color="primary">수정하기</v-btn>
-              </router-link>
+<!--              <router-link :to="{ name: 'VueBoardModify', params: { boardId } }">-->
+<!--                <v-btn color="primary">수정하기</v-btn>-->
+<!--              </router-link>-->
             </v-col>
             <v-col cols="auto">
               <v-btn color="error" @click="onDelete">삭제</v-btn>
             </v-col>
             <v-col cols="auto">
-              <router-link :to="{ name: 'VuetifyBoardList' }">
+              <router-link :to="{ name: 'VueBoardList' }">
                 <v-btn color="secondary">돌아가기</v-btn>
               </router-link>
             </v-col>
@@ -56,7 +56,7 @@ const board = computed(() => boardStore.board)
 
 const onDelete = async () => {
   await boardStore.requestDeleteBoardToSpring(boardId)
-  await router.push({ name: 'VuetifyBoardList' })
+  await router.push({ name: 'VueBoardList' })
 }
 
 onMounted(() => {

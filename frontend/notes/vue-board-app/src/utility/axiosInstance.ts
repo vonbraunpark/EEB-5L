@@ -10,8 +10,12 @@ springAxiosInst.interceptors.request.use((config) => {
     const userToken = localStorage.getItem('userToken')
     const requestUrl = config.url || ''
 
-    // "/board/list" 요청만 Authorization 제외
-    if (requestUrl === '/board/list') {
+    // /board/list, /board/read/:boardId
+    const isPublicRequest =
+        requestUrl === '/board/list' ||
+        /^\/board\/read\/\d+$/.test(requestUrl)
+
+    if (isPublicRequest) {
         return config
     }
 
