@@ -28,16 +28,14 @@ const App: React.FC = () => {
                     component={Link}
                     to="/"
                     startIcon={<HomeIcon />}
-                >
-                    Home
-                </Button>
+                />
                 <Button
                     color="inherit"
                     component={Link}
                     to="/html-css-test"
                     startIcon={<CodeIcon />}
                 >
-                    HTML/CSS Test
+                    HTML
                 </Button>
                 <Button
                     color="inherit"
@@ -45,7 +43,7 @@ const App: React.FC = () => {
                     to="/js-test"
                     startIcon={<JavascriptIcon />}
                 >
-                    Javascript Test
+                    JS
                 </Button>
                 <Button
                     color="inherit"
@@ -53,7 +51,15 @@ const App: React.FC = () => {
                     to="/board/list"
                     startIcon={<ForumIcon />}
                 >
-                    게시판
+                    R게시판
+                </Button>
+                <Button
+                    color="inherit"
+                    component={Link}
+                    to="/vue-board/list"
+                    startIcon={<ForumIcon />}
+                >
+                    V게시판
                 </Button>
                 <Button
                     color="inherit"
@@ -61,7 +67,7 @@ const App: React.FC = () => {
                     to="/react-test"
                     startIcon={<SportsGymnasticsIcon />}
                 >
-                    React 실험
+                    React
                 </Button>
                 {/* 로그인 / 로그아웃 버튼 */}
                 <Button
