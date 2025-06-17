@@ -45,14 +45,14 @@ const App: React.FC = () => {
                 >
                     JS
                 </Button>
-                <Button
-                    color="inherit"
-                    component={Link}
-                    to="/board/list"
-                    startIcon={<ForumIcon />}
-                >
-                    R게시판
-                </Button>
+                {/*<Button*/}
+                {/*    color="inherit"*/}
+                {/*    component={Link}*/}
+                {/*    to="/board/list"*/}
+                {/*    startIcon={<ForumIcon />}*/}
+                {/*>*/}
+                {/*    R게시판*/}
+                {/*</Button>*/}
                 <Button
                     color="inherit"
                     component={Link}

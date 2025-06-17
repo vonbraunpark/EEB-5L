@@ -23,7 +23,7 @@ const KakaoAuthenticationPage: React.FC = () => {
             console.log('📨 받은 메시지:', event.origin, event.data);
 
             // origin 검사 완화
-            if (!event.origin.startsWith('http://localhost')) {
+            if (!event.origin.startsWith(env.origin)) {
                 console.warn('❌ 허용되지 않은 origin:', event.origin);
                 return;
             }
