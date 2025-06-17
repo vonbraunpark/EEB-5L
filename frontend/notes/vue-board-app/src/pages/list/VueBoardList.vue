@@ -80,3 +80,6 @@ onMounted(() => {
   boardStore.requestBoardListToSpring(pagination.value.page, perPage.value)
 })
 </script>
+
+<style scoped>
+</style>
