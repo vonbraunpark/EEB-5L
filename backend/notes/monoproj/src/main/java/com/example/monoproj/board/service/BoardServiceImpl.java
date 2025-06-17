@@ -8,9 +8,11 @@ import com.example.monoproj.board.entity.Board;
 import com.example.monoproj.board.repository.BoardRepository;
 import com.example.monoproj.board.service.request.CreateBoardRequest;
 import com.example.monoproj.board.service.request.ListBoardRequest;
+import com.example.monoproj.board.service.request.UpdateBoardRequest;
 import com.example.monoproj.board.service.response.CreateBoardResponse;
 import com.example.monoproj.board.service.response.ListBoardResponse;
 import com.example.monoproj.board.service.response.ReadBoardResponse;
+import com.example.monoproj.board.service.response.UpdateBoardResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -69,5 +71,34 @@ public class BoardServiceImpl implements BoardService {
 
         Board board = maybeBoard.get();
         return ReadBoardResponse.from(board);
+    }
+
+    @Override
+    public UpdateBoardResponse update(Long boardId, Long accountId, UpdateBoardRequest updateBoardRequest) {
+        Board board = boardRepository.findByIdWithWriter(boardId)
+                .orElseThrow(() -> new RuntimeException("게시글이 존재하지 않습니다."));
+
+        // 작성자 검증
+        log.info("board.getWriter(): {}", board.getWriter());
+        log.info("board.getWriter().getAccount(): {}", board.getWriter().getAccount());
+        log.info("board.getWriter().getAccount().getId(): {}", board.getWriter().getAccount().getId());
+
+        log.info("accountId: {}", accountId);
+
+        if (board.getWriter().getAccount().getId() != accountId) {
+            throw new RuntimeException("수정 권한이 없습니다.");
+        }
+
+        // 수정 작업 수행
+        if (updateBoardRequest.getTitle() != null) {
+            board.setTitle(updateBoardRequest.getTitle());
+        }
+        if (updateBoardRequest.getContent() != null) {
+            board.setContent(updateBoardRequest.getContent());
+        }
+
+        boardRepository.save(board);
+
+        return UpdateBoardResponse.from(board);
     }
 }
