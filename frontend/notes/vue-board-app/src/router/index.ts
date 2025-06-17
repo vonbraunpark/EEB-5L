@@ -2,9 +2,8 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 import VueBoardList from "../pages/list/VueBoardList.vue";
 import VueBoardRegister from "../pages/register/VueBoardRegister.vue";
-// import VueBoardRegister from "../page/VuetifyBoardRegister.vue"
-// import VueBoardRead from "../page/VuetifyBoardRead.vue"
-// import VueBoardModify from "../page/VuetifyBoardModify.vue"
+import VueBoardRead from "../pages/read/VueBoardRead.vue";
+import VueBoardUpdate from "../pages/update/VueBoardUpdate.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -21,18 +20,18 @@ const routes: Array<RouteRecordRaw> = [
         name: 'VueBoardRegister',
         component: VueBoardRegister,
     },
-    // {
-    //     path: '/vuetify-typescript-board-app/read/:boardId',
-    //     name: 'VueBoardRead',
-    //     components: { default: VueBoardRead },
-    //     props: { default: true },
-    // },
-    // {
-    //     path: '/vuetify-typescript-board-app/modify/:boardId',
-    //     name: 'VueBoardModify',
-    //     components: { default: VueBoardModify },
-    //     props: { default: true },
-    // },
+    {
+        path: '/read/:boardId',
+        name: 'VueBoardRead',
+        components: { default: VueBoardRead },
+        props: { default: true },
+    },
+    {
+        path: '/update/:boardId',
+        name: 'VueBoardUpdate',
+        components: { default: VueBoardUpdate },
+        props: { default: true },
+    },
 ]
 
 const router = createRouter({

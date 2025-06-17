@@ -61,9 +61,13 @@ const pagedItems = computed(() => {
 })
 
 const readRow = (_event: any, { item }: any) => {
-  const selectedBoardId = item.selectable.boardId
+  console.log('_event:', _event)
+  console.log('item:', item)
+  console.log('item.selectable:', item.boardId)
+  const selectedBoardId = item.boardId
+  console.log('selectedBoardId:', selectedBoardId)
   router.push({
-    name: 'VuetifyBoardRead',
+    name: 'VueBoardRead',
     params: { boardId: selectedBoardId.toString() }
   })
 }

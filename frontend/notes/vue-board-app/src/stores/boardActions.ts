@@ -18,7 +18,7 @@ export const boardActions = {
 
     async requestBoardToSpring(boardId: number): Promise<void> {
         try {
-            const res = await axiosInstance.springAxiosInst.get(`/board/${boardId}`)
+            const res = await axiosInstance.springAxiosInst.get(`/board/read/${boardId}`)
             this.board = res.data
         } catch (error) {
             alert('requestBoardToSpring() 문제 발생!')
@@ -42,7 +42,7 @@ export const boardActions = {
 
     async requestDeleteBoardToSpring(boardId: number): Promise<void> {
         try {
-            await axiosInstance.springAxiosInst.delete(`/board/${boardId}`)
+            await axiosInstance.springAxiosInst.delete(`/board/delete/${boardId}`)
             alert('삭제 성공!')
         } catch (error) {
             alert('requestDeleteBoardToSpring() 문제 발생')
@@ -50,17 +50,17 @@ export const boardActions = {
         }
     },
 
-    async requestModifyBoardToSpring(payload: {
+    async requestUpdateBoardToSpring(payload: {
         boardId: number
         title: string
         content: string
         writer: string
     }): Promise<void> {
         try {
-            await axiosInstance.springAxiosInst.put(`/board/${payload.boardId}`, payload)
+            await axiosInstance.springAxiosInst.put(`/board/update/${payload.boardId}`, payload)
             alert('수정 성공!')
         } catch (error) {
-            alert('requestModifyBoardToSpring() 문제 발생')
+            alert('requestUpdateBoardToSpring() 문제 발생')
             throw error
         }
     },
