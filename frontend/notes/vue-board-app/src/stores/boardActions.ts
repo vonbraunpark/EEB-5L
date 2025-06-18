@@ -1,5 +1,4 @@
 // stores/board/boardActions.ts
-import { BoardState, Board } from './boardState'
 import axiosInstance from "../utility/axiosInstance.ts";
 
 export const boardActions = {
