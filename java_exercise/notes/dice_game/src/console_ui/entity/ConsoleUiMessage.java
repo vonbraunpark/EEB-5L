@@ -3,7 +3,13 @@ package console_ui.entity;
 public enum ConsoleUiMessage {
     SIGNUP("1"),
     SIGNIN("2"),
-    EXIT("3");
+    EXIT("3"),
+
+    START_GAME("4"),
+    VIEW_BATTLE_REPORT("5"),
+
+    ROLL_DICE("6"),
+    SURRENDER("7");
 
     private final String userInputKey;
 

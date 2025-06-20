@@ -37,8 +37,20 @@ public class ConsoleUiRepositoryImpl implements ConsoleUiRepository {
     }
 
     @Override
-    public void displayInitialMessage() {
-        System.out.println("1. 회원 가입\n2. 로그인\n3. 종료");
+    public void displayInitialMessage(boolean isAuthenticated, boolean isInGame) {
+        if (!isAuthenticated) {
+            System.out.println("1. 회원 가입\n2. 로그인\n3. 종료");
+        }
+
+        if (isAuthenticated && !isInGame) {
+            // 4, 5이므로 -3 보정
+            System.out.println("1. 게임 시작\n2. 배틀 레포트");
+        }
+
+        if (isAuthenticated && isInGame) {
+            // 6, 7 이므로 -5 보정
+            System.out.println("1. 주사위 굴리기\n2. 항복");
+        }
     }
 
     @Override

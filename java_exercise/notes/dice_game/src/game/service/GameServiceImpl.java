@@ -51,15 +51,31 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public void startGame() {
+        // 1. 처음 게임에 진입 하면 환영 메시지 출력
+        consoleUiRepository.displayWelcomeMessage();
+
         while (true) {
-            // 1. 처음 게임에 진입 하면 환영 메시지 출력
-            consoleUiRepository.displayWelcomeMessage();
+            Boolean isAuthenticated = AuthenticationRepositoryImpl.isAuthenticated();
+            // Boolean isInGame = GameRepositoryImpl.isInGame();
+            Boolean isInGame = false;
             // 2. 다음으로 회원가입, 로그인, 종료라는 기본 메뉴 제공
-            consoleUiRepository.displayInitialMessage();
+            // 3. 로그인 시 출력되는 메뉴가 별도로 필요함 (이건 아직 미정)
+            consoleUiRepository.displayInitialMessage(isAuthenticated, isInGame);
             String userInput = KeyboardInput.getStringInput("입력: ");
+            ConsoleUiMessage selectedMessage = null;
 
             try {
-                ConsoleUiMessage selectedMessage = ConsoleUiMessage.fromUserInput(userInput);
+                if (!isAuthenticated) {
+                    selectedMessage = ConsoleUiMessage.fromUserInput(String.valueOf(userInput));
+                }
+                if (isAuthenticated && !isInGame) {
+                    selectedMessage = ConsoleUiMessage.fromUserInput(String.valueOf(userInput + 3));
+                }
+                if (isAuthenticated && isInGame) {
+                    // +5 보정 (주사위 굴리기 6, 항복 7)
+                    selectedMessage = ConsoleUiMessage.fromUserInput(String.valueOf(userInput + 5));
+                }
+
                 Object result = consoleUiRepository.displayMessageFromUserInput(selectedMessage);
 
                 Consumer<Object> handler = dispatcher.get(selectedMessage);
@@ -70,8 +86,6 @@ public class GameServiceImpl implements GameService {
             } catch (IllegalArgumentException e) {
                 System.out.println("잘못된 입력입니다.");
             }
-
-            // 3. 로그인 시 출력되는 메뉴가 별도로 필요함 (이건 아직 미정)
         }
     }
 
