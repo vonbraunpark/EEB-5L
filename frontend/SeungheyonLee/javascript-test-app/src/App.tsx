@@ -40,36 +40,36 @@ const App = () => {
                 JavaScript 필수 요소를 파악해보자!
             </Typography>
 
-            {/*<CalculationExample/>*/}
-            {/*<VariableAndDataTypes/>*/}
-            {/*<LogicalOperationExample/>*/}
-            {/*<TypeCoercion/>*/}
-            {/*<ControlFlowIf/>*/}
-            {/*<ControlFlowSwitch/>*/}
-            {/*<ControlFlowFor/>*/}
-            {/*<ControlFlowForEach/>*/}
-            {/*<MapExample/>*/}
-            {/*<FilterExample/>*/}
-            {/*<StringExample/>*/}
-            {/*<ArrayPushExample/>*/}
-            {/*<ArrayPopExample/>*/}
-            {/*<ArrayShiftExample/>*/}
-            {/*<ArrayUnShiftExample/>*/}
-            {/*<ArrayReduceExample/>*/}
-            {/*<ArrayFindExample/>*/}
-            {/*<Quiz2_Number1/>*/}
-            {/*<Number2/>*/}
-            {/*<Number3/>*/}
-            {/*<ArrayIncludeExample/>*/}
-            {/*<ArrayIndexOfExample/>*/}
-            {/*<ArraySliceExample/>*/}
-            {/*<ArraySortExample/>*/}
-            {/*<ArrayReverseExample/>*/}
-            {/*<ArrayEveryExample/>*/}
-            {/*<ArrayFlatExample/>*/}
+            <CalculationExample/>
+            <VariableAndDataTypes/>
+            <LogicalOperationExample/>
+            <TypeCoercion/>
+            <ControlFlowIf/>
+            <ControlFlowSwitch/>
+            <ControlFlowFor/>
+            <ControlFlowForEach/>
+            <MapExample/>
+            <FilterExample/>
+            <StringExample/>
+            <ArrayPushExample/>
+            <ArrayPopExample/>
+            <ArrayShiftExample/>
+            <ArrayUnShiftExample/>
+            <ArrayReduceExample/>
+            <ArrayFindExample/>
             <Quiz2_Number1/>
-            <Quiz2_Number2/>
-            <Quiz2_Number3/>
+            <Number2/>
+            <Number3/>
+            <ArrayIncludeExample/>
+            <ArrayIndexOfExample/>
+            <ArraySliceExample/>
+            <ArraySortExample/>
+            <ArrayReverseExample/>
+            <ArrayEveryExample/>
+            <ArrayFlatExample/>
+            {/*<Quiz2_Number1/>*/}
+            {/*<Quiz2_Number2/>*/}
+            {/*<Quiz2_Number3/>*/}
         </Container>
     )
 }
