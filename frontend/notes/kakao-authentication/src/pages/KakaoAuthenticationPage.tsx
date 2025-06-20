@@ -6,56 +6,52 @@ import {useNavigate} from "react-router-dom";
 import env from "../env.ts";
 
 const KakaoAuthenticationPage: React.FC = () => {
-    // 우리가 Routes로 감싸놓은 Router 설정을 활용할 수 있게 지원함
     const navigate = useNavigate();
 
-    const handleKakaoLogin = () => {
-        const kakaoAuthenticationUrl = env.api.KAKAO_AUTHENTICATION_URL;
-        // 팝업 형식의 로그인 창을 띄웁니다.
-        const popup = window.open(kakaoAuthenticationUrl, '_blank', 'width=500,height=600');
+    const handleKakaoLogin = async () => {
+        try {
+            const kakaoAuthenticationUrl = env.api.KAKAO_AUTHENTICATION_URL;
+            const popup = window.open(kakaoAuthenticationUrl, '_blank', 'width=500,height=600');
 
-        if (!popup) {
-            alert('팝업 차단되어 있습니다. 팝업 허용 후 다시 시도하세요.');
-            return;
+            if (!popup) {
+                alert('팝업 차단되어 있습니다. 팝업 허용 후 다시 시도하세요.');
+                return;
+            }
+
+            const receiveMessage = (event: MessageEvent) => {
+                console.log('📨 받은 메시지:', event.origin, event.data);
+
+                if (!event.origin.startsWith(env.origin)) {
+                    console.warn('❌ 허용되지 않은 origin:', event.origin);
+                    return;
+                }
+
+                const { accessToken, user } = event.data;
+                if (!accessToken) {
+                    console.warn('❌ accessToken 없음');
+                    return;
+                }
+
+                localStorage.setItem('userToken', accessToken);
+                window.dispatchEvent(new Event("user-token-changed"));
+
+                window.removeEventListener('message', receiveMessage);
+
+                try {
+                    popup.close();
+                } catch (e) {
+                    console.warn('팝업 닫기 실패:', e);
+                }
+
+                setTimeout(() => {
+                    navigate('/');
+                }, 100);
+            };
+            window.addEventListener('message', receiveMessage);
+        } catch (e) {
+            console.error('❌ 에러 발생:', e);
+            alert('로그인 실패: 네트워크 에러');
         }
-
-        const receiveMessage = (event: MessageEvent) => {
-            console.log('📨 받은 메시지:', event.origin, event.data);
-
-            // origin 검사 완화
-            if (!event.origin.startsWith(env.origin)) {
-                console.warn('❌ 허용되지 않은 origin:', event.origin);
-                return;
-            }
-
-            const { accessToken, user } = event.data;
-            if (!accessToken) {
-                console.warn('❌ accessToken 없음');
-                return;
-            }
-
-            // F12 눌렀을 때 Application 파트에 localstorage 가 보입니다.
-            // 해당 파트에 보면 userToken이 생성되어 있는 것을 볼 수 있는데
-            // 아래 파트에서 작업하는 것이라 보면 되겠습니다.
-            localStorage.setItem('userToken', accessToken);
-            window.dispatchEvent(new Event("user-token-changed"));
-
-            window.removeEventListener('message', receiveMessage);
-
-            // 팝업 닫기
-            try {
-                popup.close();
-            } catch (e) {
-                console.warn('팝업 닫기 실패:', e);
-            }
-
-            // navigate 딜레이
-            setTimeout(() => {
-                navigate('/');
-            }, 100);
-        };
-        // 팝업으로 메시지가 전달되면 receiveMessage() 니가 받으렴
-        window.addEventListener('message', receiveMessage);
     };
 
     // 항상 컴포넌트의 return에 표현되는 것이 UI에 해당합니다.
