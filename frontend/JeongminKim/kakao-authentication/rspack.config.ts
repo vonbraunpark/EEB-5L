@@ -19,10 +19,13 @@ export default defineConfig({
   },
   resolve: {
     extensions: ["...", ".ts", ".tsx", ".jsx"],
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
   },
 
   devServer: {
-    port: 3004,
+    port: 3003,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
   },
@@ -30,7 +33,7 @@ export default defineConfig({
     // You need to set a unique value that is not equal to other applications
     uniqueName: "kakao_authentication",
     // publicPath must be configured if using manifest
-    publicPath: "http://localhost:3004/",
+    publicPath: "http://localhost:3003/",
   },
 
   experiments: {
@@ -44,8 +47,9 @@ export default defineConfig({
         type: "asset/resource",
       },
       {
-        test: /\.svg$/,
-        type: "asset",
+        test: /\.css$/,
+        use: ["postcss-loader"],
+        type: "css",
       },
       {
         test: /\.(jsx?|tsx?)$/,
@@ -70,6 +74,10 @@ export default defineConfig({
             },
           },
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },

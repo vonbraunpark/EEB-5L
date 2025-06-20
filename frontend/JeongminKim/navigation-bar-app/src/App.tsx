@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 import {Link} from "react-router-dom";
 
@@ -6,9 +6,17 @@ import HomeIcon from "@mui/icons-material/Home";
 import CodeIcon from "@mui/icons-material/Code";
 import JavascriptIcon from "@mui/icons-material/Javascript";
 import ForumIcon from "@mui/icons-material/Forum";
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import SportsGymnasticsIcon from '@mui/icons-material/SportsGymnastics';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const App: React.FC = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const handleAuthClick = () => {
+        setIsLoggedIn(isLoggedIn => !isLoggedIn);
+    };
+
     return (
         <AppBar position="static">
             <Toolbar>
@@ -51,9 +59,16 @@ const App: React.FC = () => {
                     color="inherit"
                     component={Link}
                     to="/react-test"
-                    startIcon={<AutoAwesomeIcon />}
+                    startIcon={<SportsGymnasticsIcon />}
                 >
-                    React Test
+                    React 실험
+                </Button>
+                {/* 로그인 / 로그아웃 버튼 */}
+                <Button
+                    color="inherit"
+                    onClick={handleAuthClick}
+                    startIcon={isLoggedIn ? <LogoutIcon /> : <LoginIcon />}
+                >
                 </Button>
             </Toolbar>
         </AppBar>

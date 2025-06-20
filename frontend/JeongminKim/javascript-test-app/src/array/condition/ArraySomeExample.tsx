@@ -7,9 +7,9 @@ export const ArraySomeExample = () => {
 
     let steps = [
         `초개 배열: [${numbers.join(", ")}]`,
-        `numbers.some(num => num % 2 == 1) 결과: [${isItOdd}]`,
-        `초개 배열: [${numbers2.join(", ")}]`,
-        `numbers2.some(num => num % 2 == 1) 결과: [${isItOdd2}]`
+        `numbers.some(num => num % 2 == 1) 결과: ${isItOdd}`,
+        `초개 배열2: [${numbers2.join(", ")}]`,
+        `numbers2.some(num => num % 2 == 1) 결과: ${isItOdd2}`
     ]
 
     return (

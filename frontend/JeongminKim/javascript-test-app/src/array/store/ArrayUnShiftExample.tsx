@@ -5,7 +5,7 @@ export const ArrayUnShiftExample = () => {
 
     let steps = [
         `초개 배열: [${numbers.join(", ")}]`,
-        `1 추가 후 배열: [${updateNumbers.join(", ")}]`
+        `1 추가 후 배열: [${updateNumbers.join(", ")}]`,
     ]
 
     return (
