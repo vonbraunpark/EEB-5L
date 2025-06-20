@@ -13,7 +13,7 @@ const ReactTestApp = lazy(() => import("reactTestApp/App"));
 const RecoilBoardApp = lazy(() => import("recoilBoardApp/App"));
 
 
-import VuetifyTailwindBoardAppWrapper from "./VuetifyTailwindBoardAppWrapper";
+// import VuetifyTailwindBoardAppWrapper from "./VuetifyTailwindBoardAppWrapper";
 
 const App = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
@@ -34,7 +34,7 @@ const App = () => {
                     <Route path="/html-css-test" element={<HtmlCssTestApp />} />
                     <Route path="/js-test" element={<JavascriptTestApp />} />
                     <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
-                    <Route path="/board/*" element={<VuetifyTailwindBoardAppWrapper />} />
+                    {/*<Route path="/board/*" element={<VuetifyTailwindBoardAppWrapper />} />*/}
                     <Route path="/react-test" element={<ReactTestApp />} />
                     <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
                     <Route path="/recoil-board/*" element={<RecoilBoardApp />} />
