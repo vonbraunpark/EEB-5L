@@ -1,10 +1,13 @@
 import * as path from "node:path";
 import { defineConfig } from "@rspack/cli";
-import { rspack } from "@rspack/core";
+import {DefinePlugin, rspack} from "@rspack/core";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 import { VueLoaderPlugin } from "vue-loader";
 
 import { mfConfig } from "./module-federation.config";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -25,7 +28,9 @@ export default defineConfig({
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
     headers: {
-      "Access-Control-Allow-Origin": "http://localhost",
+      // "Access-Control-Allow-Origin": "http://localhost",
+      // "Access-Control-Allow-Origin": "http://192.168.0.107",
+      "Access-Control-Allow-Origin": process.env.MFE_CORS_ORIGIN,
       "Access-Control-Allow-Methods": "GET,OPTIONS",
       "Access-Control-Allow-Headers": "*",
     },
@@ -83,6 +88,10 @@ export default defineConfig({
     new VueLoaderPlugin(),
     new rspack.HtmlRspackPlugin({
       template: "./index.html",
+    }),
+    new DefinePlugin({
+      "process.env.VUE_APP_BASE_URL": JSON.stringify(process.env.VUE_APP_BASE_URL),
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
     }),
     new ModuleFederationPlugin(mfConfig),
   ].filter(Boolean),

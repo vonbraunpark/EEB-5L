@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { RecoilRoot } from 'recoil'
+
 import "./index.css";
 import TextInput from "./ui/TextInput.tsx";
 import TextDisplay from "./ui/TextDisplay.tsx";
+import PostList from "./ui/components/PostList.tsx";
 
 const App = () => (
     <RecoilRoot>
@@ -15,6 +17,7 @@ const App = () => (
                 <TextDisplay/>
             </div>
         </div>
+        <PostList/>
     </RecoilRoot>
 );
 
