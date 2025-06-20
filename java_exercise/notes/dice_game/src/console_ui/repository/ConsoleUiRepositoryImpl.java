@@ -1,6 +1,7 @@
 package console_ui.repository;
 
 
+import account.service.request.SignInRequest;
 import account.service.request.SignUpRequest;
 import console_ui.entity.ConsoleUiMessage;
 import utility.KeyboardInput;
@@ -58,9 +59,12 @@ public class ConsoleUiRepositoryImpl implements ConsoleUiRepository {
         return new SignUpRequest(userInputId, userInputPassword);
     }
 
-    private Object displaySignIn() {
+    private SignInRequest displaySignIn() {
         System.out.println("로그인을 시작합니다.");
-        return null;
+        String userInputId = KeyboardInput.getStringInput("아이디를 입력하세요: ");
+        String userInputPassword = KeyboardInput.getStringInput("비밀번호를 입력하세요: ");
+
+        return new SignInRequest(userInputId, userInputPassword);
     }
 
     private Object displayExit() {
