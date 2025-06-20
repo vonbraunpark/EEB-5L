@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "0.0.0",
+  "packages": [
+    "html-container",
+    "html-css-test-app",
+    "javascript-test-app",
+    "kakao-authentication",
+    "navigation-bar-app",
+    "react-test-app",
+    "recoil-board-app"
+  ],
+  "hoist": true
+}
