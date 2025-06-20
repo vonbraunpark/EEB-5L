@@ -17,6 +17,10 @@ public class ConsoleUiRepositoryImpl implements ConsoleUiRepository {
         actionMap.put(ConsoleUiMessage.SIGNUP, this::displaySignUp);
         actionMap.put(ConsoleUiMessage.SIGNIN, this::displaySignIn);
         actionMap.put(ConsoleUiMessage.EXIT, this::displayExit);
+        actionMap.put(ConsoleUiMessage.START_GAME, this::displayDiceGame);
+        actionMap.put(ConsoleUiMessage.VIEW_BATTLE_REPORT, this::displayBattleReport);
+        actionMap.put(ConsoleUiMessage.ROLL_DICE, this::displayRollDice);
+        actionMap.put(ConsoleUiMessage.SURRENDER, this::displaySurrender);
     }
 
     public static ConsoleUiRepositoryImpl getInstance() {
@@ -81,6 +85,26 @@ public class ConsoleUiRepositoryImpl implements ConsoleUiRepository {
 
     private Object displayExit() {
         System.out.println("프로그램을 종료합니다.");
+        return null;
+    }
+
+    private Object displayDiceGame() {
+        System.out.println("주사위 게임을 시작합니다.");
+        return null;
+    }
+
+    private Object displayBattleReport() {
+        System.out.println("배틀 결과를 살펴봅니다.");
+        return null;
+    }
+
+    private Object displayRollDice() {
+        System.out.println("주사위를 굴립니다.");
+        return null;
+    }
+
+    private Object displaySurrender() {
+        System.out.println("항복 했습니다.");
         return null;
     }
 }
