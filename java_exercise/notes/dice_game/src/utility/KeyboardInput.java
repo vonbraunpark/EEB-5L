@@ -11,4 +11,8 @@ public class KeyboardInput {
         System.out.print(prompt);
         return scanner.nextLine();
     }
+
+    public static String getStringInput() {
+        return scanner.nextLine();
+    }
 }
