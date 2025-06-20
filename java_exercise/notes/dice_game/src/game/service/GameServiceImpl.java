@@ -15,7 +15,10 @@ import game.repository.GameRepository;
 import game.repository.GameRepositoryImpl;
 import utility.KeyboardInput;
 
+import java.util.EnumMap;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 public class GameServiceImpl implements GameService {
     private static GameServiceImpl instance;
@@ -25,11 +28,17 @@ public class GameServiceImpl implements GameService {
     private final AuthenticationRepository authenticationRepository;
     private final AccountRepository accountRepository;
 
+    private final Map<ConsoleUiMessage, Consumer<Object>> dispatcher = new EnumMap<>(ConsoleUiMessage.class);
+
     private GameServiceImpl() {
         this.gameRepository = GameRepositoryImpl.getInstance();
         this.consoleUiRepository = ConsoleUiRepositoryImpl.getInstance();
         this.authenticationRepository = AuthenticationRepositoryImpl.getInstance();
         this.accountRepository = AccountRepositoryImpl.getInstance();
+
+        dispatcher.put(ConsoleUiMessage.SIGNUP, this::handleSignUp);
+        dispatcher.put(ConsoleUiMessage.SIGNIN, this::handleSignIn);
+        dispatcher.put(ConsoleUiMessage.EXIT, this::handleExit);
     }
 
     public static GameServiceImpl getInstance() {
@@ -48,36 +57,52 @@ public class GameServiceImpl implements GameService {
             // 2. 다음으로 회원가입, 로그인, 종료라는 기본 메뉴 제공
             consoleUiRepository.displayInitialMessage();
             String userInput = KeyboardInput.getStringInput("입력: ");
-            // ConsoleUiMessage.SIGNUP
-            // ConsoleUiMessage.SIGNIN
-            // ConsoleUiMessage.EXIT
-            ConsoleUiMessage selectedMessage = ConsoleUiMessage.fromUserInput(userInput);
-            Object result = consoleUiRepository.displayMessageFromUserInput(selectedMessage);
-            if (result instanceof SignUpRequest request) {
-                Account account = new Account(request.getUserId(), request.getPassword());
-                accountRepository.save(account);
+
+            try {
+                ConsoleUiMessage selectedMessage = ConsoleUiMessage.fromUserInput(userInput);
+                Object result = consoleUiRepository.displayMessageFromUserInput(selectedMessage);
+
+                Consumer<Object> handler = dispatcher.get(selectedMessage);
+                if (handler != null) handler.accept(result);
+
+                if (selectedMessage == ConsoleUiMessage.EXIT) break;
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("잘못된 입력입니다.");
             }
 
-            if (result instanceof SignInRequest request) {
-                String userId = request.getUserId();
-                Optional<Account> maybeAccount = accountRepository.findByUserId(userId);
-
-                if (maybeAccount.isEmpty()) {
-                    System.out.println("아이디 혹은 비밀번호를 잘못 입력했습니다.");
-                    return;
-                }
-
-                Account account = maybeAccount.get();
-
-                String password = request.getPassword();
-                if (account.getPassword().equals(password)) {
-                    System.out.println("로그인 성공");
-                    authenticationRepository.save(true);
-                }
-            }
-
-            if (selectedMessage == ConsoleUiMessage.EXIT) break;
             // 3. 로그인 시 출력되는 메뉴가 별도로 필요함 (이건 아직 미정)
         }
+    }
+
+    private void handleSignUp(Object result) {
+        if (result instanceof SignUpRequest request) {
+            Account account = new Account(request.getUserId(), request.getPassword());
+            accountRepository.save(account);
+        }
+    }
+
+    private void handleSignIn(Object result) {
+        if (result instanceof SignInRequest request) {
+            String userId = request.getUserId();
+            Optional<Account> maybeAccount = accountRepository.findByUserId(userId);
+
+            if (maybeAccount.isEmpty()) {
+                System.out.println("아이디 혹은 비밀번호를 잘못 입력했습니다.");
+                return;
+            }
+
+            Account account = maybeAccount.get();
+
+            String password = request.getPassword();
+            if (account.getPassword().equals(password)) {
+                System.out.println("로그인 성공");
+                authenticationRepository.save(true);
+            }
+        }
+    }
+
+    private void handleExit(Object ignored) {
+        authenticationRepository.save(false); // 로그아웃 처리
     }
 }
