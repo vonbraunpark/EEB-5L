@@ -5,5 +5,5 @@ import console_ui.entity.ConsoleUiMessage;
 public interface ConsoleUiRepository {
     void displayWelcomeMessage();
     void displayInitialMessage();
-    void displayMessageFromUserInput(ConsoleUiMessage message);
+    Object displayMessageFromUserInput(ConsoleUiMessage message);
 }

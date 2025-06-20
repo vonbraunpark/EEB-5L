@@ -1,10 +1,13 @@
 package console_ui.repository;
 
 
+import account.service.request.SignUpRequest;
 import console_ui.entity.ConsoleUiMessage;
+import utility.KeyboardInput;
 
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class ConsoleUiRepositoryImpl implements ConsoleUiRepository {
     private static ConsoleUiRepositoryImpl instance;
@@ -23,7 +26,9 @@ public class ConsoleUiRepositoryImpl implements ConsoleUiRepository {
         return instance;
     }
 
-    private final Map<ConsoleUiMessage, Runnable> actionMap = new EnumMap<>(ConsoleUiMessage.class);
+    // Runnable은 리턴 타입이 void 입니다.
+    // 반면 Supplier는 리턴이 가능하므로 변경합니다.
+    private final Map<ConsoleUiMessage, Supplier<Object>> actionMap = new EnumMap<>(ConsoleUiMessage.class);
 
     @Override
     public void displayWelcomeMessage() {
@@ -36,25 +41,30 @@ public class ConsoleUiRepositoryImpl implements ConsoleUiRepository {
     }
 
     @Override
-    public void displayMessageFromUserInput(ConsoleUiMessage message) {
-        Runnable action = actionMap.get(message);
+    public Object displayMessageFromUserInput(ConsoleUiMessage message) {
+        Supplier<Object> action = actionMap.get(message);
         if (action != null) {
-            action.run();
-            return;
+            return action.get();
         }
 
-        System.out.println("알 수 없는 명령을 요청하였습니다.");
+        throw new IllegalArgumentException("지원하지 않는 명령입니다: " + message);
     }
 
-    private void displaySignUp() {
+    private SignUpRequest displaySignUp() {
         System.out.println("회원 가입을 시작합니다.");
+        String userInputId = KeyboardInput.getStringInput("아이디를 입력하세요: ");
+        String userInputPassword = KeyboardInput.getStringInput("비밀번호를 입력하세요: ");
+
+        return new SignUpRequest(userInputId, userInputPassword);
     }
 
-    private void displaySignIn() {
+    private Object displaySignIn() {
         System.out.println("로그인을 시작합니다.");
+        return null;
     }
 
-    private void displayExit() {
+    private Object displayExit() {
         System.out.println("프로그램을 종료합니다.");
+        return null;
     }
 }
