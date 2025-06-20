@@ -9,6 +9,7 @@ import TodoListTest from "./basics/TodoListTest.tsx";
 import ReduxCounterTest from "./basics/ReduxCounterTest.tsx";
 import {Provider} from "react-redux";
 import {store} from "./state/store.ts";
+import PostList from "./basics/PostList.tsx";
 
 const App = () => (
     <Provider store={store}>
@@ -20,6 +21,7 @@ const App = () => (
             <ConditionalRenderTest/>
             <TodoListTest/>
             <ReduxCounterTest/>
+            <PostList/>
         </div>
     </Provider>
 );

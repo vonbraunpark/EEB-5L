@@ -6,9 +6,11 @@
     "html-css-test-app",
     "javascript-test-app",
     "kakao-authentication",
+    "google-authentication",
     "navigation-bar-app",
     "practice-app",
-    "react-test-app"
+    "react-test-app",
+    "recoil-board-app"
   ],
   "hoist": true
 }

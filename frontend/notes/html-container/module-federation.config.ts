@@ -8,7 +8,8 @@ export const mfConfig = {
     navigationBarApp: "navigationBarApp@http://localhost:3005/remoteEntry.js",
     reactTestApp: "reactTestApp@http://localhost:3006/remoteEntry.js",
     googleAuthenticationApp: "googleAuthenticationApp@http://localhost:3100/remoteEntry.js",
-    recoilBoardApp: "recoilBoardApp@http://localhost:3101/remoteEntry.js"
+    recoilBoardApp: "recoilBoardApp@http://localhost:3101/remoteEntry.js",
+    vueBoardApp: "vueBoardApp@http://localhost:3200/remoteEntry.js"
   },
   shared: {
     react: { singleton: true, requiredVersion: "^18.2.0" },

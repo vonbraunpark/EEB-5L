@@ -57,6 +57,14 @@ const App: React.FC = () => {
                 <Button
                     color="inherit"
                     component={Link}
+                    to="/google-authentication"
+                    startIcon={<CodeIcon />}
+                >
+                    google authentication
+                </Button>
+                <Button
+                    color="inherit"
+                    component={Link}
                     to="/board/list"
                     startIcon={<ForumIcon />}
                 >
