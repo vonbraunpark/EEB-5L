@@ -1,4 +1,4 @@
-package com.example.monoproj.board.controller.response_form;
+package com.example.monoproj.servlet_lab.controller.response_form;
 
 import com.example.monoproj.board.service.response.ListBoardResponse;
 import lombok.Getter;

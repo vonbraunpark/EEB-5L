@@ -1,12 +1,12 @@
-package com.example.monoproj.board.controller;
+package com.example.monoproj.servlet_lab.controller;
 
-import com.example.monoproj.board.controller.request_form.CreateBoardRequestForm;
-import com.example.monoproj.board.controller.request_form.ListBoardRequestForm;
-import com.example.monoproj.board.controller.request_form.UpdateBoardRequestForm;
-import com.example.monoproj.board.controller.response_form.CreateBoardResponseForm;
-import com.example.monoproj.board.controller.response_form.ListBoardResponseForm;
-import com.example.monoproj.board.controller.response_form.ReadBoardResponseForm;
-import com.example.monoproj.board.controller.response_form.UpdateBoardResponseForm;
+import com.example.monoproj.servlet_lab.controller.request_form.CreateBoardRequestForm;
+import com.example.monoproj.servlet_lab.controller.request_form.ListBoardRequestForm;
+import com.example.monoproj.servlet_lab.controller.request_form.UpdateBoardRequestForm;
+import com.example.monoproj.servlet_lab.controller.response_form.CreateBoardResponseForm;
+import com.example.monoproj.servlet_lab.controller.response_form.ListBoardResponseForm;
+import com.example.monoproj.servlet_lab.controller.response_form.ReadBoardResponseForm;
+import com.example.monoproj.servlet_lab.controller.response_form.UpdateBoardResponseForm;
 
 import com.example.monoproj.board.service.BoardService;
 import com.example.monoproj.board.service.response.CreateBoardResponse;

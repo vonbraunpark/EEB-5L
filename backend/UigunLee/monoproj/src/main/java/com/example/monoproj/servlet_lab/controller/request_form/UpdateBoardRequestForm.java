@@ -1,4 +1,4 @@
-package com.example.monoproj.board.controller.request_form;
+package com.example.monoproj.servlet_lab.controller.request_form;
 
 import com.example.monoproj.board.service.request.UpdateBoardRequest;
 import lombok.Getter;
