@@ -13,7 +13,9 @@ public class GameServiceImpl implements GameService {
     @Override
     public Long start() {
         Game game = new Game();
-        gameRepository.save(game);
-        return game.getId();
+        System.out.println("game: " + game);
+        Game savedGame = gameRepository.save(game);
+        System.out.println("savedGame: " + savedGame);
+        return savedGame.getId();
     }
 }
