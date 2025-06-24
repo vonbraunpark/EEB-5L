@@ -15,7 +15,6 @@ public class GameServiceImpl implements GameService {
         Game game = new Game();
         System.out.println("game: " + game);
         Game savedGame = gameRepository.save(game);
-        System.out.println("savedGame: " + savedGame);
         return savedGame.getId();
     }
 }
