@@ -59,6 +59,7 @@ public class ConsoleUiRepositoryImpl implements ConsoleUiRepository {
 
     @Override
     public Object displayMessageFromUserInput(ConsoleUiMessage message) {
+        System.out.println("message: " + message);
         Supplier<Object> action = actionMap.get(message);
         if (action != null) {
             return action.get();

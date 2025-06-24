@@ -69,11 +69,11 @@ public class GameServiceImpl implements GameService {
                     selectedMessage = ConsoleUiMessage.fromUserInput(String.valueOf(userInput));
                 }
                 if (isAuthenticated && !isInGame) {
-                    selectedMessage = ConsoleUiMessage.fromUserInput(String.valueOf(userInput + 3));
+                    selectedMessage = ConsoleUiMessage.fromUserInput(String.valueOf(Integer.parseInt(userInput) + 3));
                 }
                 if (isAuthenticated && isInGame) {
                     // +5 보정 (주사위 굴리기 6, 항복 7)
-                    selectedMessage = ConsoleUiMessage.fromUserInput(String.valueOf(userInput + 5));
+                    selectedMessage = ConsoleUiMessage.fromUserInput(String.valueOf(Integer.parseInt(userInput) + 5));
                 }
 
                 Object result = consoleUiRepository.displayMessageFromUserInput(selectedMessage);
