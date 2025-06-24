@@ -1,16 +1,18 @@
 import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 
-import {CircularProgress} from "@mui/material";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { CircularProgress } from "@mui/material";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
 const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
-const ReactTestApp = lazy(() => import("reactTestApp/App"));
-const KakaoAuthenticationApp = lazy(() => import("KakaoAuthenticationApp/App"))
+const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
 const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
+const ReactTestApp = lazy(() => import("reactTestApp/App"));
+//const RecoilBoardApp = lazy(() => import("recoilBoardApp/App"))
 
+import VuetifyTailwindBoardAppWrapper from "./VuetifyTailwindBoardAppWrapper";
 
 const App = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
@@ -23,15 +25,18 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <Suspense fallback={<CircularProgress/>}>
-                <NavigationBarApp/>
+            <Suspense fallback={<CircularProgress />}>
+                <NavigationBarApp />
+
                 <Routes>
-                    <Route path="/" element={<div>Home Page</div>}/>
-                    <Route path="/html-css-test" element={<HtmlCssTestApp/>}/>
-                    <Route path="/js-test" element={<JavascriptTestApp/>}/>
-                    <Route path="/ReactTestApp" element={<ReactTestApp/>}/>
-                    <Route path="/kakao" element={<KakaoAuthenticationApp/>}/>
-                    <Route path="/google-authentication/*" element={<GoogleAuthenticationApp/>}/>
+                    <Route path="/" element={<div>Home Page</div>} />
+                    <Route path="/html-css-test" element={<HtmlCssTestApp />} />
+                    <Route path="/js-test" element={<JavascriptTestApp />} />
+                    <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
+                    {/*<Route path="/board/*" element={<VuetifyTailwindBoardAppWrapper />} />*/}
+                    <Route path="/react-test" element={<ReactTestApp />} />
+                    <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
+                   {/*<Route path="/recoil-board/*" element={<RecoilBoardApp />} />*/}
                 </Routes>
             </Suspense>
         </BrowserRouter>
@@ -46,4 +51,4 @@ if (!container) {
 }
 
 const root = ReactDOM.createRoot(container);
-root.render(<App/>);
+root.render(<App />);
