@@ -1,17 +1,22 @@
 import axios, { AxiosInstance } from 'axios'
+import env from "../env.ts";
 
 const springAxiosInst: AxiosInstance = axios.create({
-    baseURL: 'http://localhost:7777',
+    baseURL: env.api.MAIN_API_URL,
     timeout: 2500,
 })
 
-// ✅ 요청 인터셉터 설정: "/board/list" 만 예외
+// 요청 인터셉터 설정
 springAxiosInst.interceptors.request.use((config) => {
     const userToken = localStorage.getItem('userToken')
     const requestUrl = config.url || ''
 
-    // "/board/list" 요청만 Authorization 제외
-    if (requestUrl === '/board/list') {
+    // /board/list, /board/read/:boardId
+    const isPublicRequest =
+        requestUrl === '/board/list' ||
+        /^\/board\/read\/\d+$/.test(requestUrl)
+
+    if (isPublicRequest) {
         return config
     }
 

@@ -1,18 +1,18 @@
 export interface Board {
     boardId: number
     title: string
-    writer: string
+    nickname: string
     content: string
     createDate: string
     updateDate: string
 }
 
 export interface BoardState {
-    boards: Board[]
+    boardList: Board[]
     board: Board | null
 }
 
-export const boardState = (): BoardState => ({
-    boards: [],
+export const boardState = () => ({
+    boardList: [],
     board: null,
 })

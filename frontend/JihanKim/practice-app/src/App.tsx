@@ -9,6 +9,7 @@ import TodoListTest from "./basics/TodoListTest.tsx";
 import {Provider} from 'react-redux';
 import {store} from './state/store.ts';
 import ReduxCounterTest from "./basics/ReduxCounterTest.tsx";
+import PostList from "./basics/PostList.tsx";
 
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
             <ConditionRenderTest/>
             <TodoListTest/>
             <ReduxCounterTest/>
+            <PostList/>
         </div>
     </Provider>
 );
