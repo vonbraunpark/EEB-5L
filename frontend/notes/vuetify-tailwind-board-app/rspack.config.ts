@@ -19,7 +19,6 @@ export default defineConfig({
   resolve: {
     extensions: ["...", ".vue", ".ts", ".tsx", ".jsx"],
   },
-
   devServer: {
     port: 3004,
     historyApiFallback: true,

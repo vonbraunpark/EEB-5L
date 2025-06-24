@@ -1,6 +1,6 @@
 export const MapExample = () => {
-    let numbers: number[] = [1,2,3,4,5]
-    let results: number[] = numbers.map(num => num*2)
+    let numbers: number[] = [1, 2, 3, 4, 5]
+    let results: number[] = numbers.map(num => num * 2)
     let steps: string[] = numbers.map((num, index) =>
         `num = ${num} -> 결과 = ${results[index]}`)
 
@@ -17,7 +17,7 @@ export const MapExample = () => {
             </ul>
             <pre>
                 {`
-                   let results = numbers.map(num => num*2)
+                    let results = numbers.map(num => num * 2)
                 `}
             </pre>
         </div>
