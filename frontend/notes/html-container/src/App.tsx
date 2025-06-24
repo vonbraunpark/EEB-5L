@@ -17,6 +17,7 @@ const RecoilBoardApp = lazy(() => import("recoilBoardApp/App"))
 
 // import VuetifyTailwindBoardAppWrapper from "./VuetifyTailwindBoardAppWrapper";
 import VueBoardAppWrapper from "./VueBoardWrapper.tsx";
+import DiceGameAppWrapper from "./DiceGameAppWrapper.tsx";
 
 const eventBus = mitt();
 
@@ -44,6 +45,7 @@ const App = () => {
                     <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
                     <Route path="/recoil-board/*" element={<RecoilBoardApp />} />
                     <Route path="/vue-board/*" element={<VueBoardAppWrapper eventBus={eventBus}/>} />
+                    <Route path="/dice-game" element={<DiceGameAppWrapper />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>

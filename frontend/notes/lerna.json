@@ -11,6 +11,7 @@
     "react-test-app",
     "google-authentication",
     "recoil-board-app",
-    "vue-board-app"
+    "vue-board-app",
+    "dice-game-app"
   ]
 }
