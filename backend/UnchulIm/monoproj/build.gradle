@@ -33,6 +33,9 @@ dependencies {
 
     runtimeOnly 'com.mysql:mysql-connector-j'
 
+    // H2 Database (테스트용 인메모리 DB)
+    runtimeOnly 'com.h2database:h2'
+
     compileOnly 'org.projectlombok:lombok'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
