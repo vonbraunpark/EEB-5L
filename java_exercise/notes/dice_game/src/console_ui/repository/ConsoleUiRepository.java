@@ -4,6 +4,6 @@ import console_ui.entity.ConsoleUiMessage;
 
 public interface ConsoleUiRepository {
     void displayWelcomeMessage();
-    void displayInitialMessage();
+    void displayInitialMessage(boolean isAuthenticated, boolean isInGame);
     Object displayMessageFromUserInput(ConsoleUiMessage message);
 }
