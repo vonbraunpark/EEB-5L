@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 
 import { RecoilRoot } from 'recoil'
 import "./index.css";
+import PostList from "./ui/component/PostList.tsx";
 
 const App = () => (
     <RecoilRoot>
@@ -16,6 +17,7 @@ const App = () => (
                 <TextDisplay/>
             </div>
         </div>
+        <PostList/>
     </RecoilRoot>
 );
 
