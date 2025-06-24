@@ -31,6 +31,8 @@ public class GameControllerTest {
     // 시작과 끝이 있기 때문에 여러 게임이 생성 될 수 있음
     @Test
     void testStartGame() throws Exception {
+        // when() 을 통해서 무엇을 할 때
+        // thenReturn() 으로 어떤 결과를 고정시켜라
         when(gameService.start()).thenReturn(1L);
 
         mockMvc.perform(get("/game/start"))
