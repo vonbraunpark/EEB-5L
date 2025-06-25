@@ -1,9 +1,7 @@
+<!-- App.svelte -->
 <script>
-  import Dice from "./components/Dice.svelte";
+    import { Router } from '@roxi/routify';
+    import { routes } from './routes';
 </script>
 
-<div class="mt-10 text-3xl mx-auto max-w-6xl">
-  <div>Name: dice-game-app</div>
-  <div>Framework: svelte</div>
-  <Dice />
-</div>
+<Router {routes} />
