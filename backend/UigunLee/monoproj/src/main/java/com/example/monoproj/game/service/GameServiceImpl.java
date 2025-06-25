@@ -13,7 +13,7 @@ public class GameServiceImpl implements GameService {
     @Override
     public Long start() {
         Game game = new Game();
-        gameRepository.save(game);
-        return game.getId();
+        Game savedGame = gameRepository.save(game);
+        return savedGame.getId();
     }
 }

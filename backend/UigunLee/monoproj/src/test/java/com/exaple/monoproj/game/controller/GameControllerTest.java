@@ -1,15 +1,14 @@
 package com.exaple.monoproj.game.controller;
 
 import com.example.monoproj.MonoprojApplication;
-import com.example.monoproj.game.entity.Game;
 import com.example.monoproj.game.service.GameService;
-import com.example.monoproj.redis_cache.service.RedisCacheService;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.Mockito.when;
@@ -24,7 +23,7 @@ public class GameControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Mock
+    @MockitoBean
     private GameService gameService;
 
     // 실제로 게임을 시작한다고 하면 Controller -> Service -> Repository

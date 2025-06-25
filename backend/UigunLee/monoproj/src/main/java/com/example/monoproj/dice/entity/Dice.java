@@ -1,4 +1,4 @@
-package com.example.monoproj.game.entity;
+package com.example.monoproj.dice.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,18 +6,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.data.annotation.CreatedDate;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @ToString
-public class Game {
+public class Dice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @CreatedDate
-    private LocalDateTime startedAt;
+    private Integer number;
+
+    public Dice(Integer number) {
+        this.number = number;
+    }
+
+    public Dice() { }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
 }
