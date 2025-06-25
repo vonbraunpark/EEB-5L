@@ -9,9 +9,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class GameServiceImpl implements GameService {
     private final GameRepository gameRepository;
+
     @Override
     public Long start() {
-        Game savedGame=gameRepository.save(new Game());
+        Game game = new Game();
+        System.out.println("game: " + game);
+        Game savedGame = gameRepository.save(game);
+        System.out.println("savedGame: " + savedGame);
         return savedGame.getId();
     }
 }

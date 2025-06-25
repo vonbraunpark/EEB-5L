@@ -1,6 +1,7 @@
 package com.example.monoproj.game.controller;
 
 import com.example.monoproj.game.service.GameService;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.hamcrest.text.MatchesPattern.matchesPattern;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -31,10 +31,10 @@ public class GameControllerTest {
     // 시작과 끝이 있기 때문에 여러 게임이 생성 될 수 있음
     @Test
     void testStartGame() throws Exception {
-        //when()을 통해서 무엇을 할 때
-        //thenReturn()으로 어떤 결과를 고정시켜라
+        // when() 을 통해서 무엇을 할 때
+        // thenReturn() 으로 어떤 결과를 고정시켜라
         when(gameService.start()).thenReturn(1L);
-        //webpage로 전달된값은 long이든 integer이든 어떤값이든 문자열로 처리한다.
+
         mockMvc.perform(get("/game/start"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("1"));
