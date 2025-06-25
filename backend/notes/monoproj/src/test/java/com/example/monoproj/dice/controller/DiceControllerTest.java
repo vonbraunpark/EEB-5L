@@ -27,6 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class DiceControllerTest {
     private MockMvc mockMvc;
+    private ObjectMapper objectMapper;
 
     @Mock
     private DiceService diceService;
@@ -38,20 +39,21 @@ public class DiceControllerTest {
     public void setup() {
         MockitoAnnotations.openMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(diceController).build();
+        objectMapper = new ObjectMapper();
     }
 
     @Test
     void testSaveRollResult() throws Exception {
         DiceRollResultRequestForm requestForm = new DiceRollResultRequestForm(3);
 
-        when(diceService.saveRollResult(requestForm)).thenReturn(true);
-
-        verify(diceService).saveRollResult(any(DiceRollResultRequestForm.class));
+        when(diceService.saveRollResult(any())).thenReturn(true);
 
         mockMvc.perform(post("/dice/save-roll-result")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content())
+                        .content(objectMapper.writeValueAsString(requestForm)))
                 .andExpect(status().isOk())
                 .andExpect(content().string("true"));
+
+        verify(diceService).saveRollResult(any(DiceRollResultRequestForm.class));
     }
 }
