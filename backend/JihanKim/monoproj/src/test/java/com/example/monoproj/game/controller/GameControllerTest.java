@@ -1,13 +1,15 @@
 package com.example.monoproj.game.controller;
 
+import com.example.monoproj.game.entity.Game;
 import com.example.monoproj.game.service.GameService;
-
+import com.example.monoproj.redis_cache.service.RedisCacheService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.Mockito.when;
@@ -31,8 +33,6 @@ public class GameControllerTest {
     // 시작과 끝이 있기 때문에 여러 게임이 생성 될 수 있음
     @Test
     void testStartGame() throws Exception {
-        // when() 을 통해서 무엇을 할 때
-        // thenReturn() 으로 어떤 결과를 고정시켜라
         when(gameService.start()).thenReturn(1L);
 
         mockMvc.perform(get("/game/start"))
