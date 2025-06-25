@@ -22,6 +22,9 @@
 
     let result = 0;
     let stoppedFrameCount = 0;
+    let hasSentResult = false;
+
+    export let gameId: number;
 
     const texturePaths = [
         Side3, // +X → 3
@@ -33,12 +36,12 @@
     ];
 
     const faceNormalToValue: { [key: string]: number } = {
-        '0,1,0': 1,   // +Y
-        '0,-1,0': 6,  // -Y
-        '1,0,0': 3,   // +X
-        '-1,0,0': 4,  // -X
-        '0,0,1': 2,   // +Z
-        '0,0,-1': 5   // -Z
+        '0,1,0': 1,
+        '0,-1,0': 6,
+        '1,0,0': 3,
+        '-1,0,0': 4,
+        '0,0,1': 2,
+        '0,0,-1': 5
     };
 
     const faceNormals = Object.keys(faceNormalToValue).map(key => {
@@ -61,7 +64,6 @@
         }
 
         if (!topFace) return -1;
-
         const key = `${topFace.x},${topFace.y},${topFace.z}`;
         return faceNormalToValue[key] ?? -1;
     }
@@ -74,7 +76,6 @@
 
     function initThree() {
         scene = new THREE.Scene();
-
         const width = container.clientWidth;
         const height = container.clientHeight;
 
@@ -92,13 +93,10 @@
             new THREE.MeshStandardMaterial({ map: loader.load(path) })
         );
 
-        const geometry = new THREE.BoxGeometry(1, 1, 1);
-        diceMesh = new THREE.Mesh(geometry, materials);
+        diceMesh = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), materials);
         scene.add(diceMesh);
 
-        const light = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
-        light.position.set(0, 10, 0);
-        scene.add(light);
+        scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1));
 
         const ground = new THREE.Mesh(
             new THREE.PlaneGeometry(10, 10),
@@ -113,7 +111,7 @@
 
         const groundBody = new CANNON.Body({
             type: CANNON.Body.STATIC,
-            shape: new CANNON.Plane(),
+            shape: new CANNON.Plane()
         });
         groundBody.quaternion.setFromEuler(-Math.PI / 2, 0, 0);
         world.addBody(groundBody);
@@ -123,13 +121,13 @@
             shape: new CANNON.Box(new CANNON.Vec3(0.5, 0.5, 0.5)),
             position: new CANNON.Vec3(0, 5, 0),
         });
-
         world.addBody(diceBody);
     }
 
     function rollDice() {
         result = 0;
         stoppedFrameCount = 0;
+        hasSentResult = false;
 
         diceBody.velocity.set(0, 0, 0);
         diceBody.angularVelocity.set(0, 0, 0);
@@ -144,6 +142,38 @@
         );
     }
 
+    async function sendResultToServer(result: number) {
+        const userToken = localStorage.getItem('userToken');
+
+        if (!userToken || !gameId) {
+            console.warn('❗ userToken 또는 gameId 누락');
+            return;
+        }
+
+        try {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/dice/save-roll-result`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${userToken}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    gameId,
+                    number: result
+                })
+            });
+
+            const ok = await response.json();
+            if (ok) {
+                console.log('✅ 주사위 결과 전송 성공');
+            } else {
+                console.warn('⚠ 주사위 결과 저장 실패');
+            }
+        } catch (error) {
+            console.error('전송 실패:', error);
+        }
+    }
+
     function animate(time: number) {
         requestAnimationFrame(animate);
 
@@ -151,7 +181,6 @@
         lastTime = time;
 
         world.step(1 / 60, dt);
-
         diceMesh.position.copy(diceBody.position as any);
         diceMesh.quaternion.copy(diceBody.quaternion as any);
 
@@ -159,7 +188,11 @@
             stoppedFrameCount++;
             if (stoppedFrameCount >= 15 && result === 0) {
                 result = getTopFaceIndex();
-                console.log("🎲 주사위 눈:", result);
+                console.log('🎲 주사위 눈:', result);
+                if (!hasSentResult) {
+                    sendResultToServer(result);
+                    hasSentResult = true;
+                }
             }
         } else {
             stoppedFrameCount = 0;
@@ -173,7 +206,6 @@
         const height = container.clientHeight;
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
-
         renderer.setSize(width, height);
         renderer.setPixelRatio(window.devicePixelRatio || 1);
     }

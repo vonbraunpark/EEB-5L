@@ -2,6 +2,7 @@
     import Dice from './components/Dice.svelte';
 
     let showGame = false;
+    let gameId: number | null = null;
 
     async function startGame() {
         try {
@@ -24,8 +25,8 @@
                 throw new Error(`서버 오류: ${response.status}`);
             }
 
-            const gameId = await response.json();
-            console.log('🎯 게임 ID:', gameId);
+            gameId = await response.json();
+            console.log('게임 ID:', gameId);
 
             showGame = true;
         } catch (error) {
@@ -36,12 +37,13 @@
 
     function goHome() {
         showGame = false;
+        gameId = null;
     }
 </script>
 
-{#if showGame}
+{#if showGame && gameId}
     <button on:click={goHome} style="position: absolute; top: 20px; right: 20px; z-index: 10;">🏠 홈으로</button>
-    <Dice />
+    <Dice {gameId} />
 {:else}
     <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
         <h1>🎲 주사위 게임에 오신 것을 환영합니다</h1>
