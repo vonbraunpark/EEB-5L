@@ -18,15 +18,16 @@ public class AccountServiceImpl implements AccountService {
     final private AccountLoginTypeRepository accountLoginTypeRepository;
 
     @Override
-    @Transactional
     public Account createAccount(LoginType loginType) {
-        AccountRoleType accountRoleType = new AccountRoleType(RoleType.NORMAL);
-        AccountRoleType createdAccountRoleType = this.accountRoleTypeRepository.save(accountRoleType);
+        AccountRoleType accountRoleType = accountRoleTypeRepository.findByRoleType(RoleType.NORMAL)
+                .orElseThrow(() -> new IllegalStateException("RoleType.NORMAL 이 DB에 없습니다."));
 
-        AccountLoginType accountLoginType = new AccountLoginType(loginType);
-        AccountLoginType createdAccountLoginType = this.accountLoginTypeRepository.save(accountLoginType);
+        // 2. 로그인 타입 찾기
+        AccountLoginType accountLoginType = accountLoginTypeRepository.findByLoginType(loginType)
+                .orElseThrow(() -> new IllegalStateException("LoginType.%s 이 DB에 없습니다.".formatted(loginType)));
 
-        Account account = new Account(createdAccountRoleType, createdAccountLoginType);
-        return this.accountRepository.save(account);
+        // 3. Account 생성 및 저장
+        Account account = new Account(accountRoleType, accountLoginType);
+        return accountRepository.save(account);
     }
 }
