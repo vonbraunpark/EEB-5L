@@ -13,6 +13,7 @@ const ReactTestApp = lazy(() => import("reactTestApp/App"));
 const RecoilBoardApp = lazy(() => import("recoilBoardApp/App"));
 
 import VuetifyTailwindBoardAppWrapper from "./VuetifyTailwindBoardAppWrapper";
+import DiceGameAppWrapper from "./DiceGameAppWrapper.tsx";
 
 const App = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
@@ -37,6 +38,7 @@ const App = () => {
                     <Route path="/react-test" element={<ReactTestApp />} />
                     <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
                     <Route path="/recoil-board/*" element={<RecoilBoardApp />} />
+                    <Route path="/dice-game" element={<DiceGameAppWrapper />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
