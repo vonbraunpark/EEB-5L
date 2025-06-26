@@ -8,10 +8,13 @@ import lombok.ToString;
 @Getter
 @ToString
 @RequiredArgsConstructor
+
 public class DiceRollResultRequestForm {
     final private int number;
 
     public Dice toDice() {
         return new Dice(number);
+
+        // ./gradlew bootRun 포스트맨 실행
     }
 }

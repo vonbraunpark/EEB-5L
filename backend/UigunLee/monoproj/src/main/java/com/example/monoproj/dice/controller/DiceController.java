@@ -21,5 +21,6 @@ public class DiceController {
     public Boolean diceSaveRollResult(@RequestBody DiceRollResultRequestForm requestForm) {
         log.info("diceSaveRollResult() -> requestForm: {}", requestForm);
         return diceService.saveRollResult(requestForm);
+
     }
 }
