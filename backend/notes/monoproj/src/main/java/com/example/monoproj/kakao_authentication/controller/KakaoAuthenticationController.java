@@ -67,7 +67,7 @@ public class KakaoAuthenticationController {
 
             if (account == null) {
                 log.info("New user detected. Creating account and profile...");
-                account = accountService.createAccount();
+                account = accountService.createAccount(LoginType.KAKAO);
                 accountProfileService.createAccountProfile(account, nickname, email);
             }
 
