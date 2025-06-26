@@ -10,7 +10,8 @@ export const mfConfig = {
     googleAuthenticationApp: "googleAuthenticationApp@http://localhost:3100/remoteEntry.js",
     recoilBoardApp: "recoilBoardApp@http://localhost:3101/remoteEntry.js",
     // vueBoardApp: "vueBoardApp@http://localhost:3200/remoteEntry.js"
-    vueBoardApp: `vueBoardApp@${process.env.VUE_BOARD_APP}/remoteEntry.js`
+    vueBoardApp: `vueBoardApp@${process.env.VUE_BOARD_APP}/remoteEntry.js`,
+    diceGameApp: "diceGameApp@http://localhost:4000/remoteEntry.js"
   },
   shared: {
     react: { singleton: true, requiredVersion: "^18.2.0" },
@@ -18,5 +19,6 @@ export const mfConfig = {
     "@mui/material": { singleton: true, requiredVersion: "^7.0.1" },
     "@mui/icons-material": { singleton: true, requiredVersion: "^7.0.1" },
     "react-router-dom": { singleton: true, requiredVersion: "^6.30.0" },
+    three: { singleton: true, requiredVersion: "^0.177.0", },
   },
 };
