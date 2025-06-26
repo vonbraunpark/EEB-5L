@@ -1,6 +1,6 @@
 import * as path from "node:path";
 import { defineConfig } from "@rspack/cli";
-import { rspack } from "@rspack/core";
+import {DefinePlugin, rspack} from "@rspack/core";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 
 const sveltePreprocess = require('svelte-preprocess');
@@ -25,6 +25,33 @@ export default defineConfig({
     port: 3102,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
+    setupMiddlewares: (middlewares, devServer) => {
+      const envOrigins = process.env.MFE_CORS_ORIGIN ?? "";
+      const allowedOrigins = envOrigins
+          .split(",")
+          .map(o => o.trim())
+          .filter(Boolean);
+
+      if (devServer?.app) {
+        devServer.app.use((req, res, next) => {
+          const origin = req.headers.origin;
+          if (origin && allowedOrigins.includes(origin)) {
+            res.setHeader("Access-Control-Allow-Origin", origin);
+          }
+
+          res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,POST,PUT,DELETE");
+          res.setHeader("Access-Control-Allow-Headers", "*");
+
+          if (req.method === "OPTIONS") {
+            res.sendStatus(200);
+          } else {
+            next();
+          }
+        });
+      }
+
+      return middlewares;
+    },
   },
   output: {
     // You need to set a unique value that is not equal to other applications
@@ -40,8 +67,8 @@ export default defineConfig({
   module: {
     rules: [
       {
-        test: /\.svg$/,
-        type: "asset",
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset/resource",
       },
       {
         test: /\.css$/,
@@ -87,6 +114,9 @@ export default defineConfig({
   plugins: [
     new rspack.HtmlRspackPlugin({
       template: "./index.html",
+    }),
+    new DefinePlugin({
+      "import.meta.env.VITE_API_URL": JSON.stringify(process.env.VITE_API_URL),
     }),
     new ModuleFederationPlugin(mfConfig),
   ].filter(Boolean),
