@@ -1,9 +1,7 @@
 package com.example.monoproj.dice.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.monoproj.game.entity.Game;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -17,12 +15,12 @@ public class Dice {
 
     private Integer number;
 
-    private String userToken;  // ← 사용자 토큰 저장용 필드
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "game_id")
+    private Game game;
 
-    // DTO → 엔티티 변환용 생성자
-    public Dice(Integer number, String userToken) {
+    public Dice(Integer number) {
         this.number = number;
-        this.userToken = userToken;
     }
 
     public Dice() { }
@@ -30,7 +28,8 @@ public class Dice {
     public void setNumber(Integer number) {
         this.number = number;
     }
-    public void setUserToken(String userToken) {
-        this.userToken = userToken;
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 }
