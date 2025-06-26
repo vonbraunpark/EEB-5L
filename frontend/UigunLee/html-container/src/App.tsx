@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import {CircularProgress, Modal} from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DiceGameAppWrapper from "./wrapper/DiceGameAppWrapper";
 
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
@@ -38,6 +39,7 @@ const App = () => {
                     <Route path="/modal-test/*" element={<ModalTestApp/>} />
                     <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
                     <Route path="/recoil-board/*" element={<RecoilBoardApp/>} />
+                    <Route path="/dice-game" element={<DiceGameAppWrapper />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>

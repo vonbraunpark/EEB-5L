@@ -11,13 +11,20 @@
     "practice-app",
     "modal-test",
     "google-authentication",
-    "recoil-board-app"
+    "recoil-board-app",
+    "dice-game-app"
   ],
   "scripts": {
     "start": "lerna run start --parallel"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "lerna": "^8.2.1",
-    "cross-env": "^7.0.3"
+    "zip-a-folder": "^3.1.9",
+    "zip-cli": "^0.0.0"
+  },
+  "dependencies": {
+    "cannon-es": "^0.20.0",
+    "three": "^0.177.0"
   }
 }
