@@ -8,7 +8,6 @@ import TextInput from "./ui/components/TextInput.tsx";
 import TextDisplay from "./ui/components/TextDisplay.tsx";
 import PostList from "./ui/components/PostList.tsx";
 
-
 const App = () => (
     <RecoilRoot>
         <div className="min-h-screen flex flex-col items-center

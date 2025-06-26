@@ -11,7 +11,6 @@ import {store} from "./state/store.ts";
 import ReduxCounterTest from "./basics/ReduxCounterTest.tsx";
 import PostList from "./basics/PostList.tsx";
 
-
 const App = () => (
     <Provider store={store}>
         <div className="mt-10 text-3xl mx-auto max-w-6xl">
