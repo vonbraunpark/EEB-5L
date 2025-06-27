@@ -1,3 +1,4 @@
+// components/PostList.tsx
 import React, { useEffect } from 'react';
 import { useRecoilState, useSetRecoilState, useRecoilValueLoadable } from 'recoil';
 import { postsState, postsLoadingState, fetchPostsSelector } from '../../atoms/postState';

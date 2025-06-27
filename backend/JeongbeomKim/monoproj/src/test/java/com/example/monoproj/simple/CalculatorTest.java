@@ -13,4 +13,3 @@ public class CalculatorTest {
         assertEquals(3, result);
     }
 }
-
