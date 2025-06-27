@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import GoogleAuthenticationRouter from "./router/GoogleAuthenticationRouter.tsx";
 
-const App: React.FC = () => {
+const App = () => {
     console.log("✅ AuthenticationApp 렌더링됨");
 
     return (
@@ -12,4 +12,4 @@ const App: React.FC = () => {
     );
 }
 
-export default App;
+export default App

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 import {Link} from "react-router-dom";
 
@@ -7,8 +7,16 @@ import CodeIcon from "@mui/icons-material/Code";
 import JavascriptIcon from "@mui/icons-material/Javascript";
 import ForumIcon from "@mui/icons-material/Forum";
 import SportsGymnasticsIcon from '@mui/icons-material/SportsGymnastics';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const App: React.FC = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const handleAuthClick = () => {
+        setIsLoggedIn(isLoggedIn => !isLoggedIn);
+    };
+
     return (
         <AppBar position="static">
             <Toolbar>
@@ -20,16 +28,14 @@ const App: React.FC = () => {
                     component={Link}
                     to="/"
                     startIcon={<HomeIcon />}
-                >
-                    Home
-                </Button>
+                />
                 <Button
                     color="inherit"
                     component={Link}
                     to="/html-css-test"
                     startIcon={<CodeIcon />}
                 >
-                    HTML/CSS Test
+                    HTML
                 </Button>
                 <Button
                     color="inherit"
@@ -37,15 +43,23 @@ const App: React.FC = () => {
                     to="/js-test"
                     startIcon={<JavascriptIcon />}
                 >
-                    Javascript Test
+                    JS
                 </Button>
+                {/*<Button*/}
+                {/*    color="inherit"*/}
+                {/*    component={Link}*/}
+                {/*    to="/board/list"*/}
+                {/*    startIcon={<ForumIcon />}*/}
+                {/*>*/}
+                {/*    R게시판*/}
+                {/*</Button>*/}
                 <Button
                     color="inherit"
                     component={Link}
-                    to="/board/list"
+                    to="/vue-board/list"
                     startIcon={<ForumIcon />}
                 >
-                    게시판
+                    V게시판
                 </Button>
                 <Button
                     color="inherit"
@@ -53,7 +67,14 @@ const App: React.FC = () => {
                     to="/react-test"
                     startIcon={<SportsGymnasticsIcon />}
                 >
-                    React 실험
+                    React
+                </Button>
+                {/* 로그인 / 로그아웃 버튼 */}
+                <Button
+                    color="inherit"
+                    onClick={handleAuthClick}
+                    startIcon={isLoggedIn ? <LogoutIcon /> : <LoginIcon />}
+                >
                 </Button>
             </Toolbar>
         </AppBar>

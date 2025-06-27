@@ -4,8 +4,6 @@ import GoogleAuthenticationPage from "../pages/GoogleAuthenticationPage.tsx";
 
 
 const GoogleAuthenticationRouter = () => {
-    console.log('렌더링 완료')
-    
     return (
         <Suspense fallback={<div>로딩중 ........</div>}>
             <Routes>
