@@ -8,15 +8,12 @@ import {RecoilRoot,useRecoilState} from "recoil";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import {screenModState} from "../../shared-state/atoms.ts"
+import DiceGameAppWrapper from "./DiceGameAppWrapper.tsx";
 
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
-const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
-const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
 const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
-const ReactTestApp = lazy(() => import("reactTestApp/App"));
 const PracticeApp = lazy(() => import("practiceApp/App"));
 const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
-const RecoilBoardApp = lazy(()=> import("recoilBoardApp/App"));
 
 const InnerApp  = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
@@ -42,13 +39,10 @@ const InnerApp  = () => {
                         <ScreenWrap>
                         <Routes>
                             <Route path="/" element={<div>Home Page</div>} />
-                            <Route path="/html-css-test" element={<HtmlCssTestApp />} />
-                            <Route path="/js-test" element={<JavascriptTestApp />} />
                             <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
-                            <Route path="/react-test" element={<ReactTestApp />} />
                             <Route path="/practice" element={<PracticeApp />} />
                             <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
-                            <Route path="/recoil-board" element={<RecoilBoardApp />} />
+                            <Route path="/dice-game" element={<DiceGameAppWrapper />} />
                         </Routes>
                         </ScreenWrap>
                     </Wrapper>
