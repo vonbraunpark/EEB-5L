@@ -6,16 +6,9 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Getter
 @RequiredArgsConstructor
 public class ListSampleBoardResponseForm {
-
     private final List<Map<String, Object>> boardList;
-
-
-
-
-
 }
