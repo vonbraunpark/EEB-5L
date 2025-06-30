@@ -25,7 +25,7 @@ public class SampleBoard {
 
     /** PK: 자동 생성되는 게시글 ID */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//AUTO_INCREMENT
     private Long boardId;
 
     /** 게시글 제목 */
