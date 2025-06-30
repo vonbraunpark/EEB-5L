@@ -7,7 +7,8 @@
     "navigation-bar-app",
     "practice-app",
     "google-authentication",
-    "dice-game-app"
+    "dice-game-app",
+    "vue-board-app"
   ],
   "hoist": true
 }

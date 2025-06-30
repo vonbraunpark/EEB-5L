@@ -1,9 +1,8 @@
 import * as path from "node:path";
 import { defineConfig } from "@rspack/cli";
-import { rspack } from "@rspack/core";
+import {DefinePlugin, rspack} from "@rspack/core";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
-
-const sveltePreprocess = require('svelte-preprocess');
+import { VueLoaderPlugin } from "vue-loader";
 
 import { mfConfig } from "./module-federation.config";
 
@@ -22,15 +21,44 @@ export default defineConfig({
   },
 
   devServer: {
-    port: 4444,
+    port: 3200,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
+
+    setupMiddlewares: (middlewares, devServer) => {
+      const envOrigins = process.env.MFE_CORS_ORIGIN ?? "";
+      const allowedOrigins = envOrigins
+          .split(",")
+          .map(o => o.trim())
+          .filter(Boolean);
+
+      if (devServer?.app) {
+        devServer.app.use((req, res, next) => {
+          const origin = req.headers.origin;
+          if (origin && allowedOrigins.includes(origin)) {
+            res.setHeader("Access-Control-Allow-Origin", origin);
+          }
+
+          res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,POST,PUT,DELETE");
+          res.setHeader("Access-Control-Allow-Headers", "*");
+
+          if (req.method === "OPTIONS") {
+            res.sendStatus(200);
+          } else {
+            next();
+          }
+        });
+      }
+
+      return middlewares;
+    },
   },
+
   output: {
     // You need to set a unique value that is not equal to other applications
-    uniqueName: "test_game_app",
+    uniqueName: "vue_board_app",
     // publicPath must be configured if using manifest
-    publicPath: "http://localhost:4444/",
+    publicPath: `${process.env.MFE_PUBLIC_SERVICE}:3200/`,
   },
 
   experiments: {
@@ -40,13 +68,20 @@ export default defineConfig({
   module: {
     rules: [
       {
-        test: /\.svg$/,
-        type: "asset",
+        test: /\.vue$/,
+        loader: "vue-loader",
+        options: {
+          experimentalInlineMatchResource: true,
+        },
       },
       {
         test: /\.css$/,
         use: ["postcss-loader"],
         type: "css",
+      },
+      {
+        test: /\.svg$/,
+        type: "asset",
       },
       {
         test: /\.(jsx?|tsx?)$/,
@@ -65,28 +100,16 @@ export default defineConfig({
           },
         ],
       },
-      {
-        test: /\.svelte$/,
-        use: [
-          {
-            loader: 'svelte-loader',
-            options: {
-              compilerOptions: {
-                dev: isDev,
-              },
-
-              emitCss: !isDev,
-              hotReload: isDev,
-              preprocess: sveltePreprocess({ sourceMap: isDev, postcss: true }),
-            },
-          },
-        ],
-      },
     ],
   },
   plugins: [
+    new VueLoaderPlugin(),
     new rspack.HtmlRspackPlugin({
       template: "./index.html",
+    }),
+    new DefinePlugin({
+      "process.env.VUE_APP_BASE_URL": JSON.stringify(process.env.VUE_APP_BASE_URL),
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
     }),
     new ModuleFederationPlugin(mfConfig),
   ].filter(Boolean),

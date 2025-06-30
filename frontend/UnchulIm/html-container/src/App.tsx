@@ -10,6 +10,11 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import {screenModState} from "../../shared-state/atoms.ts"
 import DiceGameAppWrapper from "./DiceGameAppWrapper.tsx";
 
+import mitt from 'mitt';
+import VueBoardAppWrapper from "./VueBoardAppWrapper.tsx";
+
+const eventBus = mitt();
+
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
 const PracticeApp = lazy(() => import("practiceApp/App"));
@@ -43,6 +48,7 @@ const InnerApp  = () => {
                             <Route path="/practice" element={<PracticeApp />} />
                             <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
                             <Route path="/dice-game" element={<DiceGameAppWrapper />} />
+                            <Route path="/vue-board/*" element={<VueBoardAppWrapper eventBus={eventBus}/>} />
                         </Routes>
                         </ScreenWrap>
                     </Wrapper>
