@@ -19,6 +19,7 @@ const AuthenticationApp = lazy(() => import("authenticationApp/App"));
 // import VuetifyTailwindBoardAppWrapper from "./VuetifyTailwindBoardAppWrapper";
 import VueBoardAppWrapper from "./VueBoardWrapper.tsx";
 import DiceGameAppWrapper from "./DiceGameAppWrapper.tsx";
+import VTestWrapper from "./VTestWrapper.tsx";
 
 const eventBus = mitt();
 
@@ -48,6 +49,7 @@ const App = () => {
                     <Route path="/vue-board/*" element={<VueBoardAppWrapper eventBus={eventBus}/>} />
                     <Route path="/dice-game" element={<DiceGameAppWrapper />} />
                     <Route path="/authentication/*" element={<AuthenticationApp />} />
+                    <Route path="/vtest/*" element={<VTestWrapper eventBus={eventBus}/>} />
                 </Routes>
             </Suspense>
         </BrowserRouter>

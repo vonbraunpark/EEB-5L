@@ -8,6 +8,7 @@
     "google-authentication",
     "vue-board-app",
     "dice-game-app",
-    "authentication-app"
+    "authentication-app",
+    "vtest-app"
   ]
 }
