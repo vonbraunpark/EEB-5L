@@ -46,7 +46,7 @@ public class SampleBoardServiceImpl implements SampleBoardService {
 
         log.info("accountProfile:{}", accountProfile);
 
-        SampleBoard sampleBoard= sampleBoardRepository.save(createBoardRequest.toBoard(accountProfile));
+        SampleBoard sampleBoard= SampleBoardRepository.save(createBoardRequest.toBoard(accountProfile));
 
         return CreateSampleBoardResponse.from(sampleBoard);
     }

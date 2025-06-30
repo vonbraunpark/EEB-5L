@@ -9,9 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 public interface SampleBoardRepository extends JpaRepository<SampleBoard, Long> {
+
     @Query("SELECT b FROM SampleBoard b JOIN FETCH b.writer ORDER BY b.boardId DESC")
     Page<SampleBoard> findAllWithWriter(Pageable pageable);
-
-    @Query("SELECT b FROM SampleBoard b JOIN FETCH b.writer WHERE b.boardId = :boardId")
-    Optional<SampleBoard> findByIdWithWriter(Long boardId);
 }

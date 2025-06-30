@@ -25,7 +25,7 @@ public class SampleBoardController {
         log.info("registerBoard -> {}", createBoardRequestForm);
 
         CreateSampleBoardResponse response = sampleBoardService
-                .register(createBoardRequestForm.toCreateBoardRequest(accounId));
+                .register(createBoardRequestForm.toCreateBoardRequest(accountId));
 
         return CreateSampleBoardResponseForm.from(response);
     }
