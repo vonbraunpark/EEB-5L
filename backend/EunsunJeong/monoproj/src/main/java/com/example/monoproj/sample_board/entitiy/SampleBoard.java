@@ -13,17 +13,17 @@ import java.time.LocalDateTime;
 @Getter
 @ToString
 @NoArgsConstructor
-@RequiredArgsConstructor
-public class SampleBaord {
+//@RequiredArgsConstructor
+public class SampleBoard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long baordId;
+    private Long boardId;
 
     @Setter
     private String title;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "account_profile_id", nullable = false)
     private AccountProfile writer;
 
@@ -41,4 +41,11 @@ public class SampleBaord {
             timezone = "Asia/Seoul")
     @UpdateTimestamp
     private LocalDateTime updateDate;
+
+    //생성자
+    public void SampleBoard(String title, AccountProfile writer, String content){
+        this.title = title;
+        this.writer = writer;
+        this.content = content;
+    }
 }
