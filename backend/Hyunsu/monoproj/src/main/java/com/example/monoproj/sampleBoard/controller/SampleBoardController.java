@@ -54,7 +54,6 @@ public class SampleBoardController {
 
         log.info("modifyBoard(): {}, boardId: {}", updateBoardRequestForm, boardId);
 
-
         UpdateSampleBoardResponse response = sampleBoardService.update(
                 boardId,
                 updateBoardRequestForm.getAccountId(),
