@@ -11,9 +11,9 @@ import java.util.Optional;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
 
-    @Query("SELECT b FROM Board b JOIN FETCH b.writer ORDER BY b.boardId DESC")
+    @Query("SELECT b FROM sample_board b JOIN FETCH b.writer ORDER BY b.boardId DESC")
     Page<Board> findAllWithWriter(Pageable pageable);
 
-    @Query("SELECT b FROM Board b JOIN FETCH b.writer WHERE b.boardId = :boardId")
+    @Query("SELECT b FROM sample_board b JOIN FETCH b.writer WHERE b.boardId = :boardId")
     Optional<Board> findByIdWithWriter(Long boardId);
 }
