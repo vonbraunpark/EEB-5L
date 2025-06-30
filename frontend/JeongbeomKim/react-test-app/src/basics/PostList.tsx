@@ -11,20 +11,20 @@ const PostList = () => {
             setPostList(data)
         } catch (error) {
             console.error('데이터 불러오기 실패:', error)
-        }finally {
+        } finally {
             setLoading(false)
         }
     }
 
-    // React 컴포넌트가 구동 될 때 한번만 실행됨
+    // React 컴포넌트가 구동 될 때 한 번만 실행됨
     useEffect(() => {
         fetchPostList()
     }, []);
 
     if (loading) {
         return (
-            <div className="flex justify-center items-center min-h-screen text-cl font-semibold">
-                로딩중 .......
+            <div className="flex justify-center items-center min-h-screen text-xl font-semibold">
+                로딩중 ......
             </div>
         )
     }
@@ -38,18 +38,18 @@ const PostList = () => {
                 { postList.slice(0, 9).map((postList) => (
                     <div
                         key={ postList.id }
-                        className="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                        className="bg-white p-4 rounded-xl
+                                    shadow-md hover:shadow-lg transition-shadow"
                     >
                         <h3 className="text-lg font-semibold text-blue-600 mb-2">
                             { postList.title }
                         </h3>
-                        <p className="text-gray-700 text-sm-h1">{ postList.body }</p>
+                        <p className="text-gray-700 text-sm">{ postList.body }</p>
                     </div>
                 ))}
             </div>
         </div>
     )
 }
-
 
 export default PostList

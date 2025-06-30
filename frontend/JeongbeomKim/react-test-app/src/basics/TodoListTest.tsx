@@ -1,4 +1,4 @@
-import React, { useState } from "react" // React와 useState를 임포트
+import React, {useState} from "react"
 
 type Task = {
     id: number,
@@ -6,20 +6,20 @@ type Task = {
 }
 
 const TodoListTest = () => {
-    const [tasklist, setTaskList] = useState<Task[]>([])
-    const [userInput, setUserInput] = useState("") // userInput 상태 변수와 setUserInput 함수
+    const [taskList, setTaskList] = useState<Task[]>([])
+    const [userInput, setUserInput] = useState("")
 
     const handleAddTask = () => {
-        if (userInput.trim() === "") return // 입력값이 비어있으면 추가하지 않음
+        if (userInput.trim() === "") return
 
-        const newTask: Task = { id: Date.now(), text: userInput.trim() } // 새로운 태스크 객체 생성
-        setTaskList([...tasklist, newTask]) // 기존 태스크 리스트에 새 태스크 추가
-        setUserInput("") // 입력창 비우기
+        const newTask: Task = { id: Date.now(), text: userInput.trim() }
+        setTaskList([...taskList, newTask])
+        setUserInput("")
     }
 
     const handleDeleteTask = (id: number) => {
         setTaskList(
-            tasklist.filter((task) => task.id !== id) // 해당 id를 가진 태스크 제거
+            taskList.filter((task) => task.id !== id)
         )
     }
 
@@ -31,49 +31,48 @@ const TodoListTest = () => {
         // from-blue-50 to-purple-100 <- 적정한 값으로 그라데이션 시작 ~ 끝
         // items-center <- 수직 정렬: 중앙
         // justify-center <- 수평 정렬: 중앙
-        // px-4 <- 좌우 패딩  (16px) [x-4의 경우 * 4]
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-            {/*
+        // px-4 <- 좌우 패딩 (16px) [x-4의 경우 * 4]
+        <div className="min-h-screen flex bg-gradient-to-br from-blue-50 to-purple-100 items-center justify-center px-4">
+            {/* 
                 배경에 박혀 있는 카드
                 bg-white <- 흰색 배경
-                shadwow-2xl <- 그림자 효과를 진하게
+                shadow-2xl <- 그림자 효과를 진하게
                 rounded-3xl <- 모서리 라운딩
-                w-full <- 가로폭 100%
+                w-full <- 가로폭 100% (parent 요소 만큼)
                 max-w-xl <- 최대 너비 576px
                 p-8 <- 전방향 패딩 32px
             */}
-            <div className="bg-white shadow-xl rounded-2xl w-full max-w-md p-6">
+            <div className="bg-white shadow-2xl rounded-3xl w-full max-w-xl p-8">
                 {/*
-                   text-2xl <- 폰트 크기 (xlarge)
-                   font-extrabold <- 매우 두꺼운 글씨
-                   mb-6 <- 아래 방향 마진 24px
-                   text-gray-700 <- 텍스트 화색
+                    text-2xl <- 폰트 크기 (xlarge)
+                    font-extrabold <- 매우 두꺼운 글씨
+                    mb-6 <- 아래 방향 마진 24px
+                    text-gray-700 <- 텍스트 회색
                 */}
-                <h1 className="text-2xl font-bold mb-4 text-gray-800"> 📝 Todo List</h1>
+                <h1 className="text-2xl font-extrabold mb-6 text-gray-700">📝 Todo List</h1>
 
-                {/* 이 div 안에 input과 button이 들어가야 합니다. */}
                 {/*
                     flex <- 가로 정렬 (input 과 button을 나란히)
                     items-center <- 수직 정렬
                     gap-3 <- input과 button 사이의 간격을 12px
                     mb-6 <- 아래 방향 마진 24px
                 */}
-                <div className="flex gap-2 mb-4">
+                <div className="flex items-center gap-3 mb-6">
                     {/*
                         flex-grow <- 어떤 공간 크기가 지정되어 있고 남는 부분이 있으면 전부 채움
                         px-4 <- 좌우 16px 패딩
                         py-2 <- 상하 8px 패딩
                         border-2 border-gray-300 <- 테두리 두께 2px, 회색
                         rounded-lg <- 모서리 약간 둥글게
-                        focus:outline_none <- 커서를 놓으면 focus가 되고 외곽선을 제거
+                        focus:outline-none <- 커서를 놓으면 focus가 되고 외곽선을 제거
                         focus:ring-2 focus:ring-blue-500 <- 커서를 놓으면 파란색 glow 효과 (테두리 강조)
                     */}
                     <input
                         type="text"
-                        value={ userInput } // 여기가 userInput으로 수정
-                        onChange={(event) => setUserInput(event.target.value)} // 여기가 setUserInput으로 수정
+                        value={ userInput }
+                        onChange={(event) => setUserInput(event.target.value)}
                         placeholder="할 일을 입력하세요."
-                        className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                        className="flex-grow px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     {/*
                         shrink-0 <- 버튼이 줄어들지 않도록 방지
@@ -87,16 +86,17 @@ const TodoListTest = () => {
                     */}
                     <button
                         onClick={ handleAddTask }
-                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+                        className="shrink-0 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 active:scale-95 transition"
                     >
                         추가
                     </button>
-                </div> {/* div가 여기서 닫힙니다. */}
+                </div>
+
                 {/*
                     space-y-2 <- 추가된 항목들 사이의 간격 8px
                 */}
                 <ul className="space-y-2">
-                    { tasklist.map((task) => ( // tasklist.map 사용
+                    { taskList.map((task) => (
                         // flex justify-between <- 내용과 삭제 버튼을 좌우로 배치
                         // items-center <- 수직 정렬
                         // bg-gray-50 <- 매우 밝은 회색
@@ -107,7 +107,7 @@ const TodoListTest = () => {
                         // 약한 그림자 효과
                         <li
                             key={ task.id }
-                            className="flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2"
+                            className="flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2 shadow-sm"
                         >
                             <span>{ task.text }</span>
                             {/*
@@ -122,7 +122,7 @@ const TodoListTest = () => {
                                 삭제
                             </button>
                         </li>
-                    ))}
+                    )) }
                 </ul>
 
                 {/*
@@ -130,7 +130,7 @@ const TodoListTest = () => {
                     text-gray-400 <- 흐린 회색
                     mt-4 <- 위쪽 여백 (16px)
                 */}
-                { tasklist.length === 0 && ( // 할 일이 없을 때 메시지
+                { taskList.length === 0 && (
                     <p className="text-center text-gray-400 mt-4">
                         할 일이 없습니다.
                     </p>
