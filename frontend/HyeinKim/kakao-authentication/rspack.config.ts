@@ -19,10 +19,13 @@ export default defineConfig({
   },
   resolve: {
     extensions: ["...", ".ts", ".tsx", ".jsx"],
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
   },
 
   devServer: {
-    port: 3004,
+    port: 3003,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
   },
@@ -30,7 +33,7 @@ export default defineConfig({
     // You need to set a unique value that is not equal to other applications
     uniqueName: "kakao_authentication",
     // publicPath must be configured if using manifest
-    publicPath: "http://localhost:3004/",
+    publicPath: "http://localhost:3003/",
   },
 
   experiments: {
@@ -42,10 +45,6 @@ export default defineConfig({
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: "asset/resource",
-      },
-      {
-        test: /\.svg$/,
-        type: "asset",
       },
       {
         test: /\.css$/,
@@ -84,10 +83,17 @@ export default defineConfig({
     }),
     new ModuleFederationPlugin(mfConfig),
     new DefinePlugin({
-      // process 환경변수 REACT_APP_ ...을 string으로 변환
       "process.env.REACT_APP_KAKAO_AUTHENTICATION_URL": JSON.stringify(process.env.REACT_APP_KAKAO_AUTHENTICATION_URL),
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
     }),
     isDev ? new RefreshPlugin() : null,
   ].filter(Boolean),
+  optimization: {
+    minimizer: [
+      new rspack.SwcJsMinimizerRspackPlugin(),
+      new rspack.LightningCssMinimizerRspackPlugin({
+        minimizerOptions: { targets },
+      }),
+    ],
+  },
 });

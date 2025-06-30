@@ -1,4 +1,3 @@
-
 export const TypeCoercion = () => {
     const stringConcat = (5 as any) + "10"
     const numericConversion = Number("5") - 2
