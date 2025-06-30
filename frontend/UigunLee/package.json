@@ -3,8 +3,6 @@
   "private": true,
   "workspaces": [
     "html-container",
-    "html-css-test-app",
-    "javascript-test-app",
     "kakao-authentication",
     "navigation-bar-app",
     "react-test-app",
@@ -12,7 +10,8 @@
     "modal-test",
     "google-authentication",
     "recoil-board-app",
-    "dice-game-app"
+    "dice-game-app",
+    "vue-board-app"
   ],
   "scripts": {
     "start": "lerna run start --parallel"
@@ -25,6 +24,7 @@
   },
   "dependencies": {
     "cannon-es": "^0.20.0",
+    "mitt": "^3.0.1",
     "three": "^0.177.0"
   }
 }
