@@ -8,14 +8,14 @@ import java.time.LocalDateTime;
 
 @Getter
 @RequiredArgsConstructor
-public class CreateSampleBoardResponse {
+public class ReadSampleBoardResponse {
     private final Long boardId;
     private final String title;
     private final String content;
     private final LocalDateTime createDate;
 
-    public static CreateSampleBoardResponse from(SampleBoard sampleBoard) {
-        return new CreateSampleBoardResponse(
+    public static ReadSampleBoardResponse from(SampleBoard sampleBoard) {
+        return new ReadSampleBoardResponse(
                 sampleBoard.getBoardId(),
                 sampleBoard.getTitle(),
                 sampleBoard.getContent(),
@@ -23,4 +23,3 @@ public class CreateSampleBoardResponse {
         );
     }
 }
-

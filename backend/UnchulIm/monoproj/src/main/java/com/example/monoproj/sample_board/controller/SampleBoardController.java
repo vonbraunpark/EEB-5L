@@ -1,10 +1,20 @@
 package com.example.monoproj.sample_board.controller;
-//import com.example.monoproj.sample_board.controller.request_form.ListBoardRequestForm;
-//import com.example.monoproj.sample_board.controller.response_form.ListBoardResponseForm;
-//import com.example.monoproj.sample_board.service.response.ListBoardResponse;
+
 import com.example.monoproj.sample_board.controller.request_form.CreateSampleBoardRequestForm;
+import com.example.monoproj.sample_board.controller.request_form.ListSampleBoardRequestForm;
+import com.example.monoproj.sample_board.controller.request_form.UpdateSampleBoardRequestForm;
 import com.example.monoproj.sample_board.controller.response_form.CreateSampleBoardResponseForm;
+import com.example.monoproj.sample_board.controller.response_form.ListSampleBoardResponseForm;
+import com.example.monoproj.sample_board.controller.response_form.ReadSampleBoardResponseForm;
+import com.example.monoproj.sample_board.controller.response_form.UpdateSampleBoardResponseForm;
+
 import com.example.monoproj.sample_board.service.SampleBoardService;
+import com.example.monoproj.sample_board.service.response.CreateSampleBoardResponse;
+import com.example.monoproj.sample_board.service.response.ListSampleBoardResponse;
+import com.example.monoproj.sample_board.service.response.ReadSampleBoardResponse;
+import com.example.monoproj.sample_board.service.response.UpdateSampleBoardResponse;
+import com.example.monoproj.redis_cache.service.RedisCacheService;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -21,25 +31,57 @@ import java.util.List;
 @RequestMapping("/sample-board")             // 기본 URL 프리픽스 설정
 public class SampleBoardController {
 
-    private final SampleBoardService boardService;//RequiredArgsConstructor이네? final처리해!!!
-    /**
-     * 게시글 등록 엔드포인트 (인증 없이 누구나 가능)
-     * HTTP POST /sample-board/register
-     * @param form   제목/내용을 담은 요청 양식
-     * @return       생성된 게시글 정보를 담은 응답 양식
-     */
+    final private SampleBoardService sampleBoardService;
+
+    @GetMapping("/list")
+    public ListSampleBoardResponseForm sampleBoardList(@ModelAttribute ListSampleBoardRequestForm requestForm) {
+        log.info("sampleBoardList() -> {}", requestForm);
+
+        ListSampleBoardResponse response = sampleBoardService.list(requestForm.toListSampleBoardRequest());
+
+        return ListSampleBoardResponseForm.from(
+                List.of(response),
+                (int) response.getTotalItems(),
+                response.getTotalPages()
+        );
+    }
+
     @PostMapping("/register")
-    public CreateSampleBoardResponseForm registerBoard(
-            @RequestBody CreateSampleBoardRequestForm form) {
-        // 요청 데이터 로깅: 디버깅 및 운영 중 트래픽 분석을 위해 기록
-        log.info("[no-auth] registerBoard request = {}", form);
+    public CreateSampleBoardResponseForm registerSampleBoard(
+            @RequestBody CreateSampleBoardRequestForm createSampleBoardRequestForm) {
+        log.info("registerBoard() -> {}", createSampleBoardRequestForm);
+        CreateSampleBoardResponse response = sampleBoardService.register(
+                createSampleBoardRequestForm.toCreateSampleBoardRequest()
+        );
+        return CreateSampleBoardResponseForm.from(response);
+    }
 
-        // Form → 도메인 서비스 요청 DTO로 변환 후 비즈니스 로직 실행
-        var serviceRequest = form.toCreateBoardRequest();
-        var serviceResponse = boardService.register(serviceRequest);
+    @GetMapping("/read/{boardId}")
+    public ReadSampleBoardResponseForm readSampleBoard(@PathVariable("boardId") Long boardId) {
+        log.info("BoardRead(): {}", boardId);
+        ReadSampleBoardResponse response = sampleBoardService.read(boardId);
+        return ReadSampleBoardResponseForm.from(response);
+    }
 
-        // 도메인 서비스 응답 → HTTP API 응답 DTO 변환 및 반환
-        return CreateSampleBoardResponseForm.from(serviceResponse);
+    @PutMapping("/update/{boardId}")
+    public UpdateSampleBoardResponseForm updateSampleBoard(
+            @PathVariable("boardId") Long boardId,
+            @RequestBody UpdateSampleBoardRequestForm updateSampleBoardRequestForm,
+            @RequestHeader("Authorization") String authorizationHeader) {
+
+        log.info("modifyBoard(): {}, boardId: {}", updateSampleBoardRequestForm, boardId);
+
+        String token = authorizationHeader.replace("Bearer ", "").trim();
+        Long accountId = redisCacheService.getValueByKey(token);
+        log.info("accountId -> {}", accountId);
+
+        UpdateSampleBoardResponse response = sampleBoardService.update(
+                boardId,
+                accountId,
+                updateSampleBoardRequestForm.toUpdateSampleBoardRequest()
+        );
+
+        return UpdateSampleBoardResponseForm.from(response);
     }
 
 }
