@@ -6,12 +6,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import mitt from 'mitt';
 // npm install mitt
-
+const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
+const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 // const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
 // const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
-const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
-const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
 // const ReactTestApp = lazy(() => import("reactTestApp/App"));
 // const RecoilBoardApp = lazy(() => import("recoilBoardApp/App"))
 
@@ -20,9 +19,7 @@ const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App")
 import VueBoardAppWrapper from "./VueBoardWrapper.tsx";
 import DiceGameAppWrapper from "./DiceGameAppWrapper.tsx";
 // import TestGameAppWrapper from "./TestGameAppWrapper.tsx";
-
 const eventBus = mitt();
-
 const App = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
 
@@ -46,7 +43,7 @@ const App = () => {
                     {/*<Route path="/react-test" element={<ReactTestApp />} />*/}
                     <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
                     {/*<Route path="/recoil-board/*" element={<RecoilBoardApp />} />*/}
-                    <Route path="/vue-board/*" element={<VueBoardAppWrapper eventBus={eventBus}/>} />
+                    <Route path="/vtest" element={<VueBoardAppWrapper eventBus={eventBus}/>} />
                     <Route path="/dice-game" element={<DiceGameAppWrapper />} />
                     {/*<Route path="/test-game" element={<TestGameAppWrapper />} />*/}
                 </Routes>

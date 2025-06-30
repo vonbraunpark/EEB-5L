@@ -10,9 +10,10 @@ export const mfConfig = {
     googleAuthenticationApp: "googleAuthenticationApp@http://localhost:3100/remoteEntry.js",
     // recoilBoardApp: "recoilBoardApp@http://localhost:3101/remoteEntry.js",
     // vueBoardApp: "vueBoardApp@http://localhost:3200/remoteEntry.js"
-    vueBoardApp: `vueBoardApp@${process.env.VUE_BOARD_APP}/remoteEntry.js`,
+    // vueBoardApp: `vueBoardApp@${process.env.VUE_BOARD_APP}/remoteEntry.js`,
     diceGameApp: "diceGameApp@http://localhost:4000/remoteEntry.js",
     // testGameApp: "testGameApp@http://localhost:3102/remoteEntry.js",
+    vueBoardApp2: `vueBoardApp2@${process.env.VUE_BOARD_APP}/remoteEntry.js`,
 
   },
   shared: {
