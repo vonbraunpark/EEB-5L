@@ -1,12 +1,12 @@
 export const ArrayPopExample = () => {
     let numbers: number[] = [1, 2, 3, 4]
     let updateNumbers = [...numbers]
-    let remove = updateNumbers.pop()
-
+    let removed = updateNumbers.pop()
+    
     let steps = [
         `초개 배열: [${numbers.join(", ")}]`,
         `마지막 요소 제거 후: [${updateNumbers.join(", ")}]`,
-        `제거된 요소: ${remove}`
+        `제거된 요소: ${removed}`
     ]
 
     return (

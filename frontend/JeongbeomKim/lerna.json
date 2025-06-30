@@ -8,6 +8,11 @@
     "kakao-authentication",
     "navigation-bar-app",
     "vuetify-tailwind-board-app",
-    "react-test-app"
+    "react-test-app",
+    "google-authentication",
+    "recoil-board-app",
+    "vue-board-app",
+    "dice-game-app",
+    "svelte-basic-app"
   ]
 }

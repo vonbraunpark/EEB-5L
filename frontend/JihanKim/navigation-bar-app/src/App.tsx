@@ -63,6 +63,14 @@ const App: React.FC = () => {
                 >
                     연습
                 </Button>
+                <Button
+                    color="inherit"
+                    component={Link}
+                    to="/dice-game"
+                    startIcon={<SportsMartialArtsIcon/>}
+                >
+                    다이스
+                </Button>
             </Toolbar>
         </AppBar>
     );
