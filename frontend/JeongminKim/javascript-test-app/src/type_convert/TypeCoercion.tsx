@@ -1,7 +1,6 @@
 export const TypeCoercion = () => {
-
-    const stringConcat=(5 as any)+"10"
-    const numericConversion = Number("5")-2
+    const stringConcat = (5 as any) + "10"
+    const numericConversion = Number("5") - 2
     const booleanConversion = Boolean("hello")
 
     return (
@@ -9,8 +8,8 @@ export const TypeCoercion = () => {
             <h3>타입 변환</h3>
             <pre>
                 {`
-                    console.log(5+"10");                // ${stringConcat}
-                    console.log(Number("5")- 2);        // ${numericConversion}
+                    console.log(5 + "10");              // ${stringConcat}
+                    console.log(Number("5") - 2);       // ${numericConversion}
                     console.log(Boolean("hello"));      // ${booleanConversion}
                 `}
             </pre>

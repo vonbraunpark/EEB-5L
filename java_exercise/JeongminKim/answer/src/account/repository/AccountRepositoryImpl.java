@@ -37,4 +37,9 @@ public class AccountRepositoryImpl implements AccountRepository {
                 .filter(account -> account.getUserId().equals(userId))
                 .findFirst();
     }
+
+    @Override
+    public Optional<Account> findById(Integer id) {
+        return Optional.ofNullable(accountHashMap.get(id));
+    }
 }

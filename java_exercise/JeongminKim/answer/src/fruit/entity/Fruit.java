@@ -1,7 +1,7 @@
 package fruit.entity;
 
 public class Fruit {
-    private static long idCounter = 0;
+    private static long idCounter = 1;
 
     private final long id;
     private final FruitType type;

@@ -1,0 +1,39 @@
+.gradient-bg {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(to bottom right, #EDFBFB, #E8F8FD);
+}
+
+.BgBox{
+    display: flex;
+    gap: 30px;
+}
+
+.Bg1{
+    background-color: #1dbaa8;
+    border: 2px solid black;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    text-color: white;
+    text-family: "Noto Sans KR";
+    font-size: small;
+    font-
+}
+
+.title {
+    text-align: center;
+    font-family: "Noto Sans KR";
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    text-align: center;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 12px;
+    color: #1dbaa8;
+    margin-top: 0;
+}
