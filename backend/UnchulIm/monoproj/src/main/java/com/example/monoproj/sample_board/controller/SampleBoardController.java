@@ -13,13 +13,13 @@ import com.example.monoproj.sample_board.service.response.CreateSampleBoardRespo
 import com.example.monoproj.sample_board.service.response.ListSampleBoardResponse;
 import com.example.monoproj.sample_board.service.response.ReadSampleBoardResponse;
 import com.example.monoproj.sample_board.service.response.UpdateSampleBoardResponse;
-import com.example.monoproj.redis_cache.service.RedisCacheService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 /**
  * 인증 없이 누구나 게시글을 등록할 수 있는 샘플 게시판 API 컨트롤러
@@ -35,7 +35,7 @@ public class SampleBoardController {
 
     @GetMapping("/list")
     public ListSampleBoardResponseForm sampleBoardList(@ModelAttribute ListSampleBoardRequestForm requestForm) {
-        log.info("sampleBoardList() -> {}", requestForm);
+        log.info("boardList() -> {}", requestForm);
 
         ListSampleBoardResponse response = sampleBoardService.list(requestForm.toListSampleBoardRequest());
 
@@ -66,18 +66,12 @@ public class SampleBoardController {
     @PutMapping("/update/{boardId}")
     public UpdateSampleBoardResponseForm updateSampleBoard(
             @PathVariable("boardId") Long boardId,
-            @RequestBody UpdateSampleBoardRequestForm updateSampleBoardRequestForm,
-            @RequestHeader("Authorization") String authorizationHeader) {
+            @RequestBody UpdateSampleBoardRequestForm updateSampleBoardRequestForm) {
 
         log.info("modifyBoard(): {}, boardId: {}", updateSampleBoardRequestForm, boardId);
 
-        String token = authorizationHeader.replace("Bearer ", "").trim();
-        Long accountId = redisCacheService.getValueByKey(token);
-        log.info("accountId -> {}", accountId);
-
         UpdateSampleBoardResponse response = sampleBoardService.update(
                 boardId,
-                accountId,
                 updateSampleBoardRequestForm.toUpdateSampleBoardRequest()
         );
 
