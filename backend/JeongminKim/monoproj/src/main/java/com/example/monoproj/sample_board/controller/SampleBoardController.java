@@ -36,8 +36,15 @@ public class SampleBoardController {
     }
 
     @PostMapping("/register")
-    public CreateSampleBoardResponseForm registerSampleBoard(@RequestBody CreateSampleBoardRequest request) {
-        CreateSampleBoardResponse response = sampleBoardService.register(request);
+    public CreateSampleBoardResponseForm registerSampleBoard(
+            @RequestBody CreateSampleBoardRequestForm requestForm) {
+
+        log.info("Register sample board: {}", requestForm);
+
+        CreateSampleBoardResponse response = sampleBoardService.register(
+                requestForm.toCreateSampleBoardRequest()
+        );
+
         return CreateSampleBoardResponseForm.from(response);
     }
 
