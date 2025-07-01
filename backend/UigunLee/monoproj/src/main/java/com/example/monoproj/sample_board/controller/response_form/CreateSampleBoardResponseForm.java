@@ -19,9 +19,9 @@ public class CreateSampleBoardResponseForm {
         return new CreateSampleBoardResponseForm(
                 response.getSampleBoardId(),
                 response.getTitle(),
-                response.getWriterNickname(),
+                response.getWriterName(),
                 response.getContent(),
-                response.getCreateDate()
+                response.getCreatedDate()
         );
     }
 }

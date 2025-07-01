@@ -17,7 +17,8 @@ public class SampleBoard {
 
     private String title;
 
-    private String nickname; // 로그인 없이 사용자가 직접 입력하는 작성자명
+    @Column(nullable = true)
+    private String nickname;
 
     private String content;
 

@@ -19,7 +19,7 @@ public class UpdateSampleBoardResponseForm {
         return new UpdateSampleBoardResponseForm(
                 response.getSampleBoardId(),
                 response.getTitle(),
-                response.getNickname(),
+                response.getWriterNickname(),  // ✅ 정상
                 response.getContent(),
                 response.getCreateDate()
         );

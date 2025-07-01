@@ -19,9 +19,9 @@ public class ReadSampleBoardResponseForm {
         return new ReadSampleBoardResponseForm(
                 response.getSampleBoardId(),
                 response.getTitle(),
-                response.getWriterNickname(),
+                response.getNickname(),
                 response.getContent(),
-                response.getCreateDate()
+                response.getCreatedDate()
         );
     }
 }

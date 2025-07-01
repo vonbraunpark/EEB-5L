@@ -1,7 +1,9 @@
 package com.example.monoproj.sample_board.controller.request_form;
 
 import com.example.monoproj.sample_board.service.request.UpdateSampleBoardRequest;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
@@ -9,7 +11,7 @@ import lombok.*;
 public class UpdateSampleBoardRequestForm {
     private String title;
     private String content;
-    private String nickname;  // 닉네임 필드 추가
+    private String nickname; // 수정 권한 확인용
 
     public UpdateSampleBoardRequest toUpdateSampleBoardRequest() {
         return new UpdateSampleBoardRequest(title, content);

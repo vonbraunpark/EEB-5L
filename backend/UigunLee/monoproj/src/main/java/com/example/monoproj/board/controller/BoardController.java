@@ -17,6 +17,7 @@ import com.example.monoproj.redis_cache.service.RedisCacheService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,8 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/board")
+@RequestMapping("/servlet_lab/board")
+@Controller("boardControllerForBoard")
 public class BoardController {
     final private BoardService boardService;
     final private RedisCacheService redisCacheService;

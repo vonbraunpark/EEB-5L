@@ -57,9 +57,10 @@ public class SampleBoardServiceImpl implements SampleBoardService {
         SampleBoard sampleBoard = sampleBoardRepository.findById(sampleBoardId)
                 .orElseThrow(() -> new RuntimeException("게시글이 존재하지 않습니다."));
 
-        // 작성자 검증: 닉네임 비교
-        if (!sampleBoard.getNickname().equals(nickname)) {
-            throw new RuntimeException("수정 권한이 없습니다.");
+        if (nickname != null && !nickname.isBlank()) {
+            if (!nickname.equals(sampleBoard.getNickname())) {
+                throw new RuntimeException("수정 권한이 없습니다.");
+            }
         }
 
         if (updateRequest.getTitle() != null) {
@@ -72,5 +73,4 @@ public class SampleBoardServiceImpl implements SampleBoardService {
         sampleBoardRepository.save(sampleBoard);
         return UpdateSampleBoardResponse.from(sampleBoard);
     }
-
 }
