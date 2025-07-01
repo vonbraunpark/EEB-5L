@@ -9,6 +9,7 @@ export const mfConfig = {
         practiceApp: "practiceApp@http://localhost:3007/remoteEntry.js",
         googleAuthenticationApp: "googleAuthenticationApp@http://localhost:3100/remoteEntry.js",
         recoilBoardApp: "recoilBoardApp@http://localhost:3101/remoteEntry.js",
+        diceGameApp: "diceGameApp@http://localhost:3102/remoteEntry.js",
     },
     shared: {
         react: { singleton: true, requiredVersion: "^18.2.0" },

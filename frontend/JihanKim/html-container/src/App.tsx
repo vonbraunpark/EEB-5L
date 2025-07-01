@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import {CircularProgress} from "@mui/material";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import DiceGameAppWrapper from "./DIceGameAppWrapper.tsx";
 
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
@@ -12,6 +13,7 @@ const PracticeApp = lazy(() => import("practiceApp/App"));
 const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
 const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
 const RecoilBoardApp = lazy(() => import("recoilBoardApp/App"));
+
 
 const App = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
@@ -36,6 +38,7 @@ const App = () => {
                     <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp/>}/>
                     <Route path="/google-authentication/*" element={<GoogleAuthenticationApp/>}/>
                     <Route path="/recoil-board" element={<RecoilBoardApp/>}/>
+                    <Route path="/dice-game" element={<DiceGameAppWrapper />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
