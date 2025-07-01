@@ -10,7 +10,8 @@
     "practice-app",
     "react-test-app",
     "google-authentication",
-    "recoil-board-app"
+    "recoil-board-app",
+    "dice-game-app"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
