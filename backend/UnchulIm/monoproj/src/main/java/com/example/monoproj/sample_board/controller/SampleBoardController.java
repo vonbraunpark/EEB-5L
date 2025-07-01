@@ -33,18 +33,18 @@ public class SampleBoardController {
 
     final private SampleBoardService sampleBoardService;
 
-    @GetMapping("/list")
-    public ListSampleBoardResponseForm sampleBoardList(@ModelAttribute ListSampleBoardRequestForm requestForm) {
-        log.info("boardList() -> {}", requestForm);
-
-        ListSampleBoardResponse response = sampleBoardService.list(requestForm.toListSampleBoardRequest());
-
-        return ListSampleBoardResponseForm.from(
-                List.of(response),
-                (int) response.getTotalItems(),
-                response.getTotalPages()
-        );
-    }
+//    @GetMapping("/list")
+//    public ListSampleBoardResponseForm sampleBoardList(@ModelAttribute ListSampleBoardRequestForm requestForm) {
+//        log.info("boardList() -> {}", requestForm);
+//
+//        ListSampleBoardResponse response = sampleBoardService.list(requestForm.toListSampleBoardRequest());
+//
+//        return ListSampleBoardResponseForm.from(
+//                List.of(response),
+//                (int) response.getTotalItems(),
+//                response.getTotalPages()
+//        );
+//    }
 
     @PostMapping("/register")
     public CreateSampleBoardResponseForm registerSampleBoard(
@@ -53,30 +53,31 @@ public class SampleBoardController {
         CreateSampleBoardResponse response = sampleBoardService.register(
                 createSampleBoardRequestForm.toCreateSampleBoardRequest()
         );
+        System.out.println(response);
         return CreateSampleBoardResponseForm.from(response);
     }
-
-    @GetMapping("/read/{boardId}")
-    public ReadSampleBoardResponseForm readSampleBoard(@PathVariable("boardId") Long boardId) {
-        log.info("BoardRead(): {}", boardId);
-        ReadSampleBoardResponse response = sampleBoardService.read(boardId);
-        return ReadSampleBoardResponseForm.from(response);
-    }
-
-    @PutMapping("/update/{boardId}")
-    public UpdateSampleBoardResponseForm updateSampleBoard(
-            @PathVariable("boardId") Long boardId,
-            @RequestBody UpdateSampleBoardRequestForm updateSampleBoardRequestForm) {
-
-        log.info("modifyBoard(): {}, boardId: {}", updateSampleBoardRequestForm, boardId);
-
-        UpdateSampleBoardResponse response = sampleBoardService.update(
-                boardId,
-                updateSampleBoardRequestForm.toUpdateSampleBoardRequest()
-        );
-
-        return UpdateSampleBoardResponseForm.from(response);
-    }
+//
+//    @GetMapping("/read/{boardId}")
+//    public ReadSampleBoardResponseForm readSampleBoard(@PathVariable("boardId") Long boardId) {
+//        log.info("BoardRead(): {}", boardId);
+//        ReadSampleBoardResponse response = sampleBoardService.read(boardId);
+//        return ReadSampleBoardResponseForm.from(response);
+//    }
+//
+//    @PutMapping("/update/{boardId}")
+//    public UpdateSampleBoardResponseForm updateSampleBoard(
+//            @PathVariable("boardId") Long boardId,
+//            @RequestBody UpdateSampleBoardRequestForm updateSampleBoardRequestForm) {
+//
+//        log.info("modifyBoard(): {}, boardId: {}", updateSampleBoardRequestForm, boardId);
+//
+//        UpdateSampleBoardResponse response = sampleBoardService.update(
+//                boardId,
+//                updateSampleBoardRequestForm.toUpdateSampleBoardRequest()
+//        );
+//
+//        return UpdateSampleBoardResponseForm.from(response);
+//    }
 
 }
 /**

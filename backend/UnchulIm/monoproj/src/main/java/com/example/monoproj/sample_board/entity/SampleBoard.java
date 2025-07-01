@@ -1,6 +1,6 @@
 package com.example.monoproj.sample_board.entity;
 
-import com.example.monoproj.account_profile.entity.AccountProfile;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-
+@Table(name="sample_board")
 @Entity
 @Getter
 @Setter
