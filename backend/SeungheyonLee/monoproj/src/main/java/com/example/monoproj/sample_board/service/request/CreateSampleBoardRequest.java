@@ -17,11 +17,11 @@ public class CreateSampleBoardRequest {
 
     // 게시글 내용 - 외부에서 전달받는 값
     final private String content;
-
+    final private String nickname;
     // DTO를 엔티티(SampleBoard) 객체로 변환하는 메서드
     // Service 계층에서 save() 하기 전에 호출됨
     public SampleBoard toBoard() {
         // SampleBoard는 실제 DB 테이블과 매핑되는 JPA 엔티티 클래스임
-        return new SampleBoard(title, content);
+        return new SampleBoard(title, content,nickname);
     }
 }

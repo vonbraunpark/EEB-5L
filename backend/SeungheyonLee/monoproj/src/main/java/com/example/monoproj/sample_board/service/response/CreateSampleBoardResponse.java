@@ -13,6 +13,7 @@ public class CreateSampleBoardResponse {
     private final String title;
     private final String content;
 //    private final String writerNickname;
+    private final String nickname;
     private final LocalDateTime createDate;
 
     public static CreateSampleBoardResponse from(SampleBoard board) {
@@ -21,6 +22,7 @@ public class CreateSampleBoardResponse {
                 board.getTitle(),
                 board.getContent(),
 //                board.getWriter().getNickname(),
+                board.getNickname(),
                 board.getCreateDate()
         );
     }

@@ -9,10 +9,15 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 public class CreateSampleBoardRequestForm {
-    final private String title;
-    final private String content;
+    private String title;
+    private String content;
+    private String nickname;
 
     public CreateSampleBoardRequest toCreateBoardRequest() {
-        return new CreateSampleBoardRequest(title,content);
+        return new CreateSampleBoardRequest(
+                title,
+                content,
+                (nickname != null && !nickname.isBlank()) ? nickname : "사용자"
+        );
     }
 }

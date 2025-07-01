@@ -34,6 +34,8 @@ public class SampleBoard {
     /** 게시글 내용 */
     private String content;
 
+    private String nickname;
+
     /** 생성 시각 (자동 적용) */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
     @CreationTimestamp
@@ -48,9 +50,10 @@ public class SampleBoard {
      * 생성자: 제목과 내용만 받아 새로운 엔티티를 만듭니다.
      * 인증을 배제한 샘플 게시판이므로 작성자 필드는 없습니다.
      */
-    public SampleBoard(String title, String content) {
+    public SampleBoard(String title, String content,String nickname) {
         this.title = title;
         this.content = content;
+        this.nickname=nickname;
     }
 
 }
