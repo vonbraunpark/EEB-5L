@@ -3,15 +3,11 @@
   "private": true,
   "workspaces": [
     "html-container",
-    "html-css-test-app",
-    "javascript-test-app",
     "kakao-authentication",
     "navigation-bar-app",
-    "practice-app",
-    "react-test-app",
     "google-authentication",
-    "recoil-board-app",
-    "dice-game-app"
+    "dice-game-app",
+    "vue-board-app"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
