@@ -1,6 +1,5 @@
 package com.example.monoproj.board.controller.response_form;
 
-import com.example.monoproj.board.entity.Board;
 import com.example.monoproj.board.service.response.CreateBoardResponse;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

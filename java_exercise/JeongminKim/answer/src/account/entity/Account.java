@@ -1,7 +1,7 @@
 package account.entity;
 
 public class Account {
-    private static long idCounter = 0;
+    private static long idCounter = 1;
 
     private final long id;
     private String userId;

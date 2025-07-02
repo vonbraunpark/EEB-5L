@@ -1,13 +1,19 @@
 {
-  "name": "root",
+  "name": "notes",
   "private": true,
   "workspaces": [
     "html-container",
     "html-css-test-app",
-    "javascript-test-app"
+    "javascript-test-app",
+    "kakao-authentication",
+    "navigation-bar-app",
+    "vuetify-tailwind-board-app",
+    "react-test-app",
+    "google-authentication",
+    "recoil-board-app",
+    "my-app"
   ],
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "start": "lerna run start --parallel"
   },
   "devDependencies": {
