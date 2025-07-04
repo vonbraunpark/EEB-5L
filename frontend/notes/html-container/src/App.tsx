@@ -41,15 +41,15 @@ const App = () => {
                     <Route path="/" element={<div>Home Page</div>} />
                     {/*<Route path="/html-css-test" element={<HtmlCssTestApp />} />*/}
                     {/*<Route path="/js-test" element={<JavascriptTestApp />} />*/}
-                    <Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />
+                    {/*<Route path="/kakao-authentication/*" element={<KakaoAuthenticationApp />} />*/}
                     {/*<Route path="/board/*" element={<VuetifyTailwindBoardAppWrapper />} />*/}
                     {/*<Route path="/react-test" element={<ReactTestApp />} />*/}
-                    <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
+                    {/*<Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />*/}
                     {/*<Route path="/recoil-board/*" element={<RecoilBoardApp />} />*/}
                     <Route path="/vue-board/*" element={<VueBoardAppWrapper eventBus={eventBus}/>} />
                     <Route path="/dice-game" element={<DiceGameAppWrapper />} />
                     <Route path="/authentication/*" element={<AuthenticationApp />} />
-                    <Route path="/vtest/*" element={<VTestWrapper eventBus={eventBus}/>} />
+                    {/*<Route path="/vtest/*" element={<VTestWrapper eventBus={eventBus}/>} />*/}
                 </Routes>
             </Suspense>
         </BrowserRouter>

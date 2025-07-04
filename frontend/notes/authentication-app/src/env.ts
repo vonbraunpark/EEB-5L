@@ -6,6 +6,7 @@ interface Env {
         NAVER_AUTH_URL: string | undefined;
         GITHUB_AUTH_URL: string | undefined;
         META_AUTH_URL: string | undefined;
+        MAIN_API_URL: string | undefined
     };
     origins: {
         kakao: string[];
@@ -16,7 +17,7 @@ interface Env {
     };
 }
 
-// env 변수에 들어가는 환경변수명은 .env에 맞춰서 REACT_ 접두사 붙여서 설정한다고 가정
+// env 변수에 들어가는 환경변수명은 .env에 맞춰서 REACT_ 접두사 붙여서 설정
 const parseOrigins = (val?: string): string[] =>
     val ? val.split(",").map(s => s.trim()) : [];
 
@@ -28,6 +29,7 @@ const env: Env = {
         NAVER_AUTH_URL: process.env.REACT_NAVER_AUTH_URL,
         GITHUB_AUTH_URL: process.env.REACT_GITHUB_AUTH_URL,
         META_AUTH_URL: process.env.REACT_META_AUTH_URL,
+        MAIN_API_URL: process.env.REACT_APP_BASE_URL,
     },
     origins: {
         kakao: parseOrigins(process.env.REACT_KAKAO_ORIGINS),

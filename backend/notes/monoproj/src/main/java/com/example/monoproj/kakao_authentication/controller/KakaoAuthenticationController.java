@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
@@ -65,10 +66,30 @@ public class KakaoAuthenticationController {
                 log.info("account (existing): {}", account);
             }
 
+            // 신규 사용자
             if (account == null) {
                 log.info("New user detected. Creating account and profile...");
-                account = accountService.createAccount(LoginType.KAKAO);
-                accountProfileService.createAccountProfile(account, nickname, email);
+
+                String origin = frontendConfig.getOrigins().get(0);
+                String htmlResponse = """
+                <html>
+                  <body>
+                    <script>
+                      window.opener.postMessage({
+                        newUser: true,
+                        user: { name: '%s', email: '%s' }
+                      }, '%s');
+                      window.close();
+                    </script>
+                  </body>
+                </html>
+                """.formatted(nickname, email, origin);
+
+                response.setContentType("text/html;charset=UTF-8");
+                response.getWriter().write(htmlResponse);
+                return;
+                // account = accountService.createAccount(LoginType.KAKAO);
+                // accountProfileService.createAccountProfile(account, nickname, email);
             }
 
             String userToken = createUserTokenWithAccessToken(account, accessToken);
@@ -102,6 +123,16 @@ public class KakaoAuthenticationController {
             String userToken = UUID.randomUUID().toString();
             redisCacheService.setKeyAndValue(account.getId(), accessToken);
             redisCacheService.setKeyAndValue(userToken, account.getId());
+            return userToken;
+        } catch (Exception e) {
+            throw new RuntimeException("Error storing token in Redis: " + e.getMessage());
+        }
+    }
+
+    private String createTemporaryUserToken(String accessToken) {
+        try {
+            String userToken = UUID.randomUUID().toString();
+            redisCacheService.setKeyAndValue(userToken, accessToken, Duration.ofMinutes(5));
             return userToken;
         } catch (Exception e) {
             throw new RuntimeException("Error storing token in Redis: " + e.getMessage());

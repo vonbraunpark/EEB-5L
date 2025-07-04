@@ -17,11 +17,16 @@ public class RedisCacheServiceImpl implements RedisCacheService {
 
     @Override
     public <K, V> void setKeyAndValue(K key, V value) {
+        setKeyAndValue(key, value, Duration.ofMinutes(720));  // 기본 TTL 720분 적용
+    }
+
+    @Override
+    public <K, V> void setKeyAndValue(K key, V value, Duration ttl) {
         String keyAsString = String.valueOf(key);
         String valueAsString = String.valueOf(value);
 
         ValueOperations<String, String> valueOps = redisTemplate.opsForValue();
-        valueOps.set(keyAsString, valueAsString, Duration.ofMinutes(720));
+        valueOps.set(keyAsString, valueAsString, ttl);
     }
 
     @Override
