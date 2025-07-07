@@ -50,7 +50,21 @@ const SocialAuthenticationButtons: React.FC = () => {
             // try {
             //     popup.close();
             // } catch {}
-            const { accessToken, newUser, user } = event.data;
+            const {
+                accessToken,
+                newUser,
+                user,
+                loginType,
+                temporaryUserToken,
+            } = event.data;
+
+            console.log("[Message] Data received:", {
+                accessToken,
+                newUser,
+                user,
+                loginType,
+                temporaryUserToken,
+            });
 
             window.removeEventListener("message", receiveMessage);
             try {
@@ -66,7 +80,13 @@ const SocialAuthenticationButtons: React.FC = () => {
 
             if (newUser) {
                 // user에는 email, name 등이 담겨 있을 수 있음 (백엔드에서 넘겨준 경우)
-                setTimeout(() => navigate("/authentication/signup-agreement", { state: { user } }), 100);
+                setTimeout(() => navigate("/authentication/signup-agreement", {
+                    state: {
+                        user,
+                        loginType,
+                        temporaryUserToken,
+                    }
+                }), 100);
                 return;
             }
 

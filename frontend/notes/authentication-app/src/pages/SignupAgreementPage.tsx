@@ -6,7 +6,12 @@ import { termsText } from "./TermsText";
 const SignupAgreementPage: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const user = location.state?.user;
+    const { user, loginType, temporaryUserToken } = location.state || {};
+
+    console.log("[AgreementPage] location.state:", location.state);
+    console.log("[AgreementPage] user:", user);
+    console.log("[AgreementPage] loginType:", loginType);
+    console.log("[AgreementPage] temporaryUserToken:", temporaryUserToken);
 
     const [privacyAgreed, setPrivacyAgreed] = useState(false);
     const [termsAgreed, setTermsAgreed] = useState(false);
@@ -48,13 +53,33 @@ const SignupAgreementPage: React.FC = () => {
     const goToLogin = () => {
         if (canProceed) {
             sessionStorage.setItem("agreed", "true");
-            navigate("/authentication/signup-summary", { state: { user } });
+            navigate("/authentication/signup-summary", {
+                state: {
+                    user,
+                    loginType,
+                    temporaryUserToken,
+                }
+            });
         }
     };
 
     const goBack = () => {
         navigate("/");
     };
+
+    if (!user || !loginType || !temporaryUserToken) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-screen">
+                <p className="text-lg font-semibold">잘못된 접근입니다.</p>
+                <button
+                    className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+                    onClick={() => navigate("/")}
+                >
+                    홈으로 돌아가기
+                </button>
+            </div>
+        );
+    }
 
     return (
         <div className="max-w-3xl w-[90%] mx-auto mt-10 p-6 rounded-xl border border-gray-200 bg-white">

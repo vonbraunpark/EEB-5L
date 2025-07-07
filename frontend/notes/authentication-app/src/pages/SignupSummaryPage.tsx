@@ -5,9 +5,9 @@ import axiosInstance from "../utility/AxiosInst.ts";
 const SignupSummaryPage: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const user = location.state?.user;
+    const { user, loginType, temporaryUserToken } = location.state || {};
 
-    if (!user) {
+    if (!user || !loginType || !temporaryUserToken) {
         return (
             <div className="flex flex-col items-center justify-center min-h-screen">
                 <p className="text-lg font-semibold">잘못된 접근입니다.</p>
@@ -39,9 +39,10 @@ const SignupSummaryPage: React.FC = () => {
             await axiosInstance.springAxiosInst.post("/account/register", {
                 email: user.email,
                 nickname: nickname.trim(),
+                loginType,
+                temporaryUserToken,
             });
 
-            // 성공 시 홈으로 이동
             navigate("/", { replace: true });
         } catch (e: any) {
             setError(
