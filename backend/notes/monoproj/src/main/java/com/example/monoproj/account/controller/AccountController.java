@@ -1,6 +1,7 @@
 package com.example.monoproj.account.controller;
 
 import com.example.monoproj.account.controller.request_form.RegisterNormalAccountRequestForm;
+import com.example.monoproj.account.controller.response_form.RegisterNormalAccountResponseForm;
 import com.example.monoproj.account.entity.Account;
 import com.example.monoproj.account.service.AccountService;
 import com.example.monoproj.account_profile.service.AccountProfileService;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
 
 @Slf4j
 @RestController
@@ -23,22 +26,24 @@ public class AccountController {
     private final AccountProfileService accountProfileService;
 
     @PostMapping("/register")
-    public void register(@RequestBody RegisterNormalAccountRequestForm requestForm) {
+    public String register(@RequestBody RegisterNormalAccountRequestForm requestForm) {
         log.info("회원 가입 요청: requestForm={}", requestForm);
 
-        String accessToken = redisCacheService.getValueByKey(requestForm.getTempUserToken(), String.class);
+        String temporaryUserToken = requestForm.getTemporaryUserToken();
+        String accessToken = redisCacheService.getValueByKey(temporaryUserToken, String.class);
         if (accessToken == null) {
             throw new IllegalArgumentException("만료되었거나 잘못된 임시 토큰입니다.");
         }
 
-        Account account = accountService.createAccount(requestForm.getLoginType());
+        Account account = accountService.createAccount(requestForm.toRegisterNormalAccountRequest());
+        accountProfileService.createAccountProfile(account, requestForm.toRegisterAccountProfileRequest());
 
-        // AccountProfile 생성
-        accountProfileService.createAccountProfile(account, requestForm.getNickname(), requestForm.getEmail());
+        String userToken = UUID.randomUUID().toString();
+        redisCacheService.setKeyAndValue(account.getId(), accessToken);  // accountId -> accessToken
+        redisCacheService.setKeyAndValue(userToken, account.getId());    // userToken -> accountId
 
-        // 임시 토큰은 이제 삭제
-        redisCacheService.deleteByKey(requestForm.getTempUserToken());
+        redisCacheService.deleteByKey(temporaryUserToken);
 
+        return userToken;
     }
-
 }

@@ -36,12 +36,17 @@ const SignupSummaryPage: React.FC = () => {
         try {
             setLoading(true);
 
-            await axiosInstance.springAxiosInst.post("/account/register", {
+            const { data } = await axiosInstance.springAxiosInst.post("/account/register", {
                 email: user.email,
                 nickname: nickname.trim(),
                 loginType,
                 temporaryUserToken,
             });
+
+            localStorage.setItem("userToken", data.userToken);
+            localStorage.setItem("userEmail", user.email);
+            localStorage.setItem("userNickname", nickname.trim());
+            window.dispatchEvent(new Event("user-token-changed"));
 
             navigate("/", { replace: true });
         } catch (e: any) {
