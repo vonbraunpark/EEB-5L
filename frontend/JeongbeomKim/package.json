@@ -10,7 +10,10 @@
     "vuetify-tailwind-board-app",
     "react-test-app",
     "google-authentication",
-    "recoil-board-app"
+    "recoil-board-app",
+    "vue-board-app",
+    "dice-game-app",
+    "svelte-basic-app"
   ],
   "scripts": {
     "start": "lerna run start --parallel"
@@ -18,5 +21,9 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "lerna": "^8.2.1"
+  },
+  "dependencies": {
+    "cannon-es": "^0.20.0",
+    "three": "^0.177.0"
   }
 }

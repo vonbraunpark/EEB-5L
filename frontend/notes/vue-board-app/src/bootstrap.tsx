@@ -64,6 +64,13 @@ export const vueBoardAppMount = (el: string | Element, eventBus: any) => {
         const pinia = createPinia();
         app.use(vuetify).use(router).use(pinia);
         app.provide('eventBus', eventBus);
+
+        eventBus.on('vue-board-routing-event', (path: string) => {
+            if (router.currentRoute.value.fullPath !== path) {
+                router.push(path);
+            }
+        });
+
         app.mount(shadowAppRoot);
     });
 };
