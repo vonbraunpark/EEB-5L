@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class PortConfig implements WebServerFactoryCustomizer<TomcatServletWebServerFactory> {
 
     // application.yaml에 spring: 하위의 server: 하위의 port 지정값을 가져옵니다.
-    @Value("${spring.server.port}")
+    @Value("${server.port}")
     private String gatewayPort;
 
     // customize 매서드는 Spring Boot가 Tomcat 서버를 구성할 때 자동으로 호출합니다.
