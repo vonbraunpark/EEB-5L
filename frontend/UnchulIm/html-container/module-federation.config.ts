@@ -7,6 +7,7 @@ export const mfConfig = {
     diceGameApp: "diceGameApp@http://localhost:3008/remoteEntry.js",
     googleAuthenticationApp: "googleAuthenticationApp@http://localhost:3100/remoteEntry.js",
     vueBoardApp: `vueBoardApp@${process.env.VUE_BOARD_APP}/remoteEntry.js`,
+    githubAuthenticationApp:"githubAuthenticationApp@http://localhost:3200/remoteEntry.js",
   },
   shared: {
     react: { singleton: true, requiredVersion: "^18.2.0" },

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import SocialLoginButton from "./SocialLoginButton";
+import SocialLoginButton from "./SocialLoginButton.tsx";
 import env from "../../env.ts";
 
 type Provider = "kakao" | "google" | "naver" | "github" | "meta";

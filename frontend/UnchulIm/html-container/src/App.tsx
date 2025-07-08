@@ -19,6 +19,7 @@ const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
 const PracticeApp = lazy(() => import("practiceApp/App"));
 const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
+const GithubAuthenticationApp = lazy(() => import("githubAuthenticationApp/App"))
 
 const InnerApp  = () => {
     const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
@@ -49,7 +50,7 @@ const InnerApp  = () => {
                             <Route path="/google-authentication/*" element={<GoogleAuthenticationApp />} />
                             <Route path="/dice-game" element={<DiceGameAppWrapper />} />
                             <Route path="/vue-board/*" element={<VueBoardAppWrapper eventBus={eventBus}/>} />
-                        </Routes>
+<Route path="/github-authentication/*" element={<GithubAuthenticationRouter />} />                        </Routes>
                         </ScreenWrap>
                     </Wrapper>
                 </Suspense>

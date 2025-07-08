@@ -51,7 +51,7 @@ public class BoardController {
 
         String token = authorizationHeader.replace("Bearer ", "").trim();
 
-        Long accountId = redisCacheService.getValueByKey(token);
+        Long accountId = redisCacheService.getValueByKey(token, Long.class);
         log.info("accountId -> {}", accountId);
 
         CreateBoardResponse response = boardService.register(createBoardRequestForm.toCreateBoardRequest(accountId));
@@ -74,7 +74,7 @@ public class BoardController {
         log.info("modifyBoard(): {}, boardId: {}", updateBoardRequestForm, boardId);
 
         String token = authorizationHeader.replace("Bearer ", "").trim();
-        Long accountId = redisCacheService.getValueByKey(token);
+        Long accountId = redisCacheService.getValueByKey(token, Long.class);
         log.info("accountId -> {}", accountId);
 
         UpdateBoardResponse response = boardService.update(
