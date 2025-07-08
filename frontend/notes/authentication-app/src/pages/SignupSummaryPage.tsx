@@ -36,14 +36,21 @@ const SignupSummaryPage: React.FC = () => {
         try {
             setLoading(true);
 
-            const { data } = await axiosInstance.springAxiosInst.post("/account/register", {
+            const response = await axiosInstance.springAxiosInst.post("/account/register", {
                 email: user.email,
                 nickname: nickname.trim(),
                 loginType,
                 temporaryUserToken,
             });
 
-            localStorage.setItem("userToken", data.userToken);
+            const createdUserToken = response.data
+
+            console.log("response:", response)
+            console.log("userToken:", createdUserToken);
+            console.log("user.email:", user.email);
+            console.log("nickname.trim():", nickname.trim());
+
+            localStorage.setItem("userToken", createdUserToken);
             localStorage.setItem("userEmail", user.email);
             localStorage.setItem("userNickname", nickname.trim());
             window.dispatchEvent(new Event("user-token-changed"));

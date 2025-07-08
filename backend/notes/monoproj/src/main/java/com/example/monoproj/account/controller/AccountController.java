@@ -1,7 +1,6 @@
 package com.example.monoproj.account.controller;
 
 import com.example.monoproj.account.controller.request_form.RegisterNormalAccountRequestForm;
-import com.example.monoproj.account.controller.response_form.RegisterNormalAccountResponseForm;
 import com.example.monoproj.account.entity.Account;
 import com.example.monoproj.account.service.AccountService;
 import com.example.monoproj.account_profile.service.AccountProfileService;
@@ -39,8 +38,8 @@ public class AccountController {
         accountProfileService.createAccountProfile(account, requestForm.toRegisterAccountProfileRequest());
 
         String userToken = UUID.randomUUID().toString();
-        redisCacheService.setKeyAndValue(account.getId(), accessToken);  // accountId -> accessToken
-        redisCacheService.setKeyAndValue(userToken, account.getId());    // userToken -> accountId
+        redisCacheService.setKeyAndValue(account.getId(), accessToken);
+        redisCacheService.setKeyAndValue(userToken, account.getId());
 
         redisCacheService.deleteByKey(temporaryUserToken);
 
