@@ -39,17 +39,58 @@ const SocialAuthenticationButtons: React.FC = () => {
                 return;
             }
 
-            const { accessToken } = event.data;
-            if (!accessToken) return;
+            // const { accessToken } = event.data;
+            // if (!accessToken) return;
+            //
+            // localStorage.setItem("userToken", accessToken);
+            // window.dispatchEvent(new Event("user-token-changed"));
+            //
+            // window.removeEventListener("message", receiveMessage);
+            //
+            // try {
+            //     popup.close();
+            // } catch {}
+            const {
+                accessToken,
+                newUser,
+                user,
+                loginType,
+                temporaryUserToken,
+            } = event.data;
 
-            localStorage.setItem("userToken", accessToken);
-            window.dispatchEvent(new Event("user-token-changed"));
+            console.log("[Message] Data received:", {
+                accessToken,
+                newUser,
+                user,
+                loginType,
+                temporaryUserToken,
+            });
 
             window.removeEventListener("message", receiveMessage);
-
             try {
-                popup.close();
+                popup?.close();
             } catch {}
+
+            if (accessToken) {
+                localStorage.setItem("userToken", accessToken);
+                window.dispatchEvent(new Event("user-token-changed"));
+                setTimeout(() => navigate("/"), 100);
+                return;
+            }
+
+            if (newUser) {
+                // user에는 email, name 등이 담겨 있을 수 있음 (백엔드에서 넘겨준 경우)
+                setTimeout(() => navigate("/authentication/signup-agreement", {
+                    state: {
+                        user,
+                        loginType,
+                        temporaryUserToken,
+                    }
+                }), 100);
+                return;
+            }
+
+            alert("로그인에 실패했습니다. 다시 시도해주세요.");
 
             setTimeout(() => navigate("/"), 100);
         };

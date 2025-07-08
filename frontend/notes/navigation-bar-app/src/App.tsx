@@ -48,7 +48,7 @@ const App: React.FC = () => {
                 <Button
                     color="inherit"
                     component={Link}
-                    to="/social-authentication"
+                    to="/authentication"
                     startIcon={isLoggedIn ? <LogoutIcon /> : <LoginIcon />}
                 >
                 </Button>
