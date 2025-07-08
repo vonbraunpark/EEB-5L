@@ -8,7 +8,8 @@
     "practice-app",
     "google-authentication",
     "dice-game-app",
-    "vue-board-app"
+    "vue-board-app",
+    "github-authentication"
   ],
   "hoist": true
 }

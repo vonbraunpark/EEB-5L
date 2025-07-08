@@ -93,6 +93,7 @@ export default defineConfig({
       "process.env.REACT_GITHUB_ORIGINS": JSON.stringify(process.env.REACT_GITHUB_ORIGINS),
       "process.env.REACT_META_AUTH_URL": JSON.stringify(process.env.REACT_META_AUTH_URL),
       "process.env.REACT_META_ORIGINS": JSON.stringify(process.env.REACT_META_ORIGINS),
+      "process.env.REACT_APP_BASE_URL": JSON.stringify(process.env.REACT_APP_BASE_URL),
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
     }),
     new ModuleFederationPlugin(mfConfig),

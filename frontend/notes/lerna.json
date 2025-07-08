@@ -3,12 +3,9 @@
   "version": "independent",
   "packages": [
     "html-container",
-    "kakao-authentication",
     "navigation-bar-app",
-    "google-authentication",
     "vue-board-app",
     "dice-game-app",
-    "authentication-app",
-    "vtest-app"
+    "authentication-app"
   ]
 }
