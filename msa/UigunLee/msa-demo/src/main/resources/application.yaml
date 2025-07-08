@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: msa-demo
+
+  cloud:
+    gateway:
+      routes:
+        - id: simple-service
+          uri: http://localhost:12345
+          predicates:
+            - Path=/api/simple/**
+          filters:
+            - StripPrefix=2
+
+  logging:
+    level:
+      org.springframework.cloud.gateway: DEBUG
+
+server:
+  port: 7890
