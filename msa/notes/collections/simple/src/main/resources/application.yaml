@@ -15,3 +15,12 @@ eureka:
 feign:
   hystrix:
     enabled: false
+  httpclient:
+    enabled: true
+  jackson:
+    enabled: true
+
+logging:
+  level:
+    com.example.simple.client: DEBUG
+    feign: DEBUG

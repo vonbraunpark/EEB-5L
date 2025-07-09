@@ -2,7 +2,8 @@ package com.example.simple.controller;
 
 import com.example.simple.client.BookClient;
 import com.example.simple.client.response.Book;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,9 +21,9 @@ public class SimpleController {
         return "Hello Simple Service";
     }
 
-    @GetMapping("/call-book-test")
-    public Book callBookTest() {
-        System.out.println("callBookTest()");
-        return bookClient.test();
+    @GetMapping(path = "/call-book-test", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> callBookTest() {
+        String result = bookClient.test();
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(result);
     }
 }
