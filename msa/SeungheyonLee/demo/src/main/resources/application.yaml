@@ -1,0 +1,20 @@
+spring:
+  application:
+    name:demo
+  #gateway?? ?? ??? ????? ??? ???
+  cloud:
+    gateway:
+      routes:
+        - id: simple-service
+          uri: ${SIMPLE_SERVICE_URI}
+          predicates:
+            - Path=${SIMPLE_API_PATH}
+          filters:
+            - RewritePath=${REWRITE_PATH_PATTERN},/${segment}
+
+  server:
+    port: ${GATEWAY_PORT}
+
+  logging:
+    level:
+      org.springframework.cloud.gateway:DEBUG
