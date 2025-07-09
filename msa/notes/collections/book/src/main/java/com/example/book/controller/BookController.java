@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookController {
 
     @GetMapping("/test")
-    public Book test() {
+    public String test() {
         log.info("return Book from test()");
-        return new Book("제목", "내용", "저자", "isbn");
+        Book book =  new Book("제목", "내용", "저자", "isbn");
+        log.info("book = {}", book);
+        return "Book Service";
     }
 }

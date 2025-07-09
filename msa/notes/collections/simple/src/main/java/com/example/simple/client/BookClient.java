@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(name = "book")
 public interface BookClient {
 
-    @GetMapping("/test")
-    Book test();
+    @GetMapping("/book/test")
+    String test();
 }
