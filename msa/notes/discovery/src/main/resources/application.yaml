@@ -9,8 +9,8 @@ eureka:
   instance:
     hostname: localhost
   client:
-    register-with-eureka: false  # ??? Eureka? ?? ? ?
-    fetch-registry: false        # ?? ???? ?? ? ?
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
       defaultZone: http://localhost:9876/eureka/
     server:
