@@ -1,0 +1,13 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///home/oem/redo/EEB-5L/msa/notes/collections/config-repo
+          default-label: main
