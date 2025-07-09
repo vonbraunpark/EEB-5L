@@ -15,6 +15,13 @@ spring:
           filters:
             - StripPrefix=2
 
+        - id: book-service
+          uri: lb://BOOK
+          predicates:
+            - Path=/api/book/**
+          filters:
+            - StripPrefix=1
+
       # Eureka에 등록된 모든 서비스들을 자동으로 라우팅 경로로 잡음
       # 이를 통해서 위의 lb://SIMPLE 등으로 경로를 인식할 수 있음
       discovery:
