@@ -110,8 +110,6 @@ public class KakaoAuthenticationController {
                 response.setContentType("text/html;charset=UTF-8");
                 response.getWriter().write(htmlResponse);
                 return;
-                // account = accountService.createAccount(LoginType.KAKAO);
-                // accountProfileService.createAccountProfile(account, nickname, email);
             }
 
             String userToken = createUserTokenWithAccessToken(account, accessToken);
