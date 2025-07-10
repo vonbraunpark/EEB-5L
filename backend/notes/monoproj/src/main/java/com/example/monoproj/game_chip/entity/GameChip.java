@@ -1,12 +1,11 @@
 package com.example.monoproj.game_chip.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -26,6 +25,17 @@ public class GameChip {
 
     private String imageUrl; // AWS S3에 업로드된 이미지 경로
 
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    public GameChip(String title, int price, String imageUrl) {
+        this.title = title;
+        this.price = price;
+        this.imageUrl = imageUrl;
+    }
 }
 
