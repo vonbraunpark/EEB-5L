@@ -1,19 +1,49 @@
 import React, {useEffect, useState} from "react";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useLocation} from "react-router-dom";
 
 import HomeIcon from "@mui/icons-material/Home";
-import CodeIcon from "@mui/icons-material/Code";
-import JavascriptIcon from "@mui/icons-material/Javascript";
 import ForumIcon from "@mui/icons-material/Forum";
-import SportsGymnasticsIcon from '@mui/icons-material/SportsGymnastics';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import KakaoAuthenticationRouter from "./router/NavigationRouter.tsx";
+import axiosInstance from "./utility/AxiosInst.ts";
 
 const App: React.FC = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        const token = localStorage.getItem("userToken");
+
+        if (!token) {
+            setIsLoggedIn(false);
+            return;
+        }
+
+        axiosInstance.springAxiosInst.get("/authentication/validate", {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then(() => {
+                setIsLoggedIn(true);
+            })
+            .catch(() => {
+                localStorage.removeItem("userToken");
+                setIsLoggedIn(false);
+            });
+    }, [location]);
+
+    const handleAuthClick = () => {
+        if (isLoggedIn) {
+            localStorage.removeItem("userToken");
+            setIsLoggedIn(false);
+            navigate("/");
+        } else {
+            navigate("/authentication");
+        }
+    };
 
     return (
         <AppBar position="static">
@@ -47,8 +77,7 @@ const App: React.FC = () => {
                 </Button>
                 <Button
                     color="inherit"
-                    component={Link}
-                    to="/authentication"
+                    onClick={handleAuthClick}
                     startIcon={isLoggedIn ? <LogoutIcon /> : <LoginIcon />}
                 >
                 </Button>
