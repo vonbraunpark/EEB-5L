@@ -2,6 +2,7 @@ package com.example.book.controller;
 
 import com.example.book.controller.request.RegisterBookRequest;
 import com.example.book.controller.response.BookResponse;
+import com.example.book.controller.response.RegisterBookResponse;
 import com.example.book.entity.Book;
 import com.example.book.repository.BookRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -31,10 +32,17 @@ public class BookController {
         return bookResponse;
     }
 
-    @PostMapping("/register")
-    public Book register(@RequestBody RegisterBookRequest request) {
-        log.info("register() -> request = {}", request);
+    @GetMapping("/test-book2")
+    public RegisterBookResponse testBook2() {
+        log.info("return Book from testBook2()");
+        Book createdBook =  new Book("제목", "내용", "저자", "isbn");
+        return RegisterBookResponse.from(createdBook);
+    }
 
-        return bookRepository.save(request.toBook());
+    @PostMapping("/register")
+    public RegisterBookResponse register(@RequestBody RegisterBookRequest request) {
+        log.info("register() -> request = {}", request);
+        Book book = bookRepository.save(request.toBook());
+        return RegisterBookResponse.from(book);
     }
 }

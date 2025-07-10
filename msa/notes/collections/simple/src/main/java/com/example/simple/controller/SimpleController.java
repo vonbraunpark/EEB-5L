@@ -1,19 +1,30 @@
 package com.example.simple.controller;
 
+import com.example.simple.client.AccountClient;
 import com.example.simple.client.BookClient;
+import com.example.simple.client.request.RegisterAccountRequest;
+import com.example.simple.client.request.RegisterBookRequest;
 import com.example.simple.client.response.BookResponse;
+import com.example.simple.client.response.RegisterAccountResponse;
+import com.example.simple.client.response.RegisterBookResponse;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.awt.print.Book;
 
 @RestController
 public class SimpleController {
 
     private final BookClient bookClient;
+    private final AccountClient accountClient;
 
-    public SimpleController(BookClient bookClient) {
+    public SimpleController(BookClient bookClient, AccountClient accountClient) {
         this.bookClient = bookClient;
+        this.accountClient = accountClient;
     }
 
     @GetMapping("/")
@@ -34,5 +45,27 @@ public class SimpleController {
         BookResponse result = bookClient.testBook();
 
         return ResponseEntity.ok(result);
+    }
+
+    @GetMapping(path = "/call-book-test2",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<RegisterBookResponse> callBookTest2() {
+        RegisterBookResponse result = bookClient.testBook2();
+
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/call-book-register")
+    public RegisterBookResponse register() {
+        RegisterBookRequest request = new RegisterBookRequest(
+                "책제목", "책내용", "책저자", "책번호");
+        return bookClient.register(request);
+    }
+
+    @PostMapping("/call-account-register")
+    public RegisterAccountResponse registerAccount() {
+        RegisterAccountRequest request = new RegisterAccountRequest(
+                "계정아이디", "계정비밀번호");
+        return accountClient.register(request);
     }
 }
