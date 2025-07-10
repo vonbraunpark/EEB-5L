@@ -4,6 +4,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
+// MSA 환경에서 생각보다 Lombok이 요상하게 동작할 수 있음.
+// 그러므로 실제 Getter를 Alt + Insert로 직접 구성하고
+// Constructor 도 Alt + Insert를 눌러서 아래와 같이
+// NoArgsConstructor와 AllArgsConstructor를 용도에 맞게 구성해주세요.
 public class BookResponse {
     private String title;
     private String content;
