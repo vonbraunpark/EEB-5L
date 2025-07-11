@@ -10,11 +10,10 @@ import com.example.monoproj.redis_cache.service.RedisCacheService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.Map;
@@ -85,21 +84,24 @@ public class GithubAuthenticationController {
             }
 
             String userToken = createUserTokenWithAccessToken(account, accessToken);
+            // Redis 에 이메일·닉네임을 token 에 연관 저장
+            redisCacheService.setKeyAndValue(userToken + ":email", email);
+            redisCacheService.setKeyAndValue(userToken + ":nickname", nickname);
 
             String htmlResponse = """
-            <html>
-              <body>
-                <script>
-                  window.opener.postMessage({
-                    accessToken: '%s',
-                    user: { name: '%s', email: '%s' }
-                  }, 'http://localhost');
-                  window.close();
-                </script>
-              </body>
-            </html>
-            """.formatted(userToken, nickname, email);
-
+                    <html>
+                      <body>
+                        <script>
+                          window.opener.postMessage({
+                            accessToken: '%s',
+                            user: { name: '%s', email: '%s' }
+                          }, 'http://localhost');
+                          window.close();
+                        </script>
+                      </body>
+                    </html>
+                    """.formatted(userToken, nickname, email);
+            // ──  htmlResponse 작성·응답 ──
             response.setContentType("text/html;charset=UTF-8");
             response.getWriter().write(htmlResponse);
 
@@ -117,6 +119,67 @@ public class GithubAuthenticationController {
             return userToken;
         } catch (Exception e) {
             throw new RuntimeException("Error storing token in Redis: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/userinfo")
+    public ResponseEntity<UserInfoDto> getUserInfo(@RequestParam("token") String userToken) {
+        // 1) Redis 에서 accountId 조회
+        Long accountId = redisCacheService.getValueByKey(userToken);
+        if (accountId == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).
+                    body(new UserInfoDto(false, null, null, "Invalid token"));
+        }
+
+        // 2) DB 조회로 신규/기존 회원 구분
+        // 현재 Email로 처리되니까 email로 시도해보자
+        boolean isNew = accountProfileService.loadProfileByAccountId(accountId).isEmpty();
+        String email = String.valueOf(redisCacheService.getValueByKey(userToken + ":email"));
+        String nickname = String.valueOf(redisCacheService.getValueByKey(userToken + ":nickname"));
+        UserInfoDto dto = new UserInfoDto(isNew, email, nickname, null);
+        return ResponseEntity.ok(dto);
+    }
+
+    @PostMapping("/accept-terms")
+    public ResponseEntity<Void> acceptTerms(@RequestParam("token") String userToken,
+                                            @RequestBody TermsAcceptRequest req) {
+        String accountId = String.valueOf(redisCacheService.getValueByKey(userToken));
+        if (accountId == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        // 서비스에서 Profile 의 termsAccepted 필드 업데이트
+        accountProfileService.markTermsAccepted(
+                Long.valueOf(accountId),
+                req.isAgreed()
+        );
+        return ResponseEntity.ok().build();
+    }
+
+    public static record UserInfoDto(
+            boolean isNew,
+            String email,
+            String nickname,
+            String errorMessage
+    ) {
+    }
+
+    public static class TermsAcceptRequest {
+        // 1) 약관 동의 여부를 담는 필드
+        private boolean agreed;
+        // 2) 기본 생성자 (Jackson 등에서 리플렉션으로 객체 생성 시 필요)
+        public TermsAcceptRequest() {
+        }
+        // 3) 전체 생성자 (테스트 코드나 수동 객체 생성 시 유용)
+        public TermsAcceptRequest(boolean agreed) {
+            this.agreed = agreed;
+        }
+        // 4) getter: JSON 바인딩 시에도 isAgreed()가 호출되어 조회됨
+        public boolean isAgreed() {
+            return agreed;
+        }
+        // 5) setter: 요청 JSON을 바탕으로 필드에 값이 세팅됨
+        public void setAgreed(boolean agreed) {
+            this.agreed = agreed;
         }
     }
 }
