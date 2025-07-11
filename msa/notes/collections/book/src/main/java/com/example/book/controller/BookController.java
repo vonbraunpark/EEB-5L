@@ -1,8 +1,12 @@
 package com.example.book.controller;
 
+import com.example.book.client.AccountClient;
 import com.example.book.controller.request.RegisterBookRequest;
+import com.example.book.controller.request.RegisterBookWithAuthorizationRequest;
 import com.example.book.controller.response.BookResponse;
+import com.example.book.controller.response.IdAccountResponse;
 import com.example.book.controller.response.RegisterBookResponse;
+import com.example.book.controller.response.RegisterBookWithAuthorizationResponse;
 import com.example.book.entity.Book;
 import com.example.book.repository.BookRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +19,12 @@ import org.springframework.web.bind.annotation.*;
 public class BookController {
     @Autowired
     private BookRepository bookRepository;
+
+    private final AccountClient accountClient;
+
+    public BookController(AccountClient accountClient) {
+        this.accountClient = accountClient;
+    }
 
     @GetMapping("/test")
     public String test() {
@@ -44,5 +54,32 @@ public class BookController {
         log.info("register() -> request = {}", request);
         Book book = bookRepository.save(request.toBook());
         return RegisterBookResponse.from(book);
+    }
+
+    @PostMapping("/publication")
+    public RegisterBookWithAuthorizationResponse register(
+            @RequestHeader("Authorization") String token,
+            @RequestBody RegisterBookWithAuthorizationRequest request) {
+
+        log.info("register() -> request = {}", request);
+
+        // userToken 획득
+        String pureToken = extractToken(token);
+        // FeignClient를 통해 account 서비스에 accountId 요청
+        IdAccountResponse response = accountClient.getAccountId("Bearer " + pureToken);
+        Long accountId = response.getAccountId();
+
+        log.info("accountId = {}", accountId);
+
+        Book requestedBook = request.toBook(accountId);
+        Book registeredBook = bookRepository.save(requestedBook);
+        return RegisterBookWithAuthorizationResponse.from(registeredBook);
+    }
+
+    private String extractToken(String token) {
+        if (token != null && token.startsWith("Bearer ")) {
+            return token.substring(7);
+        }
+        return token;
     }
 }
