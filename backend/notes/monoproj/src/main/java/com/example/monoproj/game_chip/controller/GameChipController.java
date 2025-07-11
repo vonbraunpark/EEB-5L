@@ -1,9 +1,11 @@
 package com.example.monoproj.game_chip.controller;
 
+import com.example.monoproj.game_chip.controller.request_form.ListGameChipRequestForm;
 import com.example.monoproj.game_chip.controller.request_form.RegisterGameChipRequestForm;
 import com.example.monoproj.game_chip.controller.response_form.ListGameChipResponseForm;
 import com.example.monoproj.game_chip.controller.response_form.RegisterGameChipResponseForm;
 import com.example.monoproj.game_chip.service.GameChipService;
+import com.example.monoproj.game_chip.service.response.ListGameChipResponse;
 import com.example.monoproj.game_chip.service.response.RegisterGameChipResponse;
 import com.example.monoproj.redis_cache.service.RedisCacheService;
 import lombok.RequiredArgsConstructor;
@@ -30,8 +32,9 @@ public class GameChipController {
     }
 
     @GetMapping
-    public ListGameChipResponseForm list() {
-        return gameChipService.getAllGameChips();
+    public ListGameChipResponseForm list(@ModelAttribute ListGameChipRequestForm requestForm) {
+        ListGameChipResponse response = gameChipService.getAllGameChips(requestForm.toListGameChipRequest());
+        return ListGameChipResponseForm.from(response);
     }
 
     private String extractToken(String authorizationHeader) {

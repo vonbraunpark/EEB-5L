@@ -5,9 +5,13 @@ import com.example.monoproj.account.repository.AccountRepository;
 import com.example.monoproj.game_chip.controller.response_form.ListGameChipResponseForm;
 import com.example.monoproj.game_chip.entity.GameChip;
 import com.example.monoproj.game_chip.repository.GameChipRepository;
+import com.example.monoproj.game_chip.service.request.ListGameChipRequest;
 import com.example.monoproj.game_chip.service.request.RegisterGameChipRequest;
+import com.example.monoproj.game_chip.service.response.ListGameChipResponse;
 import com.example.monoproj.game_chip.service.response.RegisterGameChipResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,8 +33,19 @@ public class GameChipServiceImpl implements GameChipService {
         return RegisterGameChipResponse.from(savedGameChip);
     }
 
-    @Override
-    public ListGameChipResponseForm getAllGameChips() {
-        return null;
+    public ListGameChipResponse getAllGameChips(ListGameChipRequest request) {
+        int page = request.getPage() - 1;
+        int perPage = request.getPerPage();
+
+        PageRequest pageRequest = PageRequest.of(page, perPage);
+
+        Page<GameChip> pageResult = gameChipRepository.findAll(pageRequest);
+
+        return ListGameChipResponse.from(
+                pageResult.getContent(),
+                pageResult.getNumber() + 1,   // 1-based current page
+                pageResult.getTotalPages(),
+                pageResult.getTotalElements()
+        );
     }
 }
