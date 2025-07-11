@@ -8,6 +8,7 @@ import com.example.monoproj.account_profile.service.AccountProfileService;
 import com.example.monoproj.config.FrontendConfig;
 import com.example.monoproj.kakao_authentication.controller.request_form.AccessTokenRequestForm;
 import com.example.monoproj.kakao_authentication.service.KakaoAuthenticationService;
+import com.example.monoproj.kakao_authentication.service.response.KakaoLoginResponse;
 import com.example.monoproj.redis_cache.service.RedisCacheService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -33,12 +34,12 @@ public class KakaoAuthenticationController {
     final private RedisCacheService redisCacheService;
     final private FrontendConfig frontendConfig;
 
-    @GetMapping("/request-login-url")
-    public String requestGetLoginLink() {
-        log.info("requestGetLoginLink() called");
-
-        return kakaoAuthenticationService.getLoginLink();
-    }
+//    @GetMapping("/request-login-url")
+//    public String requestGetLoginLink() {
+//        log.info("requestGetLoginLink() called");
+//
+//        return kakaoAuthenticationService.getLoginLink();
+//    }
 
     // 실제로 Authentication(인증)은 Frontend에서 .env 파트가 담당하고 있습니다.
     // 해당 파트에서는 각 벤더(회사)별 authroize를 요청하게 됩니다.
@@ -51,85 +52,99 @@ public class KakaoAuthenticationController {
     
     // https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api
     // 1 ~ 6번에 해당하는 내용
+//    @GetMapping("/login")
+//    @Transactional
+//    public void requestAccessToken(@RequestParam("code") String code,
+//                                   HttpServletResponse response) throws IOException {
+//
+//        log.info("requestAccessToken(): code {}", code);
+//
+//        try {
+//            // Step2 토큰 받기 1번 2번
+//            // 사실 사용자 정보 수집이 필요 없는 서비스라면 그냥 여기 두 줄로 끝내도 무방합니다.
+//            Map<String, Object> tokenResponse = kakaoAuthenticationService.requestAccessToken(code);
+//            String accessToken = (String) tokenResponse.get("access_token");
+//
+//            // 별개로 사용자 정보를 확인하는 작업이 진행됨
+//            // https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api#req-user-info
+//            // 사용자 정보를 수집하기 위한 목적으로 사용되기에 서비스 구성에 따라 사용하지 않을 수도 있음.
+//            Map<String, Object> userInfo = kakaoAuthenticationService.requestUserInfo(accessToken);
+//            log.info("userInfo: {}", userInfo);
+//
+//            String nickname = (String) ((Map) userInfo.get("properties")).get("nickname");
+//            String email = (String) ((Map) userInfo.get("kakao_account")).get("email");
+//            log.info("email: {}", email);
+//
+//            // 로그인 타입과 이메일의 일치 여부를 확인해서 가입한 사용자인지 여부를 판정
+//            Optional<AccountProfile> optionalProfile = accountProfileService.loadProfileByEmailAndLoginType(email, LoginType.KAKAO);
+//            Account account = null;
+//
+//            // 기존 사용자
+//            if (optionalProfile.isPresent()) {
+//                account = optionalProfile.get().getAccount();
+//                log.info("account (existing): {}", account);
+//            }
+//
+//            String origin = frontendConfig.getOrigins().get(0);
+//
+//            // 신규 사용자
+//            if (account == null) {
+//                log.info("New user detected. Creating account and profile...");
+//                String temporaryUserToken = createTemporaryUserToken(accessToken);
+//
+//                String htmlResponse = """
+//                <html>
+//                  <body>
+//                    <script>
+//                      window.opener.postMessage({
+//                        newUser: true,
+//                        loginType: 'KAKAO',
+//                        temporaryUserToken: '%s',
+//                        user: { name: '%s', email: '%s' }
+//                      }, '%s');
+//                      window.close();
+//                    </script>
+//                  </body>
+//                </html>
+//                """.formatted(temporaryUserToken, nickname, email, origin);
+//
+//                response.setContentType("text/html;charset=UTF-8");
+//                response.getWriter().write(htmlResponse);
+//                return;
+//            }
+//
+//            String userToken = createUserTokenWithAccessToken(account, accessToken);
+//            String htmlResponse = """
+//            <html>
+//              <body>
+//                <script>
+//                  window.opener.postMessage({
+//                    accessToken: '%s',
+//                    user: { name: '%s', email: '%s' }
+//                  }, '%s');
+//                  window.close();
+//                </script>
+//              </body>
+//            </html>
+//            """.formatted(userToken, nickname, email, origin);
+//
+//            response.setContentType("text/html;charset=UTF-8");
+//            response.getWriter().write(htmlResponse);
+//
+//        } catch (Exception e) {
+//            log.error("Kakao 로그인 에러", e);
+//            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "카카오 로그인 실패: " + e.getMessage());
+//        }
+//    }
+
     @GetMapping("/login")
     @Transactional
-    public void requestAccessToken(@RequestParam("code") String code,
-                                   HttpServletResponse response) throws IOException {
-
+    public void requestAccessToken(@RequestParam("code") String code, HttpServletResponse response) throws IOException {
         log.info("requestAccessToken(): code {}", code);
-
         try {
-            // Step2 토큰 받기 1번 2번
-            // 사실 사용자 정보 수집이 필요 없는 서비스라면 그냥 여기 두 줄로 끝내도 무방합니다.
-            Map<String, Object> tokenResponse = kakaoAuthenticationService.requestAccessToken(code);
-            String accessToken = (String) tokenResponse.get("access_token");
-
-            // 별개로 사용자 정보를 확인하는 작업이 진행됨
-            // https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api#req-user-info
-            // 사용자 정보를 수집하기 위한 목적으로 사용되기에 서비스 구성에 따라 사용하지 않을 수도 있음.
-            Map<String, Object> userInfo = kakaoAuthenticationService.requestUserInfo(accessToken);
-            log.info("userInfo: {}", userInfo);
-
-            String nickname = (String) ((Map) userInfo.get("properties")).get("nickname");
-            String email = (String) ((Map) userInfo.get("kakao_account")).get("email");
-            log.info("email: {}", email);
-
-            // 로그인 타입과 이메일의 일치 여부를 확인해서 가입한 사용자인지 여부를 판정
-            Optional<AccountProfile> optionalProfile = accountProfileService.loadProfileByEmailAndLoginType(email, LoginType.KAKAO);
-            Account account = null;
-
-            // 기존 사용자
-            if (optionalProfile.isPresent()) {
-                account = optionalProfile.get().getAccount();
-                log.info("account (existing): {}", account);
-            }
-
-            String origin = frontendConfig.getOrigins().get(0);
-
-            // 신규 사용자
-            if (account == null) {
-                log.info("New user detected. Creating account and profile...");
-                String temporaryUserToken = createTemporaryUserToken(accessToken);
-
-                String htmlResponse = """
-                <html>
-                  <body>
-                    <script>
-                      window.opener.postMessage({
-                        newUser: true,
-                        loginType: 'KAKAO',
-                        temporaryUserToken: '%s',
-                        user: { name: '%s', email: '%s' }
-                      }, '%s');
-                      window.close();
-                    </script>
-                  </body>
-                </html>
-                """.formatted(temporaryUserToken, nickname, email, origin);
-
-                response.setContentType("text/html;charset=UTF-8");
-                response.getWriter().write(htmlResponse);
-                return;
-            }
-
-            String userToken = createUserTokenWithAccessToken(account, accessToken);
-            String htmlResponse = """
-            <html>
-              <body>
-                <script>
-                  window.opener.postMessage({
-                    accessToken: '%s',
-                    user: { name: '%s', email: '%s' }
-                  }, '%s');
-                  window.close();
-                </script>
-              </body>
-            </html>
-            """.formatted(userToken, nickname, email, origin);
-
+            KakaoLoginResponse loginResponse = kakaoAuthenticationService.handleLogin(code);
             response.setContentType("text/html;charset=UTF-8");
-            response.getWriter().write(htmlResponse);
-
+            response.getWriter().write(loginResponse.getHtmlResponse());
         } catch (Exception e) {
             log.error("Kakao 로그인 에러", e);
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "카카오 로그인 실패: " + e.getMessage());
