@@ -95,7 +95,7 @@ public class AccountController {
     }
 
     @GetMapping("/find-id")
-    public ResponseEntity<IdAccountResponse> getAccountInfo(@RequestHeader("Authorization") String token) {
+    public ResponseEntity<IdAccountResponse> getAccountId(@RequestHeader("Authorization") String token) {
         String pureToken = extractToken(token);
         String accountId = redisCacheService.getValueByKey(pureToken, String.class);
 
