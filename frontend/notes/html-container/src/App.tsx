@@ -10,8 +10,8 @@ import mitt from 'mitt';
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 // const HtmlCssTestApp = lazy(() => import("htmlCssTestApp/App"));
 // const JavascriptTestApp = lazy(() => import("javascriptTestApp/App"));
-const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
-const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
+// const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
+// const GoogleAuthenticationApp = lazy(() => import("googleAuthenticationApp/App"));
 // const ReactTestApp = lazy(() => import("reactTestApp/App"));
 // const RecoilBoardApp = lazy(() => import("recoilBoardApp/App"))
 const AuthenticationApp = lazy(() => import("authenticationApp/App"));
